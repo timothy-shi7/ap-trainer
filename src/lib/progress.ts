@@ -1,15 +1,26 @@
-import { QUESTIONS } from './questions';
+import {
+  AVAILABLE_CHAPTERS,
+  CHAPTERS,
+  PRACTICE_QUESTIONS,
+  QUESTIONS,
+} from './questions';
 import { schedule } from './leitner';
 import { bumpStreak, localDateKey, type StreakState } from './streak';
-import { UNITS, type Question, type UnitName } from '../types';
+import { MAX_CHAPTER, type PracticeQuestion, type Question } from '../types';
 
 export const STORAGE_KEY = 'apc_progress_v1';
 export const PROGRESS_VERSION = 1 as const;
-export const SPRINT_SIZE = 5;
+export const DEFAULT_SPRINT_SIZE = 5;
+export const MIN_SPRINT_SIZE = 1;
+export const MAX_SPRINT_SIZE = 10;
+
+/** Unlock rule thresholds. */
+export const UNLOCK_MIN_UNIQUE = 10;
+export const UNLOCK_MIN_ACCURACY = 0.75;
 
 export interface QuestionProgress {
   boxLevel: number;
-  nextReview: number; // epoch ms; 0 = due now / unseen
+  nextReview: number; // epoch ms; 0 = due now/unseen
   attempts: number;
   correct: number;
 }
@@ -17,8 +28,17 @@ export interface QuestionProgress {
 export interface ProgressV1 {
   version: 1;
   streak: StreakState;
+  /** Highest chapter the user may access (1..MAX_CHAPTER). Default 1. */
+  highestUnlockedChapter: number;
+  /** IDs of info cards the user has acknowledged. */
+  seenInfo: string[];
   questions: Record<string, QuestionProgress>;
 }
+
+/** Highest chapter that actually has questions in the bank. */
+export const MAX_AVAILABLE_CHAPTER: number = AVAILABLE_CHAPTERS.length
+  ? AVAILABLE_CHAPTERS[AVAILABLE_CHAPTERS.length - 1]
+  : 1;
 
 export function emptyProgress(): ProgressV1 {
   return {
@@ -29,6 +49,8 @@ export function emptyProgress(): ProgressV1 {
       lastSprintDate: null,
       shieldAvailable: true,
     },
+    highestUnlockedChapter: 1,
+    seenInfo: [],
     questions: {},
   };
 }
@@ -52,6 +74,11 @@ function normalizeQuestionEntry(v: unknown): QuestionProgress | null {
   };
 }
 
+function clampChapter(v: number): number {
+  if (!Number.isFinite(v)) return 1;
+  return Math.min(MAX_CHAPTER, Math.max(1, Math.round(v)));
+}
+
 /** Validate + normalize an unknown blob into ProgressV1, or null if unusable. */
 export function parseProgress(raw: unknown): ProgressV1 | null {
   if (!isRecord(raw)) return null;
@@ -73,6 +100,19 @@ export function parseProgress(raw: unknown): ProgressV1 | null {
     shieldAvailable: streakRaw.shieldAvailable !== false,
   };
 
+  // Missing field (older payload) defaults to chapter 1.
+  const highestUnlockedChapter =
+    typeof raw.highestUnlockedChapter === 'number'
+      ? clampChapter(raw.highestUnlockedChapter)
+      : 1;
+
+  const seenInfo: string[] = [];
+  if (Array.isArray(raw.seenInfo)) {
+    for (const id of raw.seenInfo) {
+      if (typeof id === 'string' && !seenInfo.includes(id)) seenInfo.push(id);
+    }
+  }
+
   const questions: Record<string, QuestionProgress> = {};
   if (isRecord(raw.questions)) {
     for (const [id, entry] of Object.entries(raw.questions)) {
@@ -81,7 +121,13 @@ export function parseProgress(raw: unknown): ProgressV1 | null {
     }
   }
 
-  return { version: PROGRESS_VERSION, streak, questions };
+  return {
+    version: PROGRESS_VERSION,
+    streak,
+    highestUnlockedChapter,
+    seenInfo,
+    questions,
+  };
 }
 
 export function loadProgress(): ProgressV1 {
@@ -105,6 +151,96 @@ export function saveProgress(p: ProgressV1): void {
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Chapter statistics                                                  */
+/* ------------------------------------------------------------------ */
+
+export interface ChapterStat {
+  chapter: number;
+  title: string;
+  /** Total questions in the bank for this chapter. */
+  total: number;
+  /** Distinct questions with at least one attempt. */
+  uniqueAnswered: number;
+  attempts: number;
+  correct: number;
+  /** correct / attempts, 0 when no attempts. */
+  accuracy: number;
+  unlocked: boolean;
+}
+
+/** Per-chapter aggregate stats over practice questions only. */
+export function getChapterStats(p: ProgressV1): ChapterStat[] {
+  return CHAPTERS.map((meta) => {
+    let attempts = 0;
+    let correct = 0;
+    let uniqueAnswered = 0;
+    for (const q of PRACTICE_QUESTIONS) {
+      if (q.chapter !== meta.chapter) continue;
+      const entry = p.questions[q.id];
+      if (entry && entry.attempts > 0) {
+        uniqueAnswered += 1;
+        attempts += entry.attempts;
+        correct += entry.correct;
+      }
+    }
+    return {
+      chapter: meta.chapter,
+      title: meta.title,
+      total: meta.count,
+      uniqueAnswered,
+      attempts,
+      correct,
+      accuracy: attempts > 0 ? correct / attempts : 0,
+      unlocked: meta.chapter <= p.highestUnlockedChapter,
+    };
+  });
+}
+
+/** Number of unseen info cards in a chapter. */
+export function unseenInfoCount(
+  p: ProgressV1,
+  chapter: number,
+): number {
+  const seen = new Set(p.seenInfo);
+  let n = 0;
+  for (const q of QUESTIONS) {
+    if (q.chapter === chapter && q.type === 'info' && !seen.has(q.id)) n += 1;
+  }
+  return n;
+}
+
+function chapterMeetsUnlock(stat: ChapterStat): boolean {
+  return (
+    stat.uniqueAnswered >= UNLOCK_MIN_UNIQUE &&
+    stat.attempts > 0 &&
+    stat.accuracy >= UNLOCK_MIN_ACCURACY
+  );
+}
+
+/**
+ * Advance `highestUnlockedChapter` while the current frontier chapter meets
+ * the unlock criteria. Returns the (possibly unchanged) chapter number.
+ */
+export function evaluateUnlocks(p: ProgressV1): number {
+  const stats = getChapterStats(p);
+  const byChapter = new Map(stats.map((s) => [s.chapter, s]));
+  let unlocked = clampChapter(p.highestUnlockedChapter);
+
+  // Advance the frontier while it is satisfied and a next chapter exists.
+  for (let guard = 0; guard <= MAX_CHAPTER; guard += 1) {
+    if (unlocked >= MAX_AVAILABLE_CHAPTER) break;
+    const stat = byChapter.get(unlocked);
+    if (!stat || !chapterMeetsUnlock(stat)) break;
+    unlocked += 1;
+  }
+  return unlocked;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mutations                                                           */
+/* ------------------------------------------------------------------ */
+
 export function recordAttempt(
   p: ProgressV1,
   id: string,
@@ -120,96 +256,226 @@ export function recordAttempt(
     attempts: (existing?.attempts ?? 0) + 1,
     correct: (existing?.correct ?? 0) + (correct ? 1 : 0),
   };
-  return {
+  const withQuestion: ProgressV1 = {
     ...p,
     questions: { ...p.questions, [id]: entry },
   };
+  const highestUnlockedChapter = evaluateUnlocks(withQuestion);
+  if (highestUnlockedChapter === withQuestion.highestUnlockedChapter) {
+    return withQuestion;
+  }
+  return { ...withQuestion, highestUnlockedChapter };
 }
 
 export function completeSprintIfNeeded(
   p: ProgressV1,
   todayKey: string = localDateKey(),
 ): ProgressV1 {
-  return { ...p, streak: bumpStreak(p.streak, todayKey) };
+  const withStreak: ProgressV1 = { ...p, streak: bumpStreak(p.streak, todayKey) };
+  const highestUnlockedChapter = evaluateUnlocks(withStreak);
+  if (highestUnlockedChapter === withStreak.highestUnlockedChapter) {
+    return withStreak;
+  }
+  return { ...withStreak, highestUnlockedChapter };
 }
 
-export interface UnitStat {
-  attempts: number;
-  correct: number;
-  accuracy: number; // 0..1
+/** Unlock a specific chapter early (clamped to available range). */
+export function unlockChapter(p: ProgressV1, chapter: number): ProgressV1 {
+  const target = Math.min(MAX_AVAILABLE_CHAPTER, Math.max(1, Math.round(chapter)));
+  if (target <= p.highestUnlockedChapter) return p;
+  return { ...p, highestUnlockedChapter: target };
 }
 
-export function getUnitStats(p: ProgressV1): Record<UnitName, UnitStat> {
-  const totals = new Map<UnitName, { attempts: number; correct: number }>();
-  for (const unit of UNITS) totals.set(unit, { attempts: 0, correct: 0 });
-
-  for (const q of QUESTIONS) {
-    const entry = p.questions[q.id];
-    const t = totals.get(q.unit);
-    if (!t || !entry) continue;
-    t.attempts += entry.attempts;
-    t.correct += entry.correct;
+/** Count of practice questions the user can currently access. */
+export function unlockedQuestionCount(
+  p: ProgressV1,
+  questions: readonly Question[] = QUESTIONS,
+): number {
+  let n = 0;
+  for (const q of questions) {
+    if (q.chapter <= p.highestUnlockedChapter && q.type !== 'info') n += 1;
   }
+  return n;
+}
 
-  const out = {} as Record<UnitName, UnitStat>;
-  for (const unit of UNITS) {
-    const t = totals.get(unit)!;
-    out[unit] = {
-      attempts: t.attempts,
-      correct: t.correct,
-      accuracy: t.attempts > 0 ? t.correct / t.attempts : 0,
-    };
+/** Mark an info card as seen (idempotent). */
+export function markInfoSeen(p: ProgressV1, id: string): ProgressV1 {
+  if (p.seenInfo.includes(id)) return p;
+  return { ...p, seenInfo: [...p.seenInfo, id] };
+}
+
+/** Mark several info cards as seen at once (idempotent). */
+export function markInfoSeenMany(p: ProgressV1, ids: string[]): ProgressV1 {
+  const set = new Set(p.seenInfo);
+  let changed = false;
+  for (const id of ids) {
+    if (!set.has(id)) {
+      set.add(id);
+      changed = true;
+    }
   }
-  return out;
+  if (!changed) return p;
+  return { ...p, seenInfo: Array.from(set) };
+}
+
+/* ------------------------------------------------------------------ */
+/* Sprint generation                                                   */
+/* ------------------------------------------------------------------ */
+
+interface Meta {
+  q: PracticeQuestion;
+  entry: QuestionProgress | undefined;
+  nextReview: number;
+  unseen: boolean;
+  boxLevel: number;
+}
+
+function metaOf(p: ProgressV1, q: PracticeQuestion): Meta {
+  const entry = p.questions[q.id];
+  return {
+    q,
+    entry,
+    nextReview: entry?.nextReview ?? 0,
+    unseen: !entry,
+    boxLevel: entry?.boxLevel ?? 1,
+  };
+}
+
+function byId(a: Meta, b: Meta): number {
+  return a.q.id < b.q.id ? -1 : a.q.id > b.q.id ? 1 : 0;
+}
+
+function sortDueFirstFactory(now: number) {
+  return (a: Meta, b: Meta): number => {
+    const ad = a.nextReview <= now ? 0 : 1;
+    const bd = b.nextReview <= now ? 0 : 1;
+    if (ad !== bd) return ad - bd;
+    if (a.nextReview !== b.nextReview) return a.nextReview - b.nextReview;
+    if (a.unseen !== b.unseen) return a.unseen ? -1 : 1;
+    if (a.boxLevel !== b.boxLevel) return a.boxLevel - b.boxLevel;
+    return byId(a, b);
+  };
+}
+
+export interface SprintOptions {
+  /** Number of practice questions to draw (default DEFAULT_SPRINT_SIZE). */
+  size?: number;
+  /** Restrict to these chapters (must be <= frontier). Default: all unlocked. */
+  chapters?: number[];
 }
 
 /**
- * Build a unique sprint queue: due questions first (Leitner priority),
- * then fill with not-yet-due questions so the sprint reaches min(5, bank).
+ * Build a chapter-weighted sprint around the user's frontier:
+ * - Cards 1-3: unseen or low-box (1-2) practice questions from the frontier.
+ * - Card 4: a derivation_order question from the frontier (or previous).
+ * - Card 5: an overdue review (nextReview <= now) from any unlocked chapter.
+ * Remaining slots are filled due-first. Only practice questions are drawn;
+ * info cards are handled separately by the player.
  */
-export function getDueQueue(
+export function getSprintQueue(
   p: ProgressV1,
-  questions: Question[] = QUESTIONS,
   now: number = Date.now(),
-): Question[] {
-  const withMeta = questions.map((q) => {
-    const entry = p.questions[q.id];
-    return {
-      q,
-      nextReview: entry?.nextReview ?? 0,
-      unseen: !entry,
-      boxLevel: entry?.boxLevel ?? 1,
-    };
-  });
+  options: SprintOptions = {},
+): PracticeQuestion[] {
+  const frontier = clampChapter(p.highestUnlockedChapter);
+  const size = Math.max(
+    MIN_SPRINT_SIZE,
+    Math.min(MAX_SPRINT_SIZE, Math.round(options.size ?? DEFAULT_SPRINT_SIZE)),
+  );
+  const allowed =
+    options.chapters && options.chapters.length > 0
+      ? new Set(options.chapters.filter((c) => c <= frontier))
+      : null;
 
-  const due = withMeta
-    .filter((m) => m.nextReview <= now)
-    .sort((a, b) => {
-      if (a.nextReview !== b.nextReview) return a.nextReview - b.nextReview;
-      if (a.unseen !== b.unseen) return a.unseen ? -1 : 1;
-      if (a.boxLevel !== b.boxLevel) return a.boxLevel - b.boxLevel;
-      return a.q.id < b.q.id ? -1 : a.q.id > b.q.id ? 1 : 0;
-    })
-    .map((m) => m.q);
+  const unlocked = PRACTICE_QUESTIONS.filter(
+    (q) => q.chapter <= frontier && (!allowed || allowed.has(q.chapter)),
+  );
+  const target = Math.min(size, unlocked.length);
+  if (target === 0) return [];
 
-  const notDue = withMeta
-    .filter((m) => m.nextReview > now)
-    .sort((a, b) => {
-      if (a.nextReview !== b.nextReview) return a.nextReview - b.nextReview;
-      return a.q.id < b.q.id ? -1 : a.q.id > b.q.id ? 1 : 0;
-    })
-    .map((m) => m.q);
+  const chosen: PracticeQuestion[] = [];
+  const usedIds = new Set<string>();
+  const push = (q: PracticeQuestion | undefined) => {
+    if (!q || usedIds.has(q.id) || chosen.length >= target) return;
+    usedIds.add(q.id);
+    chosen.push(q);
+  };
 
-  const target = Math.min(SPRINT_SIZE, questions.length);
-  const ordered = [...due, ...notDue];
-
-  const seen = new Set<string>();
-  const queue: Question[] = [];
-  for (const q of ordered) {
-    if (seen.has(q.id)) continue;
-    seen.add(q.id);
-    queue.push(q);
-    if (queue.length >= target) break;
+  // Cards 1-3: unseen or low-box from the frontier chapter (if allowed).
+  const frontierOk = !allowed || allowed.has(frontier);
+  if (frontierOk) {
+    const poolA = unlocked
+      .filter((q) => q.chapter === frontier)
+      .map((q) => metaOf(p, q))
+      .filter((m) => m.unseen || m.boxLevel <= 2)
+      .sort((a, b) => {
+        if (a.unseen !== b.unseen) return a.unseen ? -1 : 1;
+        if (a.boxLevel !== b.boxLevel) return a.boxLevel - b.boxLevel;
+        if (a.nextReview !== b.nextReview) return a.nextReview - b.nextReview;
+        return byId(a, b);
+      });
+    for (const m of poolA) {
+      if (chosen.length >= 3) break;
+      push(m.q);
+    }
   }
-  return queue;
+
+  // Card 4: a derivation_order question from the frontier, else previous.
+  const derivationPool = (chapter: number) =>
+    unlocked
+      .filter((q) => q.chapter === chapter && q.type === 'derivation_order')
+      .map((q) => metaOf(p, q))
+      .sort((a, b) => {
+        if (a.unseen !== b.unseen) return a.unseen ? -1 : 1;
+        if (a.boxLevel !== b.boxLevel) return a.boxLevel - b.boxLevel;
+        if (a.nextReview !== b.nextReview) return a.nextReview - b.nextReview;
+        return byId(a, b);
+      });
+  if (chosen.length < 4) {
+    const card4 =
+      (frontierOk ? derivationPool(frontier)[0]?.q : undefined) ??
+      derivationPool(frontier - 1)[0]?.q ??
+      derivationPool(1)[0]?.q;
+    push(card4);
+  }
+
+  // Card 5: an overdue review from any allowed unlocked chapter.
+  if (chosen.length < 5) {
+    const overdue = unlocked
+      .map((q) => metaOf(p, q))
+      .filter((m) => !m.unseen && m.nextReview <= now)
+      .sort((a, b) => {
+        if (a.nextReview !== b.nextReview) return a.nextReview - b.nextReview;
+        if (a.boxLevel !== b.boxLevel) return a.boxLevel - b.boxLevel;
+        return byId(a, b);
+      });
+    push(overdue[0]?.q);
+  }
+
+  // Fill any remaining slots due-first.
+  if (chosen.length < target) {
+    const fill = unlocked
+      .filter((q) => !usedIds.has(q.id))
+      .map((q) => metaOf(p, q))
+      .sort(sortDueFirstFactory(now));
+    for (const m of fill) {
+      if (chosen.length >= target) break;
+      push(m.q);
+    }
+  }
+
+  return chosen.slice(0, target);
+}
+
+/**
+ * Build a review sprint restricted to a set of chapters (no frontier weighting),
+ * drawing due-first across the selected chapters. Used by chapter review.
+ */
+export function getChapterReviewQueue(
+  p: ProgressV1,
+  chapters: number[],
+  size: number,
+  now: number = Date.now(),
+): PracticeQuestion[] {
+  return getSprintQueue(p, now, { size, chapters });
 }

@@ -40,6 +40,11 @@ export function ConfirmImportModal({ incoming, local, onConfirm, onCancel }: Pro
           <span className="w-16 text-right">Local</span>
         </div>
         <Row
+          label="Chapter frontier"
+          incoming={`Ch. ${incoming.highestUnlockedChapter}`}
+          local={`Ch. ${local.highestUnlockedChapter}`}
+        />
+        <Row
           label="Streak (days)"
           incoming={String(incoming.streak.current)}
           local={String(local.streak.current)}

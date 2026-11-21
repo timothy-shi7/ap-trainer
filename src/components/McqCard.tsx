@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { Question } from '../types';
+import type { McqQuestion } from '../types';
 import { RichMath } from './RichMath';
 import { Scratchpad } from './Scratchpad';
 
 interface Props {
-  question: Question;
+  question: McqQuestion;
   disabled: boolean;
   onCheck: (correct: boolean, selectedText: string) => void;
 }

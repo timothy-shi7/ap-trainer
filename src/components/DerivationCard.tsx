@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { RotateCcw, Undo2 } from 'lucide-react';
-import type { Question } from '../types';
+import type { DerivationQuestion } from '../types';
 import { shuffle } from '../lib/shuffle';
 import { RichMath } from './RichMath';
 import { Scratchpad } from './Scratchpad';
 
 interface Props {
-  question: Question;
+  question: DerivationQuestion;
   disabled: boolean;
   onCheck: (correct: boolean, selectedText: string) => void;
 }

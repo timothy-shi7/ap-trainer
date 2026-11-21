@@ -1,9 +1,9 @@
 import { Check, X } from 'lucide-react';
-import type { Question } from '../types';
+import type { PracticeQuestion } from '../types';
 import { RichMath } from './RichMath';
 
 interface Props {
-  question: Question;
+  question: PracticeQuestion;
   correct: boolean;
   selectedText: string;
   onNext: () => void;

@@ -1,5 +1,33 @@
 [
   {
+    "id": "ch1-info-01",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "info",
+    "skillTag": "Concept Brief: Vectors",
+    "title": "Vectors, Components & Products",
+    "formulaLatex": "$$\\mathbf{A} = A_x\\hat{i} + A_y\\hat{j} + A_z\\hat{k}, \\qquad \\mathbf{A}\\cdot\\mathbf{B} = AB\\cos\\theta, \\qquad |\\mathbf{A}\\times\\mathbf{B}| = AB\\sin\\theta$$",
+    "bulletsLatex": [
+      "A vector has magnitude and direction; resolve it into perpendicular components with $A_x = A\\cos\\theta$ and $A_y = A\\sin\\theta$.",
+      "The dot product is a scalar (max when parallel, zero when perpendicular); the cross product is a vector (max when perpendicular, zero when parallel)."
+    ],
+    "trapLatex": "Exam Trap: $\\mathbf{A}\\times\\mathbf{B} = -\\mathbf{B}\\times\\mathbf{A}$ (anticommutative). Reversing the order flips the direction, so don't drop the sign."
+  },
+  {
+    "id": "ch1-info-02",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "info",
+    "skillTag": "Concept Brief: Units & Checks",
+    "title": "Dimensional Analysis & Limiting Cases",
+    "formulaLatex": "$$[F] = \\text{kg}\\cdot\\text{m/s}^2, \\qquad [E] = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2, \\qquad [P] = \\text{kg}\\cdot\\text{m}^2/\\text{s}^3$$",
+    "bulletsLatex": [
+      "Every term in an equation must share the same units; if one term has units of energy, every other term must too.",
+      "Check a symbolic answer by letting a variable approach $0$ or $\\infty$ — the expression should reduce to a known, sensible result."
+    ],
+    "trapLatex": "Exam Trap: A dimensionless constant like $2\\pi$ or $\\frac{1}{2}$ carries no units, so it can never fix a dimensional mismatch."
+  },
+  {
     "id": "ch1-01",
     "chapter": 1,
     "unit": "Ch. 1: Background & Vectors",
@@ -316,6 +344,34 @@
     ],
     "correctIndex": 0,
     "explanationLatex": "The scalar projection along a unit vector is $F_u = \\mathbf{F} \\cdot \\hat{u} = (10)(0.6) + (-5)(0.8) = 6.0 - 4.0 = 2.0\\text{ N}$."
+  },
+  {
+    "id": "ch2-info-01",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "info",
+    "skillTag": "Concept Brief: Kinematics",
+    "title": "Motion, Graphs & Calculus",
+    "formulaLatex": "$$v = \\frac{dx}{dt}, \\qquad a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2}, \\qquad \\Delta x = \\int v\\,dt$$",
+    "bulletsLatex": [
+      "On a position-time graph, slope is velocity; on a velocity-time graph, slope is acceleration and signed area is displacement.",
+      "For non-uniform acceleration you cannot use the constant-$a$ formulas — integrate $a(t)$ once for $v(t)$ and again for $x(t)$."
+    ],
+    "trapLatex": "Exam Trap: Speed is the magnitude of velocity $|v|$; a negative velocity does not mean slowing down. Speeding up requires $v$ and $a$ to share the same sign."
+  },
+  {
+    "id": "ch2-info-02",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "info",
+    "skillTag": "Concept Brief: Projectiles",
+    "title": "Projectile Motion & Circular Motion",
+    "formulaLatex": "$$R = \\frac{v_0^2\\sin(2\\theta)}{g}, \\qquad a_c = \\frac{v^2}{r}, \\qquad a_{\\text{total}} = \\sqrt{a_t^2 + a_c^2}$$",
+    "bulletsLatex": [
+      "Horizontal and vertical projectile motions are independent: horizontal velocity is constant, vertical motion is free fall.",
+      "In circular motion the centripetal component $v^2/r$ changes direction; a tangential component $a_t$ changes speed."
+    ],
+    "trapLatex": "Exam Trap: At the apex of projectile motion the vertical velocity is zero, but the horizontal velocity (and thus the speed) is generally NOT zero."
   },
   {
     "id": "ch2-01",
@@ -636,6 +692,34 @@
     "explanationLatex": "Because $v_{1x} = v_{2x}$, both take the exact same time $t = D/v_x$ to reach $x = D$. Since $v_{1y} > v_{2y}$, $y_1(t) = v_{1y}t - \\frac{1}{2}gt^2 > y_2(t)$."
   },
   {
+    "id": "ch3-info-01",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "info",
+    "skillTag": "Concept Brief: Forces",
+    "title": "Newton's Laws & Free-Body Diagrams",
+    "formulaLatex": "$$\\sum \\mathbf{F} = m\\mathbf{a}, \\qquad f_s \\le \\mu_s F_N, \\qquad f_k = \\mu_k F_N$$",
+    "bulletsLatex": [
+      "Draw a free-body diagram first: include gravity, normal, tension, applied forces, and friction — never 'invent' a force to balance the picture.",
+      "Static friction adjusts up to $\\mu_s F_N$ to prevent sliding; kinetic friction is fixed at $\\mu_k F_N$ once sliding begins."
+    ],
+    "trapLatex": "Exam Trap: The normal force $F_N$ is not always $mg$. On an incline or with a vertical applied-force component, $F_N$ changes, which in turn changes the friction force."
+  },
+  {
+    "id": "ch3-info-02",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "info",
+    "skillTag": "Concept Brief: Circular & Drag",
+    "title": "Circular Motion & Resistive Forces",
+    "formulaLatex": "$$\\sum F_r = \\frac{mv^2}{r}, \\qquad m\\frac{dv}{dt} = mg - bv \\;\\Rightarrow\\; v_t = \\frac{mg}{b}$$",
+    "bulletsLatex": [
+      "Net radial force points toward the center and equals $mv^2/r$; tangential force changes speed. Gravity has both components on a vertical circle.",
+      "With linear drag, the equation of motion is a separable differential equation; terminal speed occurs when acceleration (and net force) is zero."
+    ],
+    "trapLatex": "Exam Trap: At terminal velocity the object is NOT motionless — it still moves at constant $v_t$, it just has zero acceleration."
+  },
+  {
     "id": "ch3-01",
     "chapter": 3,
     "unit": "Ch. 3: Newton's Laws",
@@ -952,5 +1036,947 @@
     ],
     "correctIndex": 0,
     "explanationLatex": "At terminal velocity, $cv_t^2 = mg \\implies v_t = \\sqrt{\\frac{mg}{c}} \\propto \\sqrt{m}$. Doubling mass increases $v_t$ by a factor of $\\sqrt{2}$."
+  },
+  {
+    "id": "ch4-info-01",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "info",
+    "skillTag": "Concept Brief: Work & Power",
+    "title": "Variable Work, Power & Potential Energy",
+    "formulaLatex": "$$W_{\\text{net}} = \\int_{\\mathbf{r}_1}^{\\mathbf{r}_2} \\mathbf{F}_{\\text{net}}\\cdot d\\mathbf{r} = \\Delta K, \\qquad F(x) = -\\frac{dU}{dx}$$",
+    "bulletsLatex": [
+      "Work is the area under a force-position ($F$ vs. $x$) graph; positive work adds kinetic energy, negative work removes it.",
+      "Instantaneous power is $P = \\frac{dW}{dt} = \\mathbf{F}\\cdot\\mathbf{v} = Fv\\cos\\theta$; average power is $P_{\\text{avg}} = \\frac{W}{\\Delta t}$."
+    ],
+    "trapLatex": "Exam Trap: A force perpendicular to velocity (like tension in a pendulum or magnetic force) does ZERO work and delivers ZERO instantaneous power."
+  },
+  {
+    "id": "ch4-info-02",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "info",
+    "skillTag": "Concept Brief: Conservation & Springs",
+    "title": "Energy Conservation & Potential Wells",
+    "formulaLatex": "$$K_i + U_i + W_{\\text{nc}} = K_f + U_f, \\qquad U_s = \\frac{1}{2}kx^2$$",
+    "bulletsLatex": [
+      "Equilibrium occurs where $F(x) = -\\frac{dU}{dx} = 0$ (local extrema on a $U(x)$ curve): local minima are stable, local maxima are unstable.",
+      "For a vertical mass-spring system, measuring $x$ from the hanging equilibrium position lets you ignore $mgy$ and use $U_{\\text{tot}} = \\frac{1}{2}kx^2$."
+    ],
+    "trapLatex": "Exam Trap: Turning points occur where total mechanical energy $E = U(x)$ ($K = 0$), NOT where $F(x) = 0$."
+  },
+  {
+    "id": "ch4-01",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Work-Energy Theorem",
+    "promptLatex": "A person pulls a block of mass $m$ (initially at rest) all the way up an incline of length $d$ and angle $\\theta$, then lets it slide halfway back down ($d/2$) before pulling to stop it there. If kinetic friction is $\\mu_k$, what is the total work done by the person?",
+    "optionsLatex": [
+      "$\\frac{1}{2}mgd(\\sin\\theta + 3\\mu_k\\cos\\theta)$",
+      "$\\frac{1}{2}mgd(\\sin\\theta + \\mu_k\\cos\\theta)$",
+      "$mgd(\\sin\\theta + \\mu_k\\cos\\theta)$",
+      "$\\frac{1}{2}mgd(\\sin\\theta - 3\\mu_k\\cos\\theta)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Since $\\Delta K = 0$, $W_{\\text{person}} + W_g + W_f = 0$. Net height gain is $(d/2)\\sin\\theta$, so $W_g = -\\frac{1}{2}mgd\\sin\\theta$. Friction opposes motion over total path $d + d/2 = \\frac{3}{2}d$, so $W_f = -\\frac{3}{2}\\mu_k mgd\\cos\\theta$. Solving gives $W_{\\text{person}} = \\frac{1}{2}mgd(\\sin\\theta + 3\\mu_k\\cos\\theta)$."
+  },
+  {
+    "id": "ch4-02",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Average Power",
+    "promptLatex": "A projectile of mass $m$ is thrown straight upward, reaches a maximum height $h$, and lands back at its launch height after a total flight time $T$. What is the average power of the gravitational force over the entire trajectory?",
+    "optionsLatex": [
+      "$0$",
+      "$-\\frac{2mgh}{T}$",
+      "$\\frac{2mgh}{T}$",
+      "$-\\frac{mgh}{T}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because gravity is conservative and the projectile returns to its starting height ($\\Delta y = 0$), total work done by gravity is $W_g = 0$, making $P_{\\text{avg}} = W_g / T = 0$."
+  },
+  {
+    "id": "ch4-03",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Work-Energy Theorem",
+    "promptLatex": "Given ONLY the constant net force vector $\\mathbf{F}_{\\text{net}}$ acting on an object and its net displacement vector $\\Delta\\mathbf{r}$, which quantity can be determined directly?",
+    "optionsLatex": [
+      "The net change in the object's kinetic energy ($\\Delta K$)",
+      "The net change in the object's velocity ($\\Delta\\mathbf{v}$)",
+      "The average acceleration ($\\mathbf{a}_{\\text{avg}}$)",
+      "The net change in the object's potential energy ($\\Delta U$)"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Without knowing the mass $m$, you cannot find $\\mathbf{a}$ or $\\Delta\\mathbf{v}$, and without knowing which forces are conservative, you cannot find $\\Delta U$. However, $W_{\\text{net}} = \\mathbf{F}_{\\text{net}}\\cdot\\Delta\\mathbf{r} = \\Delta K$ requires no mass."
+  },
+  {
+    "id": "ch4-04",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Energy Conservation",
+    "promptLatex": "A particle is launched over level ground with initial speed $v$ at an angle of elevation $\\theta$. Using conservation of mechanical energy, what is the maximum height $y_{\\max}$ it reaches?",
+    "optionsLatex": [
+      "$\\frac{v^2\\sin^2\\theta}{2g}$",
+      "$\\frac{v^2\\cos^2\\theta}{2g}$",
+      "$\\frac{v^2}{2g}$",
+      "$\\frac{v^2\\sin\\theta\\cos\\theta}{g}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At the peak, $v_y = 0$ so kinetic energy is $\\frac{1}{2}m(v\\cos\\theta)^2$. Setting $\\frac{1}{2}mv^2 = mgy_{\\max} + \\frac{1}{2}mv^2\\cos^2\\theta$ gives $y_{\\max} = \\frac{v^2(1 - \\cos^2\\theta)}{2g} = \\frac{v^2\\sin^2\\theta}{2g}$."
+  },
+  {
+    "id": "ch4-05",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Potential Energy Diagrams",
+    "promptLatex": "A particle of mass $m$ moves in a 1D conservative system with potential energy $U(x)$. If it is released from rest at $x_0$ where $U(x_0) = U_0$, and the global minimum of the potential well is $U_{\\min}$, what is the particle's maximum speed?",
+    "optionsLatex": [
+      "$\\sqrt{\\frac{2(U_0 - U_{\\min})}{m}}$",
+      "$\\sqrt{\\frac{2U_0}{m}}$",
+      "$\\sqrt{\\frac{U_0 - U_{\\min}}{2m}}$",
+      "$\\sqrt{\\frac{2(U_0 + U_{\\min})}{m}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Total energy is $E = U_0$. Kinetic energy is maximized where potential energy is minimized: $\\frac{1}{2}mv_{\\max}^2 = E - U_{\\min} = U_0 - U_{\\min}$."
+  },
+  {
+    "id": "ch4-06",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Variable Force Work",
+    "promptLatex": "A single 1D force $F(x) = 2 - 4x$ (in newtons, with $x$ in meters) acts on an object as it moves from $x = 2\\text{ m}$ to $x = 1\\text{ m}$. What is the change in the object's kinetic energy $\\Delta K$?",
+    "optionsLatex": [
+      "$+4\\text{ J}$",
+      "$-4\\text{ J}$",
+      "$+2\\text{ J}$",
+      "$0\\text{ J}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$\\Delta K = W = \\int_2^1 (2 - 4x)\\,dx = \\left[2x - 2x^2\\right]_2^1 = (2 - 2) - (4 - 8) = +4\\text{ J}$. On $[1, 2]$, $F(x) < 0$ while $\\Delta x < 0$, so work is positive."
+  },
+  {
+    "id": "ch4-07",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Instantaneous Power",
+    "promptLatex": "A falling apple of mass $m$ and Earth of mass $M_E \\gg m$ pull on each other gravitationally. At any instant during the fall, how does the rate at which gravity increases the apple's kinetic energy ($P_m$) compare to that of Earth ($P_E$)?",
+    "optionsLatex": [
+      "$P_m \\gg P_E$ because the apple has a much larger velocity parallel to the force",
+      "$P_m = P_E$ because the gravitational forces are equal and opposite",
+      "$P_E \\gg P_m$ because Earth has a much larger mass",
+      "$P_m = P_E = 0$ because gravity is internal to the apple-Earth system"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Both experience equal force magnitude $F$, so $P = Fv$. Because $m \\ll M_E$, the apple accelerates much faster and reaches a vastly larger speed $v_m \\gg v_E$, giving $P_m \\gg P_E$."
+  },
+  {
+    "id": "ch4-08",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Work-Energy Theorem",
+    "promptLatex": "A puck of mass $m$ sliding at speed $v$ in the $+x$-direction is struck by a stick and rebounds in the $-x$-direction with the exact same speed $v$. What is the net work done on the puck during the impact?",
+    "optionsLatex": [
+      "$0$",
+      "$-mv^2$",
+      "$+mv^2$",
+      "$-\\frac{1}{2}mv^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Kinetic energy is a scalar that depends only on speed: $W_{\\text{net}} = \\Delta K = \\frac{1}{2}mv^2 - \\frac{1}{2}mv^2 = 0$."
+  },
+  {
+    "id": "ch4-09",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Series Springs",
+    "promptLatex": "Two ideal massless springs with spring constants $k_1$ and $k_2$ are connected end-to-end in series and attached to a block. If the block is pulled a total distance $x$ from equilibrium, what is the magnitude of the restoring force on the block?",
+    "optionsLatex": [
+      "$\\frac{k_1 k_2}{k_1 + k_2}x$",
+      "$(k_1 + k_2)x$",
+      "$\\frac{k_1 + k_2}{k_1 k_2}x$",
+      "$\\frac{k_1 k_2}{|k_1 - k_2|}x$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Series springs share the same tension $F = k_1 x_1 = k_2 x_2$ while total stretch is $x = x_1 + x_2 = F\\left(\\frac{1}{k_1} + \\frac{1}{k_2}\\right)$, yielding $F = \\frac{k_1 k_2}{k_1 + k_2}x$."
+  },
+  {
+    "id": "ch4-10",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Pendulum Tension & Energy",
+    "promptLatex": "A simple pendulum bob of mass $m$ on a string of length $L$ is released from rest at an angle of $60^\\circ$ from the vertical. What is the tension $T$ in the string as the bob swings through its lowest point?",
+    "optionsLatex": [
+      "$2mg$",
+      "$mg$",
+      "$1.5mg$",
+      "$3mg$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Vertical drop is $\\Delta h = L(1 - \\cos 60^\\circ) = L/2$. Energy gives $\\frac{1}{2}mv^2 = mg(L/2) \\implies \\frac{mv^2}{L} = mg$. At the bottom, $T - mg = \\frac{mv^2}{L} = mg \\implies T = 2mg$."
+  },
+  {
+    "id": "ch4-11",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Equilibrium from U(x)",
+    "promptLatex": "A particle moves in a 1D potential energy field given by $U(x) = ax^4 - bx^2$, where $a$ and $b$ are positive constants. At what positive coordinate $x > 0$ is the particle in stable equilibrium?",
+    "optionsLatex": [
+      "$\\sqrt{\\frac{b}{2a}}$",
+      "$\\sqrt{\\frac{b}{a}}$",
+      "$\\sqrt{\\frac{2b}{a}}$",
+      "$\\frac{b}{2a}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Set $F(x) = -\\frac{dU}{dx} = -(4ax^3 - 2bx) = 0$. For $x > 0$, $4ax^2 = 2b \\implies x = \\sqrt{\\frac{b}{2a}}$. Since $U''(x) = 12ax^2 - 2b = 4b > 0$, it is a local minimum (stable)."
+  },
+  {
+    "id": "ch4-12",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Non-Conservative Work",
+    "promptLatex": "A block of mass $m$ starts from rest at vertical height $h$ on a rough incline of angle $\\theta$ and coefficient of kinetic friction $\\mu_k$. What is its speed $v$ at the bottom of the incline?",
+    "optionsLatex": [
+      "$\\sqrt{2gh(1 - \\mu_k\\cot\\theta)}$",
+      "$\\sqrt{2gh(1 - \\mu_k\\tan\\theta)}$",
+      "$\\sqrt{2gh(1 - \\mu_k\\cos\\theta)}$",
+      "$\\sqrt{2gh\\sin\\theta}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Ramp length is $L = h/\\sin\\theta$. Energy balance: $mgh - \\mu_k mg\\cos\\theta\\left(\\frac{h}{\\sin\\theta}\\right) = \\frac{1}{2}mv^2 \\implies v = \\sqrt{2gh(1 - \\mu_k\\cot\\theta)}$."
+  },
+  {
+    "id": "ch4-13",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Vertical Spring",
+    "promptLatex": "A mass $m$ is attached to a vertical spring of constant $k$ and lowered slowly until it hangs at rest a distance $d = mg/k$ below the unstretched position. If it is then pulled down an additional distance $A$ and released, what is its maximum kinetic energy?",
+    "optionsLatex": [
+      "$\\frac{1}{2}kA^2$",
+      "$\\frac{1}{2}k(d + A)^2$",
+      "$\\frac{1}{2}kA^2 + mgA$",
+      "$\\frac{1}{2}k(A^2 - d^2)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Setting $U = 0$ at the hanging equilibrium position cancels the linear $mgx$ gravity term against $-kd\\,x$, leaving pure harmonic potential energy $U_{\\text{eff}}(y) = \\frac{1}{2}ky^2$, so $K_{\\max} = \\frac{1}{2}kA^2$."
+  },
+  {
+    "id": "ch4-14",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Engine Power",
+    "promptLatex": "A truck of mass $m$ drives up a long hill inclined at angle $\\theta$ at constant speed $v$ against a constant aerodynamic drag force $f_d$. What mechanical power must the engine deliver to the wheels?",
+    "optionsLatex": [
+      "$(mg\\sin\\theta + f_d)v$",
+      "$(mg\\cos\\theta + f_d)v$",
+      "$mgv\\sin\\theta$",
+      "$\\frac{1}{2}mv^2 + mgh$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At constant speed, net force along the incline is zero, so $F_{\\text{drive}} = mg\\sin\\theta + f_d$. Instantaneous power is $P = F_{\\text{drive}}v = (mg\\sin\\theta + f_d)v$."
+  },
+  {
+    "id": "ch4-15",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Integrating Force for U(x)",
+    "promptLatex": "A conservative restoring force in 1D is given by $F(x) = -\\alpha x^3$, where $\\alpha > 0$. Defining $U(0) = 0$, what is the potential energy function $U(x)$?",
+    "optionsLatex": [
+      "$\\frac{1}{4}\\alpha x^4$",
+      "$-\\frac{1}{4}\\alpha x^4$",
+      "$3\\alpha x^2$",
+      "$-3\\alpha x^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$U(x) - U(0) = -\\int_0^x F(x')\\,dx' = -\\int_0^x (-\\alpha x'^3)\\,dx' = +\\frac{1}{4}\\alpha x^4$."
+  },
+  {
+    "id": "ch4-16",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "mcq",
+    "skillTag": "Bounded Motion",
+    "promptLatex": "A particle with total mechanical energy $E$ moves in a 1D potential well $U(x)$ with no friction. Which condition defines a classical turning point $x_t$?",
+    "optionsLatex": [
+      "$U(x_t) = E$ with $\\frac{dU}{dx}\\big|_{x_t} \\ne 0$",
+      "$\\frac{dU}{dx}\\big|_{x_t} = 0$",
+      "$U(x_t) = 0$",
+      "$\\frac{d^2U}{dx^2}\\big|_{x_t} = 0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At a turning point, kinetic energy momentarily drops to zero ($K = E - U(x_t) = 0$), while a nonzero slope $dU/dx \\ne 0$ provides the restoring force that reverses the particle's velocity."
+  },
+  {
+    "id": "ch4-17",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "derivation_order",
+    "skillTag": "Work-Energy Proof",
+    "promptLatex": "Order the steps to derive the 1D Work-Energy Theorem $W_{\\text{net}} = \\Delta K$ from Newton's second law:",
+    "stepsLatex": [
+      "Start with net work definition: $W_{\\text{net}} = \\int_{x_1}^{x_2} F_{\\text{net}}\\,dx = \\int_{x_1}^{x_2} m\\frac{dv}{dt}\\,dx$",
+      "Apply the chain rule $\\frac{dv}{dt} = \\frac{dv}{dx}\\frac{dx}{dt} = v\\frac{dv}{dx}$",
+      "Cancel $dx$ to change the variable of integration to velocity: $W_{\\text{net}} = \\int_{v_1}^{v_2} mv\\,dv$",
+      "Evaluate the definite integral: $W_{\\text{net}} = \\frac{1}{2}mv_2^2 - \\frac{1}{2}mv_1^2 = \\Delta K$"
+    ],
+    "explanationLatex": "Using the chain rule $a = v\\frac{dv}{dx}$ converts a spatial integral over $dx$ directly into a velocity integral over $dv$."
+  },
+  {
+    "id": "ch4-18",
+    "chapter": 4,
+    "unit": "Ch. 4: Work, Energy & Power",
+    "type": "derivation_order",
+    "skillTag": "Vertical Loop Derivation",
+    "promptLatex": "Order the steps to find the minimum launch speed $v_0$ at the bottom of a frictionless vertical loop of radius $R$ so a block stays on the track at the top:",
+    "stepsLatex": [
+      "Apply Newton's 2nd law at the top of the loop: $mg + F_N = \\frac{mv_{\\text{top}}^2}{R}$",
+      "Set normal force $F_N \\to 0$ at the threshold of losing contact: $v_{\\text{top}}^2 = gR$",
+      "Apply conservation of energy from bottom to top: $\\frac{1}{2}mv_0^2 = \\frac{1}{2}mv_{\\text{top}}^2 + mg(2R)$",
+      "Substitute $v_{\\text{top}}^2 = gR$ to obtain $v_0 = \\sqrt{5gR}$"
+    ],
+    "explanationLatex": "Remember that the top of a circle of radius $R$ is at height $h = 2R$ above the bottom, not $R$."
+  },
+  {
+    "id": "ch5-info-01",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "info",
+    "skillTag": "Concept Brief: Impulse & Collisions",
+    "title": "Impulse, Momentum & Collisions",
+    "formulaLatex": "$$\\mathbf{J} = \\int_{t_1}^{t_2} \\mathbf{F}\\,dt = \\Delta\\mathbf{p}, \\qquad \\mathbf{p}_{\\text{sys},i} = \\mathbf{p}_{\\text{sys},f} \\;(\\text{if } \\mathbf{F}_{\\text{ext,net}} = \\mathbf{0})$$",
+    "bulletsLatex": [
+      "Total linear momentum $\\mathbf{p} = \\sum m_i\\mathbf{v}_i$ is a vector—always conserve $p_x$ and $p_y$ independently in 2D collisions.",
+      "Total kinetic energy is conserved ONLY in elastic collisions; in completely inelastic collisions, objects stick together and lose the maximum possible KE."
+    ],
+    "trapLatex": "Exam Trap: In a ballistic pendulum, NEVER set initial bullet KE equal to final gravitational PE—mechanical energy is lost during the inelastic impact."
+  },
+  {
+    "id": "ch5-info-02",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "info",
+    "skillTag": "Concept Brief: Center of Mass",
+    "title": "Center of Mass & Continuous Distributions",
+    "formulaLatex": "$$\\mathbf{r}_{\\text{cm}} = \\frac{1}{M}\\int \\mathbf{r}\\,dm, \\qquad \\mathbf{F}_{\\text{ext,net}} = M\\mathbf{a}_{\\text{cm}}$$",
+    "bulletsLatex": [
+      "For a 1D rod with variable density $\\lambda(x)$, set $dm = \\lambda(x)\\,dx$ and integrate both numerator $\\int x\\,dm$ and denominator $M = \\int dm$.",
+      "Internal forces (explosions, people pulling a rope on ice) NEVER accelerate the center of mass."
+    ],
+    "trapLatex": "Exam Trap: If a projectile explodes midair into fragments, its center of mass continues along the exact original parabolic trajectory until a fragment hits the ground."
+  },
+  {
+    "id": "ch5-01",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "2D Inelastic Collision",
+    "promptLatex": "Mass $m_1$ moving in the $+x$-direction at speed $v_1$ collides at the origin with mass $m_2$ moving in the $+y$-direction at speed $v_2$, and the two stick together. What angle $\\theta$ does their final velocity make with the $+x$-axis?",
+    "optionsLatex": [
+      "$\\tan^{-1}\\!\\left(\\frac{m_2 v_2}{m_1 v_1}\\right)$",
+      "$\\tan^{-1}\\!\\left(\\frac{m_1 v_2}{m_2 v_1}\\right)$",
+      "$\\tan^{-1}\\!\\left(\\frac{v_2}{v_1}\\right)$",
+      "$\\tan^{-1}\\!\\left(\\frac{m_1 v_1}{m_2 v_2}\\right)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By conservation of momentum, $p_{fx} = m_1 v_1$ and $p_{fy} = m_2 v_2$. Therefore $\\tan\\theta = \\frac{p_{fy}}{p_{fx}} = \\frac{m_2 v_2}{m_1 v_1}$."
+  },
+  {
+    "id": "ch5-02",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Newton's Second Law",
+    "promptLatex": "Stating that the net external force on an object is zero is **exact and universally equivalent** to which statement?",
+    "optionsLatex": [
+      "The object's linear momentum vector $\\mathbf{p}$ is constant",
+      "The object's speed is constant",
+      "The object is in static equilibrium",
+      "There are no forces acting on the object"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Newton's second law in general form is $\\mathbf{F}_{\\text{net}} = \\frac{d\\mathbf{p}}{dt}$. Thus $\\mathbf{F}_{\\text{net}} = \\mathbf{0} \\iff \\mathbf{p} = \\text{constant}$ (even for variable-mass systems like rockets)."
+  },
+  {
+    "id": "ch5-03",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "2D Glancing Collision",
+    "promptLatex": "Mass $m_1$ moving in the $+x$-direction has a glancing collision with a stationary mass $m_2$. After the collision, $m_1$ moves with speed $v_1$ at angle $\\theta_1$ above the $+x$-axis, and $m_2$ moves with speed $v_2$ at angle $\\theta_2$ below the $+x$-axis ($0 < \\theta_1, \\theta_2 < 90^\\circ$). Which statement is necessarily true?",
+    "optionsLatex": [
+      "If $m_1 v_1 < m_2 v_2$, then $\\theta_2 < \\theta_1$",
+      "If $m_1 v_1 < m_2 v_2$, then $\\theta_1 < \\theta_2$",
+      "If $v_1 < v_2$, then $\\theta_1 < \\theta_2$",
+      "$\\theta_1 + \\theta_2 = 90^\\circ$ for any masses"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Initial $y$-momentum is zero, so $m_1 v_1 \\sin\\theta_1 = m_2 v_2 \\sin\\theta_2$. If $m_1 v_1 < m_2 v_2$, we must have $\\sin\\theta_1 > \\sin\\theta_2$, meaning $\\theta_2 < \\theta_1$."
+  },
+  {
+    "id": "ch5-04",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Center of Mass Explosion",
+    "promptLatex": "A shell falling vertically explodes in midair into two fragments of masses $m_1$ and $m_2$ that strike the level ground at the same instant. If $m_1$ lands a horizontal distance $d_1$ from where the intact shell would have hit, what is the distance between $m_1$ and $m_2$ on the ground?",
+    "optionsLatex": [
+      "$d_1\\left(1 + \\frac{m_1}{m_2}\\right)$",
+      "$d_1\\left(1 + \\frac{m_2}{m_1}\\right)$",
+      "$d_1\\frac{m_1}{m_2}$",
+      "$2d_1$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The horizontal coordinate of the CM stays at the original impact point: $m_1 d_1 = m_2 d_2 \\implies d_2 = d_1\\frac{m_1}{m_2}$. Since they land on opposite sides, total separation is $d_1 + d_2 = d_1\\left(1 + \\frac{m_1}{m_2}\\right)$."
+  },
+  {
+    "id": "ch5-05",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Recoil & Kinetic Energy",
+    "promptLatex": "A person of mass $m_p$ stands at rest in a canoe of mass $m_c$ motionless in still water. If the person walks forward with speed $v_p$ relative to the water, what is the total kinetic energy of the person-canoe system?",
+    "optionsLatex": [
+      "$\\frac{1}{2}m_p v_p^2\\left(1 + \\frac{m_p}{m_c}\\right)$",
+      "$\\frac{1}{2}m_p v_p^2$",
+      "$\\frac{1}{2}(m_p + m_c)v_p^2$",
+      "$\\frac{1}{2}m_p v_p^2\\left(1 + \\frac{m_c}{m_p}\\right)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Momentum conservation gives $m_p v_p = m_c v_c \\implies v_c = \\frac{m_p}{m_c}v_p$. Summing both kinetic energies: $K = \\frac{1}{2}m_p v_p^2 + \\frac{1}{2}m_c\\left(\\frac{m_p v_p}{m_c}\\right)^2 = \\frac{1}{2}m_p v_p^2\\left(1 + \\frac{m_p}{m_c}\\right)$."
+  },
+  {
+    "id": "ch5-06",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Constant Acceleration",
+    "promptLatex": "If an object of constant mass $m$ moves with constant acceleration of magnitude $a$, which statement is ALWAYS true?",
+    "optionsLatex": [
+      "In each second, the magnitude of its linear momentum changes by $ma$",
+      "In each second, its speed changes by $a$",
+      "Its kinetic energy increases at rate $mav$",
+      "The object moves along a parabolic path"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Since $\\mathbf{F}_{\\text{net}} = m\\mathbf{a}$ is constant, $\\Delta\\mathbf{p} = \\mathbf{F}_{\\text{net}}\\Delta t = m\\mathbf{a}\\Delta t$. For $\\Delta t = 1\\text{ s}$, $|\\Delta\\mathbf{p}| = ma$ (whereas speed doesn't change at the peak of projectile motion)."
+  },
+  {
+    "id": "ch5-07",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Center of Mass Position",
+    "promptLatex": "A $50\\text{ kg}$ woman and a $75\\text{ kg}$ man stand $10.0\\text{ m}$ apart on frictionless ice holding opposite ends of a light rope. If the man pulls on the rope until they collide, how far does the woman slide across the ice?",
+    "optionsLatex": [
+      "$6.0\\text{ m}$",
+      "$4.0\\text{ m}$",
+      "$5.0\\text{ m}$",
+      "$7.5\\text{ m}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Setting the woman's initial position at $x = 0$, $x_{\\text{cm}} = \\frac{(50)(0) + (75)(10.0)}{50 + 75} = 6.0\\text{ m}$. Because there is no external horizontal force, the CM stays fixed and they meet at $x = 6.0\\text{ m}$."
+  },
+  {
+    "id": "ch5-08",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "CM Trajectory",
+    "promptLatex": "A projectile fired off a cliff explodes at $t = 4\\text{ s}$ via purely vertical internal forces into a $2\\text{ kg}$ fragment and a $1\\text{ kg}$ fragment. Before either fragment hits the ground, how does the vertical position $y_{\\text{cm}}$ of the two-fragment center of mass compare to the unexploded projectile's path?",
+    "optionsLatex": [
+      "It follows the exact same trajectory as if no explosion had occurred",
+      "It is lower because kinetic energy was converted into heat",
+      "It is higher because the lighter piece shoots upward faster",
+      "It moves horizontally with zero vertical acceleration"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Internal forces cancel in action-reaction pairs, leaving gravity $M\\mathbf{g}$ as the sole external force. Thus $\\mathbf{a}_{\\text{cm}} = \\mathbf{g}$ remains completely unchanged."
+  },
+  {
+    "id": "ch5-09",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Ballistic Pendulum",
+    "promptLatex": "A bullet of mass $m$ embeds itself into a stationary wooden block of mass $M$ hanging from a string of length $L$, causing the block to swing upward to a maximum height $h$. Which expression gives the bullet's initial speed $v_0$?",
+    "optionsLatex": [
+      "$\\left(\\frac{m + M}{m}\\right)\\sqrt{2gh}$",
+      "$\\sqrt{2gh}$",
+      "$\\left(\\frac{M}{m}\\right)\\sqrt{2gh}$",
+      "$\\sqrt{\\frac{2(m + M)gh}{m}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Step 1 (inelastic collision): $mv_0 = (m + M)v_f$. Step 2 (swing up): $\\frac{1}{2}(m + M)v_f^2 = (m + M)gh \\implies v_f = \\sqrt{2gh}$. Combining gives $v_0 = \\frac{m+M}{m}\\sqrt{2gh}$."
+  },
+  {
+    "id": "ch5-10",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Calculus Impulse",
+    "promptLatex": "A time-varying force $F(t) = F_0 \\sin\\!\\left(\\frac{\\pi t}{T}\\right)$ acts on a particle from $t = 0$ to $t = T$. What is the total impulse $J$ delivered to the particle?",
+    "optionsLatex": [
+      "$\\frac{2F_0 T}{\\pi}$",
+      "$\\frac{F_0 T}{\\pi}$",
+      "$0$",
+      "$F_0 T$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$J = \\int_0^T F_0\\sin\\!\\left(\\frac{\\pi t}{T}\\right)dt = F_0\\left[-\\frac{T}{\\pi}\\cos\\!\\left(\\frac{\\pi t}{T}\\right)\\right]_0^T = -\\frac{F_0 T}{\\pi}(-1 - 1) = \\frac{2F_0 T}{\\pi}$."
+  },
+  {
+    "id": "ch5-11",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Continuous Center of Mass",
+    "promptLatex": "A thin rod of length $L$ lies along the $x$-axis from $x = 0$ to $x = L$ and has linear mass density $\\lambda(x) = \\lambda_0 x$. What is the $x$-coordinate of its center of mass?",
+    "optionsLatex": [
+      "$\\frac{2}{3}L$",
+      "$\\frac{1}{2}L$",
+      "$\\frac{3}{4}L$",
+      "$\\frac{1}{3}L$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$x_{\\text{cm}} = \\frac{\\int_0^L x(\\lambda_0 x)\\,dx}{\\int_0^L \\lambda_0 x\\,dx} = \\frac{\\frac{1}{3}\\lambda_0 L^3}{\\frac{1}{2}\\lambda_0 L^2} = \\frac{2}{3}L$."
+  },
+  {
+    "id": "ch5-12",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "1D Elastic Collision",
+    "promptLatex": "Cart A of mass $m$ moving at speed $v_0$ collides head-on and elastically with an identical stationary Cart B of mass $m$ on a frictionless track. What are their speeds immediately after the collision?",
+    "optionsLatex": [
+      "Cart A stops ($0$), Cart B moves at $v_0$",
+      "Both carts move forward at $v_0 / 2$",
+      "Cart A rebounds at $v_0 / 2$, Cart B moves at $v_0 / 2$",
+      "Cart A stops ($0$), Cart B moves at $\\sqrt{2}v_0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "In a 1D head-on elastic collision between equal masses, the two objects simply exchange velocities: Cart A comes to rest and Cart B leaves with velocity $v_0$."
+  },
+  {
+    "id": "ch5-13",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Elastic Limiting Case",
+    "promptLatex": "A bowling ball of mass $M$ rolling at speed $v_0$ has a head-on elastic collision with a stationary ping-pong ball of mass $m \\ll M$. Approximately how fast does the ping-pong ball fly off?",
+    "optionsLatex": [
+      "$2v_0$",
+      "$v_0$",
+      "$\\frac{1}{2}v_0$",
+      "$\\sqrt{2}v_0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The exact elastic formula gives $v_{2f} = \\frac{2M}{M + m}v_0$. In the limit $m \\ll M$, $\\frac{2M}{M + m} \\to 2$, so the light target rebounds at nearly $2v_0$."
+  },
+  {
+    "id": "ch5-14",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "2D Elastic Scattering",
+    "promptLatex": "A billiard ball of mass $m$ strikes an identical stationary billiard ball in a 2D elastic collision, and both balls move off at nonzero angles $\\theta_1$ and $\\theta_2$ relative to the incoming direction. What is the angle $\\theta_1 + \\theta_2$ between their final velocity vectors?",
+    "optionsLatex": [
+      "$90^\\circ$",
+      "$45^\\circ$",
+      "$60^\\circ$",
+      "$180^\\circ$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "For equal masses, momentum conservation gives $\\mathbf{v}_0 = \\mathbf{v}_{1f} + \\mathbf{v}_{2f}$, while KE conservation gives $v_0^2 = v_{1f}^2 + v_{2f}^2$. By the Pythagorean theorem, $\\mathbf{v}_{1f} \\perp \\mathbf{v}_{2f}$ ($90^\\circ$)."
+  },
+  {
+    "id": "ch5-15",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Inelastic Energy Loss",
+    "promptLatex": "A bullet of mass $m$ strikes and embeds inside a stationary block of mass $M$ on a frictionless surface. What fraction of the bullet's initial kinetic energy remains in the combined block-bullet system?",
+    "optionsLatex": [
+      "$\\frac{m}{m + M}$",
+      "$\\frac{M}{m + M}$",
+      "$\\left(\\frac{m}{m + M}\\right)^2$",
+      "$\\frac{1}{2}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$\\frac{K_f}{K_i} = \\frac{\\frac{1}{2}(m + M)v_f^2}{\\frac{1}{2}mv_0^2} = \\frac{(m + M)\\left(\\frac{m}{m+M}v_0\\right)^2}{mv_0^2} = \\frac{m}{m + M}$."
+  },
+  {
+    "id": "ch5-16",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "mcq",
+    "skillTag": "Vector Impulse",
+    "promptLatex": "A $0.20\\text{ kg}$ rubber ball strikes a vertical wall perpendicularly at $10\\text{ m/s}$ and rebounds straight back at $8.0\\text{ m/s}$. What is the magnitude of the impulse exerted by the wall on the ball?",
+    "optionsLatex": [
+      "$3.6\\text{ N}\\cdot\\text{s}$",
+      "$0.4\\text{ N}\\cdot\\text{s}$",
+      "$2.0\\text{ N}\\cdot\\text{s}$",
+      "$1.6\\text{ N}\\cdot\\text{s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Momentum is a vector! Taking rebound as positive: $J = m(v_f - v_i) = 0.20\\text{ kg}[+8.0 - (-10.0)]\\text{ m/s} = 3.6\\text{ N}\\cdot\\text{s}$."
+  },
+  {
+    "id": "ch5-17",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "derivation_order",
+    "skillTag": "Continuous CM Setup",
+    "promptLatex": "Order the steps to derive the center of mass $x_{\\text{cm}}$ of a rod of length $L$ with quadratic density $\\lambda(x) = \\beta x^2$:",
+    "stepsLatex": [
+      "Define a differential mass slice of length $dx$: $dm = \\lambda(x)\\,dx = \\beta x^2\\,dx$",
+      "Integrate to find total mass: $M = \\int_0^L \\beta x^2\\,dx = \\frac{1}{3}\\beta L^3$",
+      "Integrate the first mass moment: $\\int_0^L x\\,dm = \\int_0^L \\beta x^3\\,dx = \\frac{1}{4}\\beta L^4$",
+      "Divide to get the center of mass: $x_{\\text{cm}} = \\frac{\\frac{1}{4}\\beta L^4}{\\frac{1}{3}\\beta L^3} = \\frac{3}{4}L$"
+    ],
+    "explanationLatex": "Always compute $M = \\int dm$ separately so the unknown density constant $\\beta$ cancels cleanly at the end."
+  },
+  {
+    "id": "ch5-18",
+    "chapter": 5,
+    "unit": "Ch. 5: Momentum & Center of Mass",
+    "type": "derivation_order",
+    "skillTag": "Ballistic Pendulum Proof",
+    "promptLatex": "Order the steps to find the muzzle speed $v_0$ of a bullet of mass $m$ fired into a ballistic pendulum of mass $M$ and string length $L$ that swings up to angle $\\theta$:",
+    "stepsLatex": [
+      "Conserve linear momentum during the instantaneous collision: $mv_0 = (m + M)v_f$",
+      "Express vertical height gain from geometry: $h = L(1 - \\cos\\theta)$",
+      "Conserve mechanical energy during the upward swing: $\\frac{1}{2}(m + M)v_f^2 = (m + M)gL(1 - \\cos\\theta)$",
+      "Eliminate $v_f$ to get $v_0 = \\left(\\frac{m + M}{m}\\right)\\sqrt{2gL(1 - \\cos\\theta)}$"
+    ],
+    "explanationLatex": "Splitting a collision-plus-swing problem into a Momentum phase followed by an Energy phase is essential on AP Mechanics FRQs."
+  },
+  {
+    "id": "ch6-info-01",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "info",
+    "skillTag": "Concept Brief: Angular Kinematics",
+    "title": "Translational-to-Rotational Dictionary",
+    "formulaLatex": "$$v_t = r\\omega, \\qquad a_t = r\\alpha, \\qquad a_r = \\omega^2 r = \\frac{v_t^2}{r}$$",
+    "bulletsLatex": [
+      "Every constant-acceleration linear equation maps 1-to-1 to rotation ($x \\to \\theta$, $v \\to \\omega$, $a \\to \\alpha$).",
+      "Use the right-hand rule: curl your fingers in the direction of rotation to find $\\boldsymbol{\\omega}$. If speeding up, $\\boldsymbol{\\alpha}$ is parallel to $\\boldsymbol{\\omega}$; if slowing down, $\\boldsymbol{\\alpha}$ is opposite $\\boldsymbol{\\omega}$."
+    ],
+    "trapLatex": "Exam Trap: All points on a rigid rotating body share the SAME $\\omega$ and $\\alpha$, even though $v_t = r\\omega$ and $a_t = r\\alpha$ scale with radius $r$."
+  },
+  {
+    "id": "ch6-info-02",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "info",
+    "skillTag": "Concept Brief: Torque & Rotational Energy",
+    "title": "Torque, $\\tau = I\\alpha$, and Rotational Work",
+    "formulaLatex": "$$\\boldsymbol{\\tau} = \\mathbf{r}\\times\\mathbf{F} \\;(\\tau = rF\\sin\\theta), \\qquad \\tau_{\\text{net}} = I\\alpha, \\qquad K_{\\text{rot}} = \\frac{1}{2}I\\omega^2$$",
+    "bulletsLatex": [
+      "When a string unwinds without slipping from a pulley of radius $R$, the string's linear acceleration is coupled by $a = R\\alpha$.",
+      "Rotational work is $W = \\int \\tau\\,d\\theta$ and instantaneous rotational power is $P = \\tau\\omega$."
+    ],
+    "trapLatex": "Exam Trap: A massive pulley ($I > 0$) accelerating an attached block MUST have unequal tensions on its two sides ($T_2 \\ne T_1$) to provide the net torque $\\tau_{\\text{net}} = (T_2 - T_1)R = I\\alpha$."
+  },
+  {
+    "id": "ch6-01",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Angular Vector Direction",
+    "promptLatex": "A truck drives on the $xy$-plane in the $+y$-direction and applies its brakes, slowing down. In what direction does the angular acceleration vector $\\boldsymbol{\\alpha}$ of its wheels point?",
+    "optionsLatex": [
+      "The $+x$-direction",
+      "The $-x$-direction",
+      "The $+y$-direction",
+      "The $-y$-direction"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By the right-hand rule, wheels rolling in the $+y$-direction have angular velocity $\\boldsymbol{\\omega}$ pointing in the $-x$-direction. Because the wheels are slowing down, $\\boldsymbol{\\alpha}$ points opposite $\\boldsymbol{\\omega}$, which is $+x$."
+  },
+  {
+    "id": "ch6-02",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Linear vs Angular Speed",
+    "promptLatex": "A horizontal disk rotates at constant angular speed $\\omega$ about a vertical axis through its center. Point $A$ is on the outer rim and point $B$ is halfway from the center to the rim. How does the linear speed of $A$ compare to $B$?",
+    "optionsLatex": [
+      "Twice as big as at point $B$",
+      "The same as at point $B$",
+      "Half as big as at point $B$",
+      "Four times as big as at point $B$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Linear speed is $v = r\\omega$. Since $r_A = 2r_B$ and both share the same $\\omega$, $v_A = 2v_B$."
+  },
+  {
+    "id": "ch6-03",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Rigid Body Angular Speed",
+    "promptLatex": "For the same rigid spinning disk with point $A$ at the rim and point $B$ halfway to the rim, how do their angular speeds $\\omega_A$ and $\\omega_B$ compare?",
+    "optionsLatex": [
+      "Point $A$ has the exact same angular speed as point $B$",
+      "Point $A$ has twice the angular speed of point $B$",
+      "Point $A$ has half the angular speed of point $B$",
+      "Point $A$ has four times the angular speed of point $B$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Every point on a rigid rotating object sweeps through the same angle $\\Delta\\theta$ in the same time $\\Delta t$, so $\\omega_A = \\omega_B$."
+  },
+  {
+    "id": "ch6-04",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Rotational Newton's 2nd Law",
+    "promptLatex": "A light cable wrapped around a uniform solid cylinder of mass $M$, radius $R$, and rotational inertia $I = \\frac{1}{2}MR^2$ is pulled tangentially with constant force $F$. What is the linear acceleration $a$ of a point on the cable?",
+    "optionsLatex": [
+      "$\\frac{2F}{M}$",
+      "$\\frac{F}{M}$",
+      "$\\frac{FR}{M}$",
+      "$\\frac{2FR}{M}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Torque is $\\tau = FR = I\\alpha = \\left(\\frac{1}{2}MR^2\\right)\\left(\\frac{a}{R}\\right) = \\frac{1}{2}MRa$. Solving for $a$ yields $a = \\frac{2F}{M}$."
+  },
+  {
+    "id": "ch6-05",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Net Torque",
+    "promptLatex": "A horizontal bar pivoted at its left end experiences a downward perpendicular force $F_1$ at distance $\\ell_1$ from the pivot, and an upward force $F_2$ applied at angle $\\theta$ to the bar at distance $\\ell_2$ from the pivot. Taking counterclockwise as positive, what is the net torque about the left end?",
+    "optionsLatex": [
+      "$F_2 \\ell_2 \\sin\\theta - F_1 \\ell_1$",
+      "$F_1 \\ell_1 - F_2 \\ell_2 \\sin\\theta$",
+      "$F_2 \\ell_2 \\cos\\theta - F_1 \\ell_1$",
+      "$F_2 \\ell_2 - F_1 \\ell_1$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$F_2$ tends to rotate the bar counterclockwise ($+F_2 \\ell_2 \\sin\\theta$), while $F_1$ tends to rotate it clockwise ($-F_1 \\ell_1$)."
+  },
+  {
+    "id": "ch6-06",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Angular Kinematics",
+    "promptLatex": "A centrifuge rotor starts from rest, accelerates at constant $+\\alpha$ for $\\Delta t_1$, spins at constant angular speed for $\\Delta t_2$, and slows down at $-\\alpha$ until stopping. What is its total angular displacement $\\Delta\\theta$?",
+    "optionsLatex": [
+      "$\\alpha\\Delta t_1(\\Delta t_1 + \\Delta t_2)$",
+      "$\\frac{1}{2}\\alpha\\Delta t_1^2 + \\alpha\\Delta t_1\\Delta t_2$",
+      "$\\alpha\\Delta t_1\\Delta t_2$",
+      "$0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By symmetry, deceleration also takes $\\Delta t_1$. Total displacement is $\\Delta\\theta = \\frac{1}{2}\\alpha\\Delta t_1^2 + (\\alpha\\Delta t_1)\\Delta t_2 + \\frac{1}{2}\\alpha\\Delta t_1^2 = \\alpha\\Delta t_1(\\Delta t_1 + \\Delta t_2)$."
+  },
+  {
+    "id": "ch6-07",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Pivoted Rod Dynamics",
+    "promptLatex": "A uniform rod of mass $m$, length $L$, and rotational inertia $I = \\frac{1}{3}mL^2$ is pivoted without friction at one end and released from rest from a horizontal position. What is its initial angular acceleration $\\alpha_0$?",
+    "optionsLatex": [
+      "$\\frac{3g}{2L}$",
+      "$\\frac{g}{L}$",
+      "$\\frac{3g}{L}$",
+      "$\\frac{2g}{3L}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Gravity acts at the center of mass ($r = L/2$), producing initial torque $\\tau_0 = mg(L/2) = I\\alpha_0 = \\left(\\frac{1}{3}mL^2\\right)\\alpha_0 \\implies \\alpha_0 = \\frac{3g}{2L}$."
+  },
+  {
+    "id": "ch6-08",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Rotational Energy Conservation",
+    "promptLatex": "A uniform rod of mass $m$, length $L$, and $I = \\frac{1}{3}mL^2$ pivoted at one end swings down from rest in a horizontal position. What is its angular speed $\\omega$ as it passes through the vertical position?",
+    "optionsLatex": [
+      "$\\sqrt{\\frac{3g}{L}}$",
+      "$\\sqrt{\\frac{2g}{L}}$",
+      "$\\sqrt{\\frac{3g}{2L}}$",
+      "$\\sqrt{\\frac{6g}{L}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The center of mass drops by $h = L/2$. Conservation of energy gives $mg\\left(\\frac{L}{2}\\right) = \\frac{1}{2}\\left(\\frac{1}{3}mL^2\\right)\\omega^2 \\implies \\omega = \\sqrt{\\frac{3g}{L}}$."
+  },
+  {
+    "id": "ch6-09",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Tangential vs Radial Acceleration",
+    "promptLatex": "When the pivoted uniform rod ($I = \\frac{1}{3}mL^2$) released from horizontal swings through the **exact vertical position**, what is the tangential linear acceleration $a_t$ of its bottom tip?",
+    "optionsLatex": [
+      "$0$",
+      "$\\frac{3}{2}g$",
+      "$3g$",
+      "$g$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At the vertical position, gravity points directly along the rod through the pivot, so net torque $\\tau_{\\text{net}} = 0 \\implies \\alpha = 0 \\implies a_t = L\\alpha = 0$ (even though radial acceleration $a_r = \\omega^2 L = 3g$)."
+  },
+  {
+    "id": "ch6-10",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Massive Pulley",
+    "promptLatex": "A block of mass $m$ hangs from a string wrapped around a uniform solid disk pulley of mass $M$, radius $R$, and $I = \\frac{1}{2}MR^2$. When released from rest, what is the downward linear acceleration $a$ of the block?",
+    "optionsLatex": [
+      "$\\frac{mg}{m + \\frac{1}{2}M}$",
+      "$\\frac{mg}{m + M}$",
+      "$g$",
+      "$\\frac{2mg}{M}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "For the block: $mg - T = ma$. For the pulley: $TR = I\\alpha = \\frac{1}{2}MR^2(a/R) \\implies T = \\frac{1}{2}Ma$. Adding equations gives $mg = (m + \\frac{1}{2}M)a$."
+  },
+  {
+    "id": "ch6-11",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Rotational Work",
+    "promptLatex": "A motor applies an angle-dependent torque $\\tau(\\theta) = \\tau_0 \\cos\\theta$ to a flywheel as it rotates from $\\theta = 0$ to $\\theta = \\frac{\\pi}{2}\\text{ rad}$. How much work does the motor perform?",
+    "optionsLatex": [
+      "$\\tau_0$",
+      "$0$",
+      "$\\frac{\\pi}{2}\\tau_0$",
+      "$-\\tau_0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$W = \\int_0^{\\pi/2} \\tau_0\\cos\\theta\\,d\\theta = \\tau_0\\left[\\sin\\theta\\right]_0^{\\pi/2} = \\tau_0(1 - 0) = \\tau_0$."
+  },
+  {
+    "id": "ch6-12",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Rotational Power",
+    "promptLatex": "A brake pad presses against the outer rim of a flywheel of radius $R$ with a constant kinetic friction force $f$. At the instant the wheel's angular speed is $\\omega$, at what rate is mechanical energy being dissipated?",
+    "optionsLatex": [
+      "$fR\\omega$",
+      "$\\frac{f\\omega}{R}$",
+      "$\\frac{1}{2}fR\\omega^2$",
+      "$fR\\omega^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The frictional torque is $\\tau = fR$, so instantaneous rotational power is $P = \\tau\\omega = fR\\omega$."
+  },
+  {
+    "id": "ch6-13",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Variable Angular Acceleration",
+    "promptLatex": "A wheel starts from rest ($\\omega(0) = 0$) with time-dependent angular acceleration $\\alpha(t) = 6t - 2\\text{ rad/s}^2$. Through what net angle $\\Delta\\theta$ does it rotate between $t = 0$ and $t = 2\\text{ s}$?",
+    "optionsLatex": [
+      "$4\\text{ rad}$",
+      "$8\\text{ rad}$",
+      "$10\\text{ rad}$",
+      "$2\\text{ rad}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$\\omega(t) = \\int_0^t (6\\tau - 2)\\,d\\tau = 3t^2 - 2t$. Integrating again: $\\Delta\\theta = \\int_0^2 (3t^2 - 2t)\\,dt = \\left[t^3 - t^2\\right]_0^2 = 8 - 4 = 4\\text{ rad}$."
+  },
+  {
+    "id": "ch6-14",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Torque Cross Product",
+    "promptLatex": "A force $\\mathbf{F} = (4\\hat{i} + 3\\hat{j})\\text{ N}$ is applied at position $\\mathbf{r} = (2\\hat{i})\\text{ m}$ relative to a pivot at the origin. What is the torque vector $\\boldsymbol{\\tau} = \\mathbf{r} \\times \\mathbf{F}$?",
+    "optionsLatex": [
+      "$+6\\hat{k}\\text{ N}\\cdot\\text{m}$",
+      "$-6\\hat{k}\\text{ N}\\cdot\\text{m}$",
+      "$+8\\hat{k}\\text{ N}\\cdot\\text{m}$",
+      "$+14\\hat{k}\\text{ N}\\cdot\\text{m}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$\\boldsymbol{\\tau} = (2\\hat{i}) \\times (4\\hat{i} + 3\\hat{j}) = 2(4)(\\hat{i}\\times\\hat{i}) + 2(3)(\\hat{i}\\times\\hat{j}) = +6\\hat{k}\\text{ N}\\cdot\\text{m}$."
+  },
+  {
+    "id": "ch6-15",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Rotational Kinetic Energy",
+    "promptLatex": "A thin hollow hoop ($I = MR^2$) and a uniform solid disk ($I = \\frac{1}{2}MR^2$) have the same mass $M$ and radius $R$, and rotate about their central axes at the same angular speed $\\omega$. What is the ratio $K_{\\text{hoop}} / K_{\\text{disk}}$?",
+    "optionsLatex": [
+      "$2$",
+      "$1$",
+      "$\\frac{1}{2}$",
+      "$4$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Since $K_{\\text{rot}} = \\frac{1}{2}I\\omega^2$ and $\\omega$ is identical for both, $\\frac{K_{\\text{hoop}}}{K_{\\text{disk}}} = \\frac{MR^2}{\\frac{1}{2}MR^2} = 2$."
+  },
+  {
+    "id": "ch6-16",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "mcq",
+    "skillTag": "Unwinding Yo-Yo",
+    "promptLatex": "A uniform solid cylinder of mass $M$, radius $R$, and $I = \\frac{1}{2}MR^2$ unwinds downward like a yo-yo from a vertical string attached to the ceiling. What is the tension $T$ in the string as it falls?",
+    "optionsLatex": [
+      "$\\frac{1}{3}Mg$",
+      "$\\frac{1}{2}Mg$",
+      "$\\frac{2}{3}Mg$",
+      "$Mg$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Translation gives $Mg - T = Ma$, and rotation about the CM gives $TR = \\frac{1}{2}MR^2(a/R) \\implies a = \\frac{2T}{M}$. Substituting gives $Mg - T = 2T \\implies T = \\frac{1}{3}Mg$."
+  },
+  {
+    "id": "ch6-17",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "derivation_order",
+    "skillTag": "Coupled Rotation Setup",
+    "promptLatex": "Order the steps to derive the acceleration $a$ of block $m_1$ on a frictionless horizontal table attached to hanging mass $m_2$ over a uniform disk pulley of mass $M$, radius $R$, and $I = \\frac{1}{2}MR^2$:",
+    "stepsLatex": [
+      "Write Newton's 2nd law for each translating block: $T_1 = m_1 a$ and $m_2 g - T_2 = m_2 a$",
+      "Write rotational Newton's 2nd law for the pulley: $(T_2 - T_1)R = I\\alpha = \\left(\\frac{1}{2}MR^2\\right)\\alpha$",
+      "Apply the no-slip string constraint $\\alpha = \\frac{a}{R}$ to get $T_2 - T_1 = \\frac{1}{2}Ma$",
+      "Add all three force equations to eliminate $T_1$ and $T_2$: $a = \\frac{m_2 g}{m_1 + m_2 + \\frac{1}{2}M}$"
+    ],
+    "explanationLatex": "Notice that a massive pulley simply adds its effective rotational mass ($I/R^2 = \\frac{1}{2}M$) to the total inertia in the denominator."
+  },
+  {
+    "id": "ch6-18",
+    "chapter": 6,
+    "unit": "Ch. 6: Rotation I (Torque & Energy)",
+    "type": "derivation_order",
+    "skillTag": "Swinging Rod Proof",
+    "promptLatex": "Order the steps to derive the angular speed $\\omega$ of a uniform rod of mass $m$, length $L$, and $I = \\frac{1}{3}mL^2$ pivoted at one end after falling from rest in a horizontal position to vertical:",
+    "stepsLatex": [
+      "Identify the vertical drop of the rod's center of mass: $\\Delta h_{\\text{cm}} = \\frac{L}{2}$",
+      "Set lost gravitational potential energy equal to rotational kinetic energy: $mg\\left(\\frac{L}{2}\\right) = \\frac{1}{2}I\\omega^2$",
+      "Substitute the end-pivoted rotational inertia $I = \\frac{1}{3}mL^2$: $\\frac{1}{2}mgL = \\frac{1}{2}\\left(\\frac{1}{3}mL^2\\right)\\omega^2$",
+      "Cancel $m$ and solve for $\\omega$: $\\omega = \\sqrt{\\frac{3g}{L}}$"
+    ],
+    "explanationLatex": "For a pure fixed-axis rotation, all kinetic energy is captured by $\\frac{1}{2}I_{\\text{pivot}}\\omega^2$—do not double-count translational CM kinetic energy."
   }
 ]
