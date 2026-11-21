@@ -1,0 +1,956 @@
+[
+  {
+    "id": "ch1-01",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Dot Product",
+    "promptLatex": "Given two vectors $\\mathbf{A} = 3\\hat{i} - 4\\hat{j}$ and $\\mathbf{B} = 4\\hat{i} + 3\\hat{j}$, what is their scalar (dot) product $\\mathbf{A} \\cdot \\mathbf{B}$?",
+    "optionsLatex": [
+      "$0$",
+      "$24$",
+      "$25$",
+      "$-24$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Using Cartesian components, $\\mathbf{A} \\cdot \\mathbf{B} = A_x B_x + A_y B_y = (3)(4) + (-4)(3) = 12 - 12 = 0$, confirming the two vectors are perpendicular."
+  },
+  {
+    "id": "ch1-02",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Right-Hand Rule",
+    "promptLatex": "Vector $\\mathbf{a}$ points in the $+x$-direction ($\\hat{i}$) and vector $\\mathbf{b}$ points in the $+y$-direction ($\\hat{j}$). In what direction does the cross product $\\mathbf{a} \\times \\mathbf{b}$ point?",
+    "optionsLatex": [
+      "$+z$-direction ($+\\hat{k}$)",
+      "$-z$-direction ($-\\hat{k}$)",
+      "$+y$-direction ($+\\hat{j}$)",
+      "$-x$-direction ($-\\hat{i}$)"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By the right-hand rule, pointing your index finger along $+x$ and curling toward $+y$ points your thumb in the $+z$-direction ($\\hat{i} \\times \\hat{j} = +\\hat{k}$)."
+  },
+  {
+    "id": "ch1-03",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Cross Product Properties",
+    "promptLatex": "If $\\mathbf{c} = \\mathbf{a} \\times \\mathbf{b}$ for two non-parallel vectors $\\mathbf{a}$ and $\\mathbf{b}$, which expression equals $\\mathbf{b} \\times \\mathbf{a}$?",
+    "optionsLatex": [
+      "$-\\mathbf{c}$",
+      "$\\mathbf{c}$",
+      "$\\frac{1}{\\mathbf{c}}$",
+      "$\\mathbf{0}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The vector (cross) product is anticommutative: reversing the order reverses the right-hand rule direction, so $\\mathbf{b} \\times \\mathbf{a} = -(\\mathbf{a} \\times \\mathbf{b}) = -\\mathbf{c}$."
+  },
+  {
+    "id": "ch1-04",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Unit Analysis",
+    "promptLatex": "A variable force exerted during time interval $\\Delta t$ changes the speed of mass $m$ from $v_0$ to $v_f$. Using dimensional analysis ($1\\text{ W} = 1\\text{ kg}\\cdot\\text{m}^2/\\text{s}^3$), which expression has units of average power?",
+    "optionsLatex": [
+      "$\\frac{m(v_f^2 - v_0^2)}{2\\Delta t}$",
+      "$\\frac{m(v_f - v_0)}{\\Delta t}$",
+      "$\\frac{1}{2}m(v_f^2 - v_0^2)\\Delta t$",
+      "$m(v_f - v_0)\\Delta t$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Power is energy per unit time: $[m v^2 / \\Delta t] = \\text{kg}\\cdot(\\text{m/s})^2 / \\text{s} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^3 = \\text{W}$. Choice 2 has units of force (N), and Choice 3 has units of action ($\\text{J}\\cdot\\text{s}$)."
+  },
+  {
+    "id": "ch1-05",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Unit Analysis",
+    "promptLatex": "An object falling through air experiences a linear drag force $F_{\\text{drag}} = -bv$. What are the SI base units of the drag coefficient $b$?",
+    "optionsLatex": [
+      "$\\text{kg/s}$",
+      "$\\text{kg}\\cdot\\text{m/s}$",
+      "$\\text{kg/m}$",
+      "$\\text{kg}\\cdot\\text{s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Solve for $[b] = [F]/[v] = (\\text{kg}\\cdot\\text{m/s}^2) / (\\text{m/s}) = \\text{kg/s}$."
+  },
+  {
+    "id": "ch1-06",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Unit Analysis",
+    "promptLatex": "In the elastic potential energy formula $U_s = \\frac{1}{2}kx^2$, what are the SI base units of the spring constant $k$?",
+    "optionsLatex": [
+      "$\\text{kg/s}^2$",
+      "$\\text{kg}\\cdot\\text{m/s}^2$",
+      "$\\text{kg}\\cdot\\text{m}^2/\\text{s}^2$",
+      "$\\text{kg/m}^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$[k] = [U_s]/[x^2] = (\\text{kg}\\cdot\\text{m}^2/\\text{s}^2)/\\text{m}^2 = \\text{kg/s}^2$ (equivalent to $\\text{N/m}$)."
+  },
+  {
+    "id": "ch1-07",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Unit Analysis",
+    "promptLatex": "From Newton's law of universal gravitation $F = \\frac{Gm_1 m_2}{r^2}$, what are the SI base units of the gravitational constant $G$?",
+    "optionsLatex": [
+      "$\\frac{\\text{m}^3}{\\text{kg}\\cdot\\text{s}^2}$",
+      "$\\frac{\\text{kg}\\cdot\\text{m}^3}{\\text{s}^2}$",
+      "$\\frac{\\text{m}^2}{\\text{kg}\\cdot\\text{s}^2}$",
+      "$\\frac{\\text{m}^3}{\\text{kg}^2\\cdot\\text{s}^2}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$[G] = \\frac{[F][r^2]}{[m^2]} = \\frac{(\\text{kg}\\cdot\\text{m/s}^2)(\\text{m}^2)}{\\text{kg}^2} = \\frac{\\text{m}^3}{\\text{kg}\\cdot\\text{s}^2}$."
+  },
+  {
+    "id": "ch1-08",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Dimensional Check",
+    "promptLatex": "Which expression for the period $T$ of a simple pendulum of mass $m$ and length $L$ in gravitational field $g$ is dimensionally consistent with time?",
+    "optionsLatex": [
+      "$2\\pi\\sqrt{\\frac{L}{g}}$",
+      "$2\\pi\\sqrt{\\frac{g}{L}}$",
+      "$2\\pi\\sqrt{\\frac{mL}{g}}$",
+      "$2\\pi\\frac{L}{g}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$[\\sqrt{L/g}] = \\sqrt{\\text{m} / (\\text{m/s}^2)} = \\sqrt{\\text{s}^2} = \\text{s}$. Including $m$ leaves an uncancelled $\\sqrt{\\text{kg}}$."
+  },
+  {
+    "id": "ch1-09",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Vector Geometry",
+    "promptLatex": "Two nonzero vectors $\\mathbf{A}$ and $\\mathbf{B}$ satisfy $|\\mathbf{A} \\times \\mathbf{B}| = \\mathbf{A} \\cdot \\mathbf{B}$. What is the angle $\\theta$ between $\\mathbf{A}$ and $\\mathbf{B}$?",
+    "optionsLatex": [
+      "$45^\\circ$",
+      "$0^\\circ$",
+      "$90^\\circ$",
+      "$60^\\circ$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$AB\\sin\\theta = AB\\cos\\theta \\implies \\tan\\theta = 1$, which gives $\\theta = 45^\\circ$ ($\\pi/4\\text{ rad}$)."
+  },
+  {
+    "id": "ch1-10",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Vector Subtraction",
+    "promptLatex": "Two vectors $\\mathbf{A}$ and $\\mathbf{B}$ each have magnitude $5.0$ and form an angle of $60^\\circ$ when placed tail-to-tail. What is the magnitude $|\\mathbf{A} - \\mathbf{B}|$?",
+    "optionsLatex": [
+      "$5.0$",
+      "$0$",
+      "$5\\sqrt{3}$",
+      "$10.0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By the law of cosines (or recognizing an equilateral triangle), $|\\mathbf{A} - \\mathbf{B}| = \\sqrt{5^2 + 5^2 - 2(5)(5)\\cos 60^\\circ} = \\sqrt{50 - 25} = 5.0$."
+  },
+  {
+    "id": "ch1-11",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Vector Components",
+    "promptLatex": "A velocity vector of magnitude $v$ is directed at an angle $\\phi$ measured clockwise from the $+y$-axis in the first quadrant. What are its Cartesian components $(v_x, v_y)$?",
+    "optionsLatex": [
+      "$(v\\sin\\phi,\\; v\\cos\\phi)$",
+      "$(v\\cos\\phi,\\; v\\sin\\phi)$",
+      "$(-v\\sin\\phi,\\; v\\cos\\phi)$",
+      "$(v\\cos\\phi,\\; -v\\sin\\phi)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because $\\phi$ is measured from the $+y$-axis rather than $+x$, the $x$-component is opposite $\\phi$ ($v\\sin\\phi$) and the $y$-component is adjacent ($v\\cos\\phi$)."
+  },
+  {
+    "id": "ch1-12",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Extreme Value Check",
+    "promptLatex": "In an ideal Atwood machine with masses $m_1$ and $m_2$, which expression for the magnitude of acceleration $a$ passes the limiting-case test when $m_1 = m_2$ and when $m_2 \\gg m_1$?",
+    "optionsLatex": [
+      "$g\\frac{|m_2 - m_1|}{m_1 + m_2}$",
+      "$g\\frac{m_1 + m_2}{|m_2 - m_1|}$",
+      "$g\\frac{|m_2 - m_1|}{m_1 m_2}$",
+      "$g\\frac{m_2}{m_1}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "When $m_1 = m_2$, the system is balanced so $a$ must equal $0$ (eliminates Choices 2 and 4). When $m_2 \\gg m_1$, $m_2$ approaches free fall so $a \\to g$, matching $g|m_2 - m_1|/(m_1 + m_2)$."
+  },
+  {
+    "id": "ch1-13",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Cross Product",
+    "promptLatex": "What is the cross product $\\mathbf{A} \\times \\mathbf{B}$ of $\\mathbf{A} = 2\\hat{i} - 6\\hat{j} + 4\\hat{k}$ and $\\mathbf{B} = -\\hat{i} + 3\\hat{j} - 2\\hat{k}$?",
+    "optionsLatex": [
+      "$\\mathbf{0}$",
+      "$-2\\hat{i} - 18\\hat{j} - 8\\hat{k}$",
+      "$28\\hat{k}$",
+      "$-28$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Notice that $\\mathbf{A} = -2\\mathbf{B}$, so the vectors are antiparallel ($\\theta = 180^\\circ$). Since $\\sin 180^\\circ = 0$, $\\mathbf{A} \\times \\mathbf{B} = \\mathbf{0}$."
+  },
+  {
+    "id": "ch1-14",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Unit Vectors",
+    "promptLatex": "Which vector is a unit vector pointing in the exact same direction as $\\mathbf{r} = 3\\hat{i} - 4\\hat{j}$?",
+    "optionsLatex": [
+      "$0.6\\hat{i} - 0.8\\hat{j}$",
+      "$0.6\\hat{i} + 0.8\\hat{j}$",
+      "$\\frac{1}{7}(3\\hat{i} - 4\\hat{j})$",
+      "$3\\hat{i} - 4\\hat{j}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Divide $\\mathbf{r}$ by its magnitude $|\\mathbf{r}| = \\sqrt{3^2 + (-4)^2} = 5$: $\\hat{r} = \\frac{3}{5}\\hat{i} - \\frac{4}{5}\\hat{j} = 0.6\\hat{i} - 0.8\\hat{j}$."
+  },
+  {
+    "id": "ch1-15",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Small-Angle Approximation",
+    "promptLatex": "For very small angles $\\theta \\ll 1\\text{ rad}$, $\\cos\\theta \\approx 1 - \\frac{\\theta^2}{2}$. Which expression approximates $1 - \\cos\\theta$ in this limit?",
+    "optionsLatex": [
+      "$\\frac{\\theta^2}{2}$",
+      "$\\theta$",
+      "$1 - \\theta$",
+      "$\\theta^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Substituting $\\cos\\theta \\approx 1 - \\frac{\\theta^2}{2}$ gives $1 - \\left(1 - \\frac{\\theta^2}{2}\\right) = \\frac{\\theta^2}{2}$."
+  },
+  {
+    "id": "ch1-16",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Unit Analysis",
+    "promptLatex": "A particle's position is modeled by $x(t) = A t^3 + B e^{-ct}$, where $x$ is in meters and $t$ is in seconds. What are the SI units of $A$ and $c$?",
+    "optionsLatex": [
+      "$A: \\text{m/s}^3,\\quad c: \\text{s}^{-1}$",
+      "$A: \\text{m}\\cdot\\text{s}^3,\\quad c: \\text{s}$",
+      "$A: \\text{m/s}^3,\\quad c: \\text{m/s}$",
+      "$A: \\text{m/s}^2,\\quad c: \\text{s}^{-1}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Each added term must have units of meters ($[A]\\text{s}^3 = \\text{m} \\implies [A] = \\text{m/s}^3$), and the exponent $-ct$ must be dimensionless ($[c]\\text{s} = 1 \\implies [c] = \\text{s}^{-1}$)."
+  },
+  {
+    "id": "ch1-17",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "derivation_order",
+    "skillTag": "Vector Algebra",
+    "promptLatex": "Order the steps to find the angle $\\theta$ between two 3D vectors $\\mathbf{A}$ and $\\mathbf{B}$ given in Cartesian components:",
+    "stepsLatex": [
+      "Compute the dot product $\\mathbf{A} \\cdot \\mathbf{B} = A_x B_x + A_y B_y + A_z B_z$",
+      "Compute the magnitudes $A = \\sqrt{A_x^2 + A_y^2 + A_z^2}$ and $B = \\sqrt{B_x^2 + B_y^2 + B_z^2}$",
+      "Substitute into $\\cos\\theta = \\frac{\\mathbf{A} \\cdot \\mathbf{B}}{AB}$",
+      "Take the inverse cosine: $\\theta = \\cos^{-1}\\!\\left(\\frac{\\mathbf{A} \\cdot \\mathbf{B}}{AB}\\right)$"
+    ],
+    "explanationLatex": "Combining the component and geometric definitions of the dot product isolates $\\cos\\theta$ cleanly without needing a 3D cross product."
+  },
+  {
+    "id": "ch1-18",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "derivation_order",
+    "skillTag": "Problem-Solving Strategy",
+    "promptLatex": "Order Barron's recommended sequence for verifying a symbolic multiple-choice answer before doing lengthy algebra:",
+    "stepsLatex": [
+      "Check the SI units of each answer choice and eliminate any with the wrong dimension",
+      "Test extreme values of system parameters (such as $m \\to 0$, $\\theta \\to 0$, or $r \\to \\infty$)",
+      "Check whether any irrelevant parameter appears in an option",
+      "Confirm the sign or direction of the surviving expression"
+    ],
+    "explanationLatex": "Dimensional analysis and limiting-case checks often eliminate 3 out of 4 or 4 out of 5 AP Physics C multiple-choice options in seconds."
+  },
+  {
+    "id": "ch1-19",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Vector Magnitudes",
+    "promptLatex": "If two vectors $\\mathbf{P}$ and $\\mathbf{Q}$ are perpendicular, what is $|\\mathbf{P} + \\mathbf{Q}|^2 - |\\mathbf{P} - \\mathbf{Q}|^2$?",
+    "optionsLatex": [
+      "$0$",
+      "$2PQ$",
+      "$4PQ$",
+      "$P^2 + Q^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because $\\mathbf{P} \\perp \\mathbf{Q}$, both $\\mathbf{P} + \\mathbf{Q}$ and $\\mathbf{P} - \\mathbf{Q}$ form the hypotenuse of a right triangle with legs $P$ and $Q$, so both squared magnitudes equal $P^2 + Q^2$ and their difference is $0$."
+  },
+  {
+    "id": "ch1-20",
+    "chapter": 1,
+    "unit": "Ch. 1: Background & Vectors",
+    "type": "mcq",
+    "skillTag": "Scalar Projection",
+    "promptLatex": "What is the scalar component of force $\\mathbf{F} = (10\\hat{i} - 5\\hat{j})\\text{ N}$ along the unit direction $\\hat{u} = 0.6\\hat{i} + 0.8\\hat{j}$?",
+    "optionsLatex": [
+      "$2.0\\text{ N}$",
+      "$10.0\\text{ N}$",
+      "$-2.0\\text{ N}$",
+      "$6.0\\text{ N}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The scalar projection along a unit vector is $F_u = \\mathbf{F} \\cdot \\hat{u} = (10)(0.6) + (-5)(0.8) = 6.0 - 4.0 = 2.0\\text{ N}$."
+  },
+  {
+    "id": "ch2-01",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Calculus Kinematics",
+    "promptLatex": "The position of an object is given by $x(t) = 2 + 4t - t^2$, where $x$ is in meters and $t$ is in seconds. What is the particle's average acceleration from $t = 0$ to $t = 2\\text{ s}$?",
+    "optionsLatex": [
+      "$-2\\text{ m/s}^2$",
+      "$-4\\text{ m/s}^2$",
+      "$0\\text{ m/s}^2$",
+      "$2\\text{ m/s}^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Differentiating twice gives $v(t) = \\frac{dx}{dt} = 4 - 2t$ and $a(t) = \\frac{dv}{dt} = -2\\text{ m/s}^2$. Since acceleration is constant, the average acceleration over any interval is $-2\\text{ m/s}^2$."
+  },
+  {
+    "id": "ch2-02",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Constant Acceleration Scaling",
+    "promptLatex": "A $400\\text{ kg}$ car accelerates from rest to a final speed $v$ over a distance $d$. Assuming the same constant acceleration, what speed does the car reach from rest over a distance $2d$?",
+    "optionsLatex": [
+      "$\\sqrt{2}\\,v$",
+      "$2v$",
+      "$4v$",
+      "$\\frac{v}{\\sqrt{2}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "From $v_f^2 = v_0^2 + 2a\\Delta x$ with $v_0 = 0$, $v_f = \\sqrt{2ad} \\propto \\sqrt{d}$. Doubling the distance increases speed by $\\sqrt{2}$."
+  },
+  {
+    "id": "ch2-03",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Kinematics Graphs",
+    "promptLatex": "Two objects start at different positions and move along the $x$-axis. Between $t = 0$ and $t = t_f$, the area under their $v(t)$ graphs is identical. Which quantity must be the same for both objects over $[0, t_f]$?",
+    "optionsLatex": [
+      "Both total displacement and average velocity",
+      "Only total displacement",
+      "Only average velocity",
+      "Average acceleration"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The signed area under $v(t)$ equals total displacement $\\Delta x = \\int_0^{t_f} v(t)\\,dt$. Since $\\Delta x$ and $\\Delta t = t_f$ are identical, average velocity $\\bar{v} = \\Delta x / t_f$ must also be identical."
+  },
+  {
+    "id": "ch2-04",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Average Value Integral",
+    "promptLatex": "The velocity of a particle moving in 1D is $v(t) = 4 + 3t^2$ (in $\\text{m/s}$). What is its average velocity on the interval $t = 0$ to $t = 2\\text{ s}$?",
+    "optionsLatex": [
+      "$8\\text{ m/s}$",
+      "$10\\text{ m/s}$",
+      "$12\\text{ m/s}$",
+      "$16\\text{ m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$\\bar{v} = \\frac{1}{2 - 0}\\int_0^2 (4 + 3t^2)\\,dt = \\frac{1}{2}\\left[4t + t^3\\right]_0^2 = \\frac{8 + 8}{2} = 8\\text{ m/s}$."
+  },
+  {
+    "id": "ch2-05",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Graph Interpretation",
+    "promptLatex": "An object is dropped from rest ($v(0)=0$) and falls downward under gravity and air resistance, smoothly approaching terminal velocity $v_t$. Which description matches its downward position graph $y(t)$?",
+    "optionsLatex": [
+      "Starts with zero slope, curves concave-up initially, and approaches a straight line of constant positive slope $v_t$",
+      "Starts with steep slope and curves concave-down to a horizontal asymptote",
+      "Increases linearly with constant slope from $t = 0$",
+      "Forms a symmetric parabola opening downward"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The slope of $y(t)$ is $v(t)$. Since $v(0) = 0$ and $v(t)$ increases toward $v_t$, $y(t)$ starts flat, steepens (concave up), and asymptotically becomes a straight line with slope $v_t$."
+  },
+  {
+    "id": "ch2-06",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Projectile Motion",
+    "promptLatex": "Three projectiles $A$, $B$, and $C$ are launched over level ground and reach the exact same maximum height $H$, with horizontal ranges $R_A < R_B < R_C$. Which projectile spends the most time in the air?",
+    "optionsLatex": [
+      "All three spend the exact same amount of time in the air",
+      "Projectile $C$",
+      "Projectile $A$",
+      "Projectiles $A$ and $C$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Time of flight depends solely on vertical motion. Reaching the same maximum height $H$ requires the same initial vertical velocity $v_{0y} = \\sqrt{2gH}$, giving the same flight time $t = 2\\sqrt{2H/g}$."
+  },
+  {
+    "id": "ch2-07",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Relative Velocity",
+    "promptLatex": "Two boats start at the same dock and move with constant velocities $\\mathbf{v}_1 = (3\\hat{i} + 2\\hat{j})\\text{ m/s}$ and $\\mathbf{v}_2 = (-1\\hat{i} + 5\\hat{j})\\text{ m/s}$. At what rate is the distance between them increasing?",
+    "optionsLatex": [
+      "$5\\text{ m/s}$",
+      "$7\\text{ m/s}$",
+      "$\\sqrt{13}\\text{ m/s}$",
+      "$1\\text{ m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The relative velocity vector is $\\mathbf{v}_{12} = \\mathbf{v}_1 - \\mathbf{v}_2 = (3 - (-1))\\hat{i} + (2 - 5)\\hat{j} = 4\\hat{i} - 3\\hat{j}$. Its magnitude is $\\sqrt{4^2 + (-3)^2} = 5\\text{ m/s}$."
+  },
+  {
+    "id": "ch2-08",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Non-Uniform Circular Motion",
+    "promptLatex": "A particle moves along a curved path with a nonzero tangential acceleration $a_t = +cv$ (parallel to $\\mathbf{v}$) and a nonzero normal acceleration $a_n$. Which statement is true?",
+    "optionsLatex": [
+      "The particle's speed is increasing while its direction of motion is changing",
+      "The particle must be moving in a circle of constant radius",
+      "The particle's speed is constant",
+      "The net acceleration is perpendicular to velocity"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "A tangential component parallel to $\\mathbf{v}$ increases speed ($dv/dt > 0$), while a perpendicular component changes the direction of $\\mathbf{v}$ along any curved path (not necessarily a circle)."
+  },
+  {
+    "id": "ch2-09",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Circular Motion Vectors",
+    "promptLatex": "At a certain instant, a particle moving on a circular track in the $xy$-plane has velocity in the $+y$-direction and acceleration with components in both the $+x$ and $+y$ directions. How is the particle moving?",
+    "optionsLatex": [
+      "Clockwise with increasing speed",
+      "Counterclockwise with increasing speed",
+      "Clockwise with decreasing speed",
+      "Counterclockwise with decreasing speed"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "With $\\mathbf{v}$ along $+y$, $+a_y$ is parallel to $\\mathbf{v}$ (speeding up), and $+a_x$ points toward the center of curvature to the right, which corresponds to clockwise motion."
+  },
+  {
+    "id": "ch2-10",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Angular Kinematics",
+    "promptLatex": "If the angular position of a rotating disk is given by $\\theta(t) = 2 + 4t - 3t^2$, what is its angular velocity $\\omega(t)$?",
+    "optionsLatex": [
+      "$4 - 6t$",
+      "$6t - 4$",
+      "$2t + 2t^2 - t^3$",
+      "$-6$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Angular velocity is the time derivative of angular position: $\\omega(t) = \\frac{d\\theta}{dt} = 4 - 6t$."
+  },
+  {
+    "id": "ch2-11",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Variable Acceleration",
+    "promptLatex": "A particle moves along the $x$-axis with acceleration $a(t) = 6t - 2\\text{ m/s}^2$. If $v(0) = 3\\text{ m/s}$, what is its velocity at $t = 2\\text{ s}$?",
+    "optionsLatex": [
+      "$11\\text{ m/s}$",
+      "$8\\text{ m/s}$",
+      "$10\\text{ m/s}$",
+      "$13\\text{ m/s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$v(2) = v(0) + \\int_0^2 (6t - 2)\\,dt = 3 + \\left[3t^2 - 2t\\right]_0^2 = 3 + (12 - 4) = 11\\text{ m/s}$."
+  },
+  {
+    "id": "ch2-12",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Calculus Integration",
+    "promptLatex": "A particle starts at $x(0) = 0$ with velocity $v(t) = 12t^2 - 6t$ (in $\\text{m/s}$). At what time $t > 0$ does the particle return to the origin $x = 0$?",
+    "optionsLatex": [
+      "$0.75\\text{ s}$",
+      "$0.50\\text{ s}$",
+      "$1.50\\text{ s}$",
+      "$2.00\\text{ s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$x(t) = \\int_0^t (12\\tau^2 - 6\\tau)\\,d\\tau = 4t^3 - 3t^2 = t^2(4t - 3)$. Setting $x(t) = 0$ for $t > 0$ yields $t = \\frac{3}{4} = 0.75\\text{ s}$."
+  },
+  {
+    "id": "ch2-13",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Projectile Trajectory",
+    "promptLatex": "A projectile is launched over level ground at speed $v_0$ and angle $\\theta$ ($0 < \\theta < 90^\\circ$). What is the instantaneous radius of curvature $R_c$ of its parabolic path at the very top (apex) of its trajectory?",
+    "optionsLatex": [
+      "$\\frac{v_0^2 \\cos^2\\theta}{g}$",
+      "$\\frac{v_0^2 \\sin^2\\theta}{g}$",
+      "$\\frac{v_0^2}{g}$",
+      "$\\infty$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At the apex, $v_y = 0$ so speed is $v = v_0\\cos\\theta$, and acceleration $g$ is completely perpendicular to $\\mathbf{v}$. Setting $a_c = g = \\frac{v^2}{R_c}$ gives $R_c = \\frac{v_0^2\\cos^2\\theta}{g}$."
+  },
+  {
+    "id": "ch2-14",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Relative Motion",
+    "promptLatex": "A swimmer with speed $v_s$ in still water wants to cross a river of width $W$ flowing at speed $v_r < v_s$ in the **shortest possible time**. How should the swimmer aim, and what is the crossing time?",
+    "optionsLatex": [
+      "Aim straight across perpendicular to the current; $t = \\frac{W}{v_s}$",
+      "Aim upstream at $\\sin\\theta = v_r / v_s$; $t = \\frac{W}{\\sqrt{v_s^2 - v_r^2}}$",
+      "Aim straight across perpendicular to the current; $t = \\frac{W}{\\sqrt{v_s^2 + v_r^2}}$",
+      "Aim downstream at $45^\\circ$; $t = \\frac{W}{v_s + v_r}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Crossing time depends only on the velocity component perpendicular to the banks ($v_\\perp$). Maximizing $v_\\perp = v_s$ by aiming straight across minimizes time to $t = W/v_s$."
+  },
+  {
+    "id": "ch2-15",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Free Fall Scaling",
+    "promptLatex": "A ball dropped from rest from the roof of a tall building falls a total distance $H$ in time $T$. How far did it fall during the first $T/2$ of its drop?",
+    "optionsLatex": [
+      "$\\frac{H}{4}$",
+      "$\\frac{H}{2}$",
+      "$\\frac{H}{8}$",
+      "$\\frac{3H}{4}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "For free fall from rest, $y(t) = \\frac{1}{2}gt^2 \\propto t^2$. At $t = T/2$, $y(T/2) = \\frac{1}{2}g(T/2)^2 = \\frac{1}{4}H$."
+  },
+  {
+    "id": "ch2-16",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Chain Rule Kinematics",
+    "promptLatex": "A particle starts from rest at $x = 0$ and moves with position-dependent acceleration $a(x) = kx$, where $k$ is a positive constant. What is its speed $v(x)$?",
+    "optionsLatex": [
+      "$\\sqrt{k}\\,x$",
+      "$\\frac{1}{2}kx^2$",
+      "$\\sqrt{2k}\\,x$",
+      "$kx$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Use $a = v\\frac{dv}{dx} = kx \\implies \\int_0^v v'\\,dv' = \\int_0^x kx'\\,dx' \\implies \\frac{1}{2}v^2 = \\frac{1}{2}kx^2 \\implies v(x) = \\sqrt{k}\\,x$."
+  },
+  {
+    "id": "ch2-17",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Total Acceleration",
+    "promptLatex": "A bead slides along a circular wire of radius $R$ with constant angular acceleration $\\alpha$. At the instant its speed is $v$, what is the magnitude of its total acceleration?",
+    "optionsLatex": [
+      "$\\sqrt{(\\alpha R)^2 + \\left(\\frac{v^2}{R}\\right)^2}$",
+      "$\\alpha R + \\frac{v^2}{R}$",
+      "$\\sqrt{\\alpha^2 + \\left(\\frac{v^2}{R}\\right)^2}$",
+      "$\\frac{v^2}{R}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Tangential acceleration is $a_t = \\alpha R$ and centripetal acceleration is $a_r = v^2/R$. Since they are perpendicular, $a_{\\text{total}} = \\sqrt{a_t^2 + a_r^2}$."
+  },
+  {
+    "id": "ch2-18",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "derivation_order",
+    "skillTag": "Calculus Setup",
+    "promptLatex": "Order the steps to derive $x(t)$ for a particle with acceleration $a(t) = bt$ given $v(0) = v_0$ and $x(0) = x_0$:",
+    "stepsLatex": [
+      "Integrate acceleration over time: $v(t) = v_0 + \\int_0^t b\\tau\\,d\\tau$",
+      "Evaluate the velocity function: $v(t) = v_0 + \\frac{1}{2}bt^2$",
+      "Integrate velocity over time: $x(t) = x_0 + \\int_0^t \\left(v_0 + \\frac{1}{2}b\\tau^2\\right)d\\tau$",
+      "Obtain the final position function: $x(t) = x_0 + v_0 t + \\frac{1}{6}bt^3$"
+    ],
+    "explanationLatex": "When acceleration is non-uniform, constant-acceleration kinematics formulas fail—you must integrate $a(t)$ to get $v(t)$, then integrate $v(t)$ to get $x(t)$."
+  },
+  {
+    "id": "ch2-19",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "derivation_order",
+    "skillTag": "Projectile Derivation",
+    "promptLatex": "Order the steps to derive the horizontal range $R$ of a projectile launched at speed $v_0$ and angle $\\theta$ over level ground:",
+    "stepsLatex": [
+      "Decompose initial velocity into $v_{0x} = v_0\\cos\\theta$ and $v_{0y} = v_0\\sin\\theta$",
+      "Set vertical displacement $y(t) = (v_0\\sin\\theta)t - \\frac{1}{2}gt^2 = 0$ to solve for flight time $t = \\frac{2v_0\\sin\\theta}{g}$",
+      "Substitute $t$ into horizontal displacement: $R = (v_0\\cos\\theta)\\left(\\frac{2v_0\\sin\\theta}{g}\\right)$",
+      "Apply $2\\sin\\theta\\cos\\theta = \\sin(2\\theta)$ to get $R = \\frac{v_0^2\\sin(2\\theta)}{g}$"
+    ],
+    "explanationLatex": "Using the vertical equation to find time of flight and plugging into $x(t) = v_{0x}t$ is the universal template for 2D projectile problems."
+  },
+  {
+    "id": "ch2-20",
+    "chapter": 2,
+    "unit": "Ch. 2: Kinematics",
+    "type": "mcq",
+    "skillTag": "Projectile Comparison",
+    "promptLatex": "Two projectiles are launched simultaneously from the origin with identical horizontal velocity components $v_{1x} = v_{2x}$, but $v_{1y} > v_{2y}$. Both strike a vertical wall at $x = D$ before hitting the ground. Which hits the wall first, and which hits higher?",
+    "optionsLatex": [
+      "They hit at the same time; Projectile 1 hits higher",
+      "Projectile 1 hits first and higher",
+      "Projectile 2 hits first; Projectile 1 hits higher",
+      "They hit at the same time and at the same height"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because $v_{1x} = v_{2x}$, both take the exact same time $t = D/v_x$ to reach $x = D$. Since $v_{1y} > v_{2y}$, $y_1(t) = v_{1y}t - \\frac{1}{2}gt^2 > y_2(t)$."
+  },
+  {
+    "id": "ch3-01",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Pulley Constraints",
+    "promptLatex": "In a two-pulley system, block $m_1$ hangs from a movable pulley supported by two vertical segments of a single rope, while the other end of the rope is tied to hanging block $m_2$. What is the constraint between their accelerations $a_1$ and $a_2$?",
+    "optionsLatex": [
+      "$a_2 = 2a_1$",
+      "$a_1 = 2a_2$",
+      "$a_1 = a_2$",
+      "$a_2 = 4a_1$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "When $m_1$ moves by $\\Delta y_1$, both vertical rope segments supporting its pulley shorten by $\\Delta y_1$, releasing $2\\Delta y_1$ of rope to $m_2$. Differentiating twice gives $a_2 = 2a_1$."
+  },
+  {
+    "id": "ch3-02",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Multi-Body Tension",
+    "promptLatex": "A chain of $N$ identical blocks, each of mass $m$, is pulled to the right across a horizontal surface (coefficient of kinetic friction $\\mu_k$) with acceleration $a$. What is the tension $T_i$ in the string connecting block $i$ (counting from the left) to block $i + 1$?",
+    "optionsLatex": [
+      "$T_i = i(ma + \\mu_k mg)$",
+      "$T_i = i(ma - \\mu_k mg)$",
+      "$T_i = (N - i)(ma + \\mu_k mg)$",
+      "$T_i = (i + 1)(ma + \\mu_k mg)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Treat blocks $1$ through $i$ as a single system of total mass $im$. Newton's second law gives $T_i - f_k = (im)a \\implies T_i - \\mu_k(im)g = ima \\implies T_i = i(ma + \\mu_k mg)$."
+  },
+  {
+    "id": "ch3-03",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Vertical Circular Motion",
+    "promptLatex": "A ball attached to a string of length $r$ swings in a vertical circle. At the exact instant the string is horizontal and the ball is moving straight upward with speed $v$, what is the rate of change of the ball's speed ($dv/dt$)?",
+    "optionsLatex": [
+      "$-g$",
+      "$0$",
+      "$+g$",
+      "$-\\sqrt{g^2 + (v^2/r)^2}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Rate of change of speed equals tangential acceleration $a_t$. When the string is horizontal, tension is purely radial ($a_r = v^2/r$), while gravity acts purely tangentially downward opposite to the upward velocity, so $dv/dt = -g$."
+  },
+  {
+    "id": "ch3-04",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Normal Force",
+    "promptLatex": "A force $F$ directed at an angle $\\theta$ above the horizontal pulls a block of mass $m$ to the right across a rough floor with coefficient of kinetic friction $\\mu_k$. What is the magnitude of the normal force $F_N$?",
+    "optionsLatex": [
+      "$mg - F\\sin\\theta$",
+      "$mg + F\\sin\\theta$",
+      "$mg\\cos\\theta$",
+      "$mg - F\\cos\\theta$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Since there is no vertical acceleration, $\\sum F_y = F_N + F\\sin\\theta - mg = 0 \\implies F_N = mg - F\\sin\\theta$."
+  },
+  {
+    "id": "ch3-05",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Calculus Force",
+    "promptLatex": "A particle of mass $m$ moves along the $x$-axis according to $x(t) = at^4 - bt^3$. What is the net force $F(t)$ acting on the particle?",
+    "optionsLatex": [
+      "$m(12at^2 - 6bt)$",
+      "$m(4at^3 - 3bt^2)$",
+      "$m(24at - 6b)$",
+      "$12at^2 - 6bt$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Differentiate twice: $v(t) = 4at^3 - 3bt^2$ and $a(t) = 12at^2 - 6bt$. By Newton's second law, $F(t) = ma(t) = m(12at^2 - 6bt)$."
+  },
+  {
+    "id": "ch3-06",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Static Equilibrium",
+    "promptLatex": "A traffic light hangs in static equilibrium from two cables angled at $\\theta_1$ (left) and $\\theta_2$ (right) relative to the vertical, with tensions $T_1$ and $T_2$. Which equation expresses horizontal equilibrium?",
+    "optionsLatex": [
+      "$T_1 \\sin\\theta_1 = T_2 \\sin\\theta_2$",
+      "$T_1 \\cos\\theta_1 = T_2 \\cos\\theta_2$",
+      "$T_1 \\sin\\theta_1 + T_2 \\sin\\theta_2 = mg$",
+      "$T_1 = T_2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because the angles are measured from the vertical, the horizontal components are $T_1\\sin\\theta_1$ (left) and $T_2\\sin\\theta_2$ (right). Setting $\\sum F_x = 0$ gives $T_1\\sin\\theta_1 = T_2\\sin\\theta_2$."
+  },
+  {
+    "id": "ch3-07",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Banked Curve",
+    "promptLatex": "A car of mass $m$ travels around a circular track of radius $r$ banked at an angle $\\theta$. At what speed $v$ is there zero static friction required between the tires and the road?",
+    "optionsLatex": [
+      "$\\sqrt{rg\\tan\\theta}$",
+      "$\\sqrt{rg\\sin\\theta}$",
+      "$\\sqrt{\\frac{rg}{\\tan\\theta}}$",
+      "$\\sqrt{rg\\cos\\theta}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Using horizontal and vertical axes: $F_N\\cos\\theta = mg$ and $F_N\\sin\\theta = \\frac{mv^2}{r}$. Dividing the second equation by the first yields $\\tan\\theta = \\frac{v^2}{rg} \\implies v = \\sqrt{rg\\tan\\theta}$."
+  },
+  {
+    "id": "ch3-08",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Banked Curve with Friction",
+    "promptLatex": "A car rounds a curve of radius $r$ banked at angle $\\theta$ with static friction coefficient $\\mu_s$. What is the maximum speed $v_{\\max}$ before the car slides up the incline?",
+    "optionsLatex": [
+      "$\\sqrt{rg\\frac{\\sin\\theta + \\mu_s\\cos\\theta}{\\cos\\theta - \\mu_s\\sin\\theta}}$",
+      "$\\sqrt{rg\\frac{\\sin\\theta - \\mu_s\\cos\\theta}{\\cos\\theta + \\mu_s\\sin\\theta}}$",
+      "$\\sqrt{rg(\\tan\\theta + \\mu_s)}$",
+      "$\\sqrt{\\mu_s rg\\cos\\theta}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At $v_{\\max}$, static friction $f_s = \\mu_s F_N$ points down the incline to help keep the car from sliding outward. Setting $\\mu_s = 0$ cleanly reduces the expression to $\\sqrt{rg\\tan\\theta}$."
+  },
+  {
+    "id": "ch3-09",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Modified Atwood Machine",
+    "promptLatex": "Block $m_1$ rests on a frictionless horizontal airtrack and is connected by a light string over an ideal pulley to a hanging mass $m_2$. What is the tension $T$ in the string while the system accelerates?",
+    "optionsLatex": [
+      "$\\frac{m_1 m_2 g}{m_1 + m_2}$",
+      "$m_2 g$",
+      "$\\frac{m_2^2 g}{m_1 + m_2}$",
+      "$\\frac{(m_1 + m_2)g}{m_1 m_2}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "System acceleration is $a = \\frac{m_2 g}{m_1 + m_2}$. Applying $T = m_1 a$ to the block on the airtrack gives $T = \\frac{m_1 m_2 g}{m_1 + m_2} < m_2 g$."
+  },
+  {
+    "id": "ch3-10",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Circular Friction",
+    "promptLatex": "Riders stand against the inner vertical wall of a spinning cylindrical rotor ride of radius $R$ with coefficient of static friction $\\mu_s$. What is the minimum linear speed $v$ required so riders do not slip down when the floor drops?",
+    "optionsLatex": [
+      "$\\sqrt{\\frac{gR}{\\mu_s}}$",
+      "$\\sqrt{\\mu_s gR}$",
+      "$\\frac{gR}{\\mu_s}$",
+      "$\\sqrt{\\frac{\\mu_s g}{R}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The wall's normal force provides centripetal force: $F_N = \\frac{mv^2}{R}$. Vertical equilibrium requires $mg = f_s \\le \\mu_s F_N = \\mu_s\\frac{mv^2}{R} \\implies v_{\\min} = \\sqrt{\\frac{gR}{\\mu_s}}$."
+  },
+  {
+    "id": "ch3-11",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Newton's Third Law",
+    "promptLatex": "A baseball of mass $m_b$ is falling toward Earth of mass $m_E$. If $a_b$ is the acceleration of the baseball due to Earth and $a_E$ is the acceleration of Earth due to the baseball, which statement is true?",
+    "optionsLatex": [
+      "$a_b \\gg a_E$, and the accelerations are antiparallel",
+      "$a_b \\gg a_E$, and the accelerations are parallel",
+      "$a_b = a_E$, and the accelerations are antiparallel",
+      "$a_E = 0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By Newton's third law, Earth and the baseball exert equal and opposite gravitational forces on each other. Since $m_E \\gg m_b$, $a_b = F/m_b \\gg a_E = F/m_E$, and they point in opposite (antiparallel) directions."
+  },
+  {
+    "id": "ch3-12",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Elevator FBD",
+    "promptLatex": "A student of mass $m$ stands on a bathroom scale inside an elevator that is accelerating downward with magnitude $a$ ($a < g$). What normal force does the scale read?",
+    "optionsLatex": [
+      "$m(g - a)$",
+      "$m(g + a)$",
+      "$mg$",
+      "$ma$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Taking downward as positive, $\\sum F_y = mg - F_N = ma \\implies F_N = m(g - a)$. Notice that in free fall ($a = g$), the scale reads $0$."
+  },
+  {
+    "id": "ch3-13",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Atwood Pin Force",
+    "promptLatex": "Two unequal masses $m_1$ and $m_2$ hang on opposite sides of an ideal, frictionless, massless pulley suspended from the ceiling by a pin. What is the upward force $F_{\\text{pin}}$ exerted by the pin on the pulley while the masses accelerate?",
+    "optionsLatex": [
+      "$\\frac{4m_1 m_2 g}{m_1 + m_2}$",
+      "$(m_1 + m_2)g$",
+      "$\\frac{2m_1 m_2 g}{m_1 + m_2}$",
+      "$|m_2 - m_1|g$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The pulley is not translating, so $F_{\\text{pin}} = 2T$. Since Atwood tension is $T = \\frac{2m_1 m_2 g}{m_1 + m_2}$, $F_{\\text{pin}} = \\frac{4m_1 m_2 g}{m_1 + m_2}$ (check: when $m_1 = m_2 = m$, $F_{\\text{pin}} = 2mg$)."
+  },
+  {
+    "id": "ch3-14",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Terminal Velocity",
+    "promptLatex": "An object of mass $m$ falls through a fluid that exerts a linear resistive drag force $F_{\\text{drag}} = -bv$. What is the object's terminal speed $v_t$?",
+    "optionsLatex": [
+      "$\\frac{mg}{b}$",
+      "$\\sqrt{\\frac{mg}{b}}$",
+      "$\\frac{b}{mg}$",
+      "$\\frac{mg}{b^2}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At terminal speed, acceleration is zero so drag balances gravity: $bv_t = mg \\implies v_t = \\frac{mg}{b}$."
+  },
+  {
+    "id": "ch3-15",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Drag Differential Equation",
+    "promptLatex": "An object of mass $m$ is released from rest in a medium with drag $F_{\\text{drag}} = -bv$, giving $v(t) = v_t(1 - e^{-t/\\tau})$. What is the time constant $\\tau$?",
+    "optionsLatex": [
+      "$\\frac{m}{b}$",
+      "$\\frac{b}{m}$",
+      "$\\frac{mg}{b}$",
+      "$mb$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "From $m\\frac{dv}{dt} = mg - bv$, dividing by $m$ gives $\\frac{dv}{dt} = g - \\frac{b}{m}v$. The exponential rate is $\\frac{b}{m}$, so the time constant is $\\tau = \\frac{m}{b}$ (units: $\\text{kg}/(\\text{kg/s}) = \\text{s}$)."
+  },
+  {
+    "id": "ch3-16",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Inclined Plane FBD",
+    "promptLatex": "A block of mass $m$ is pushed up a rough incline of angle $\\theta$ by a purely horizontal force $F$. What is the normal force $F_N$ exerted by the incline on the block?",
+    "optionsLatex": [
+      "$mg\\cos\\theta + F\\sin\\theta$",
+      "$mg\\cos\\theta - F\\sin\\theta$",
+      "$mg\\cos\\theta$",
+      "$mg\\sin\\theta + F\\cos\\theta$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Resolving forces perpendicular to the incline: both $mg\\cos\\theta$ and $F\\sin\\theta$ push the block into the surface, so $F_N = mg\\cos\\theta + F\\sin\\theta$."
+  },
+  {
+    "id": "ch3-17",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Contact Forces",
+    "promptLatex": "Three blocks of masses $m_1$, $m_2$, and $m_3$ sit in a row on a frictionless table. A horizontal force $F$ pushes $m_1$ to the right. What is the magnitude of the contact force exerted by $m_2$ on $m_3$?",
+    "optionsLatex": [
+      "$\\frac{m_3 F}{m_1 + m_2 + m_3}$",
+      "$\\frac{(m_2 + m_3)F}{m_1 + m_2 + m_3}$",
+      "$\\frac{m_1 F}{m_1 + m_2 + m_3}$",
+      "$\\frac{F}{3}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "All three blocks share acceleration $a = \\frac{F}{m_1 + m_2 + m_3}$. The only horizontal force on $m_3$ is the contact force from $m_2$, so $F_{2\\text{ on }3} = m_3 a = \\frac{m_3 F}{m_1 + m_2 + m_3}$."
+  },
+  {
+    "id": "ch3-18",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "derivation_order",
+    "skillTag": "Differential Equations",
+    "promptLatex": "Order the steps to derive $v(t)$ for an object of mass $m$ falling from rest ($v(0) = 0$) with linear air drag $F_{\\text{drag}} = -bv$:",
+    "stepsLatex": [
+      "Write Newton's second law downward: $m\\frac{dv}{dt} = mg - bv$",
+      "Separate variables: $\\frac{dv}{g - (b/m)v} = dt$",
+      "Integrate both sides from $0$ to $v$ and $0$ to $t$: $-\\frac{m}{b}\\ln\\!\\left(\\frac{g - (b/m)v}{g}\\right) = t$",
+      "Exponentiate and solve for $v(t)$: $v(t) = \\frac{mg}{b}\\left(1 - e^{-(b/m)t}\\right)$"
+    ],
+    "explanationLatex": "Separating variables in $m\\frac{dv}{dt} = mg - bv$ is one of the highest-yield calculus derivations on the AP Physics C Mechanics FRQ section."
+  },
+  {
+    "id": "ch3-19",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "derivation_order",
+    "skillTag": "Banked Curve Derivation",
+    "promptLatex": "Order the steps to derive the frictionless banked-curve speed $v = \\sqrt{rg\\tan\\theta}$:",
+    "stepsLatex": [
+      "Choose horizontal ($x$, toward center) and vertical ($y$) axes rather than tilted axes",
+      "Write vertical equilibrium: $F_N\\cos\\theta - mg = 0 \\implies F_N = \\frac{mg}{\\cos\\theta}$",
+      "Write radial centripetal force equation: $F_N\\sin\\theta = \\frac{mv^2}{r}$",
+      "Substitute $F_N$ to get $mg\\tan\\theta = \\frac{mv^2}{r} \\implies v = \\sqrt{rg\\tan\\theta}$"
+    ],
+    "explanationLatex": "Because the car's centripetal acceleration points horizontally toward the center of the circle, keeping axes horizontal and vertical avoids splitting $a_c$ into components."
+  },
+  {
+    "id": "ch3-20",
+    "chapter": 3,
+    "unit": "Ch. 3: Newton's Laws",
+    "type": "mcq",
+    "skillTag": "Quadratic Drag",
+    "promptLatex": "A skydiver of mass $m$ experiences quadratic air drag $F_{\\text{drag}} = cv^2$. If the skydiver carries extra gear that doubles the total mass to $2m$ without changing cross-sectional area (so $c$ stays constant), by what factor does terminal speed $v_t$ change?",
+    "optionsLatex": [
+      "$\\sqrt{2}$",
+      "$2$",
+      "$4$",
+      "$\\frac{1}{\\sqrt{2}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At terminal velocity, $cv_t^2 = mg \\implies v_t = \\sqrt{\\frac{mg}{c}} \\propto \\sqrt{m}$. Doubling mass increases $v_t$ by a factor of $\\sqrt{2}$."
+  }
+]

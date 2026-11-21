@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="AP Physics C Trainer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g fill="none" stroke="#34d399" stroke-width="26" stroke-linecap="round">
+    <path d="M120 340 Q256 120 392 340"/>
+    <circle cx="120" cy="340" r="16" fill="#34d399" stroke="none"/>
+    <circle cx="392" cy="340" r="16" fill="#34d399" stroke="none"/>
+    <circle cx="256" cy="230" r="16" fill="#fbbf24" stroke="none"/>
+  </g>
+</svg>
