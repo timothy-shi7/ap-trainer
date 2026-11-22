@@ -1978,5 +1978,947 @@
       "Cancel $m$ and solve for $\\omega$: $\\omega = \\sqrt{\\frac{3g}{L}}$"
     ],
     "explanationLatex": "For a pure fixed-axis rotation, all kinetic energy is captured by $\\frac{1}{2}I_{\\text{pivot}}\\omega^2$—do not double-count translational CM kinetic energy."
+  },
+  {
+    "id": "ch7-info-01",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "info",
+    "skillTag": "Concept Brief: Rotational Inertia",
+    "title": "Continuous Rotational Inertia & Parallel Axis Theorem",
+    "formulaLatex": "$$I = \\int r^2\\,dm, \\qquad I = I_{\\text{cm}} + Md^2$$",
+    "bulletsLatex": [
+      "Choose a differential mass element $dm$ where every piece is at the same distance $r$ from the axis (line segments $dx$ for rods, concentric rings $2\\pi r\\,dr$ for disks).",
+      "Memorize key $I_{\\text{cm}}$ values: Hoop $MR^2$, Solid Disk/Cylinder $\\frac{1}{2}MR^2$, Solid Sphere $\\frac{2}{5}MR^2$, Hollow Sphere $\\frac{2}{3}MR^2$, Rod (center) $\\frac{1}{12}ML^2$."
+    ],
+    "trapLatex": "Exam Trap: The Parallel Axis Theorem $I = I_{\\text{cm}} + Md^2$ ONLY works if one of the two parallel axes passes directly through the object's center of mass."
+  },
+  {
+    "id": "ch7-info-02",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "info",
+    "skillTag": "Concept Brief: Rolling & Angular Momentum",
+    "title": "Rolling Without Slipping & Angular Momentum",
+    "formulaLatex": "$$v_{\\text{cm}} = R\\omega, \\qquad K_{\\text{tot}} = \\frac{1}{2}Mv_{\\text{cm}}^2 + \\frac{1}{2}I_{\\text{cm}}\\omega^2, \\qquad \\mathbf{L} = \\mathbf{r}\\times\\mathbf{p} = I\\boldsymbol{\\omega}$$",
+    "bulletsLatex": [
+      "When rolling without slipping, the bottom contact point is instantaneously at rest ($v_{\\text{bottom}} = 0$) and the top moves at $v_{\\text{top}} = 2v_{\\text{cm}}$.",
+      "If net external torque about a pivot is zero ($\\boldsymbol{\\tau}_{\\text{ext,net}} = \\mathbf{0}$), total angular momentum $\\mathbf{L}$ is conserved even during inelastic collisions."
+    ],
+    "trapLatex": "Exam Trap: Static friction in pure rolling does ZERO mechanical work because the point of contact has zero instantaneous displacement."
+  },
+  {
+    "id": "ch7-01",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Conservation of Angular Momentum",
+    "promptLatex": "An ice skater spinning with outstretched arms pulls her arms inward, decreasing her rotational inertia $I$ by a factor of $2$ and halving the maximum distance $r_{\\max}$ of any part of her body from the spin axis. How does the maximum linear speed $v_{\\max}$ of her hands change?",
+    "optionsLatex": [
+      "It remains the same",
+      "It increases by a factor of $2$",
+      "It decreases by a factor of $2$",
+      "It increases by a factor of $4$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By conservation of angular momentum $L = I\\omega$, halving $I$ doubles $\\omega$. Since $r_{\\max}$ simultaneously decreases by a factor of $2$, $v_{\\max} = \\omega r_{\\max} = (2\\omega_0)(r_{\\max,0}/2)$ stays unchanged."
+  },
+  {
+    "id": "ch7-02",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Parallel Axis Theorem",
+    "promptLatex": "A uniform solid sphere of mass $M$ and radius $R$ has a rotational inertia of $\\frac{7}{5}MR^2$ when rotated about an axis tangent to its surface. What is its rotational inertia about a parallel axis passing through its center?",
+    "optionsLatex": [
+      "$\\frac{2}{5}MR^2$",
+      "$\\frac{12}{5}MR^2$",
+      "$\\frac{1}{2}MR^2$",
+      "$\\frac{2}{3}MR^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By the Parallel Axis Theorem, $I_{\\text{tan}} = I_{\\text{cm}} + MR^2 \\implies I_{\\text{cm}} = \\frac{7}{5}MR^2 - MR^2 = \\frac{2}{5}MR^2$."
+  },
+  {
+    "id": "ch7-03",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Rolling Up an Incline",
+    "promptLatex": "A ball rolls without slipping at speed $v_0$ along a horizontal surface toward an incline. In which case does the ball reach the **greatest vertical height** up the incline before stopping and turning around?",
+    "optionsLatex": [
+      "When there is sufficient static friction on the incline to prevent slipping",
+      "When the incline is completely frictionless",
+      "When there is weak friction so the ball both rolls and slips",
+      "The height is identical in all cases"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "With static friction (no slipping), both translational and rotational kinetic energy convert completely into gravitational potential energy ($\\frac{1}{2}mv_0^2 + \\frac{1}{2}I\\omega_0^2 = mgh$). On a frictionless incline, no torque slows the ball's spin, so it keeps spinning at the top and reaches a lower height."
+  },
+  {
+    "id": "ch7-04",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Point-Mass Angular Momentum",
+    "promptLatex": "A point mass $m$ moves in a straight line parallel to the $y$-axis along the line $x = d$ ($d > 0$) with constant velocity $\\mathbf{v} = v_0\\hat{j}$. How does the magnitude of its angular momentum $|\\mathbf{L}| = |\\mathbf{r} \\times \\mathbf{p}|$ about the origin depend on its $y$-coordinate?",
+    "optionsLatex": [
+      "It is constant and equal to $mv_0 d$ for all $y$",
+      "It increases linearly with $|y|$",
+      "It is zero at $y = 0$ and increases away from the $x$-axis",
+      "It decreases as $1/y$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The perpendicular lever arm from the origin to the line of motion $x = d$ is always $r_\\perp = d$, so $|\\mathbf{L}| = r_\\perp p = mv_0 d$ is strictly constant."
+  },
+  {
+    "id": "ch7-05",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Discrete Rotational Inertia",
+    "promptLatex": "Four identical point masses $m$ are fixed at the vertices of a rectangle of width $a$ and length $b$. What is the rotational inertia of the system about an axis perpendicular to the rectangle passing through the midpoint of one of the sides of length $a$?",
+    "optionsLatex": [
+      "$m(a^2 + 2b^2)$",
+      "$m(a^2 + b^2)$",
+      "$\\frac{1}{2}m(a^2 + b^2)$",
+      "$2m(a^2 + b^2)$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Two masses lie at distance $r_1 = a/2$ from the axis, and the two opposite masses lie at distance $r_2 = \\sqrt{(a/2)^2 + b^2}$. Summing $I = \\sum m_i r_i^2 = 2m(a/2)^2 + 2m[(a/2)^2 + b^2] = ma^2 + 2mb^2$."
+  },
+  {
+    "id": "ch7-06",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Rolling Kinetic Energy",
+    "promptLatex": "A uniform solid sphere ($I_{\\text{cm}} = \\frac{2}{5}MR^2$) rolls without slipping across a horizontal floor. What fraction of its total kinetic energy is rotational kinetic energy?",
+    "optionsLatex": [
+      "$\\frac{2}{7}$",
+      "$\\frac{2}{5}$",
+      "$\\frac{5}{7}$",
+      "$\\frac{1}{3}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$K_{\\text{rot}} = \\frac{1}{2}\\left(\\frac{2}{5}MR^2\\right)\\left(\\frac{v}{R}\\right)^2 = \\frac{1}{5}Mv^2$, while $K_{\\text{trans}} = \\frac{1}{2}Mv^2$. Total KE is $\\left(\\frac{1}{2} + \\frac{1}{5}\\right)Mv^2 = \\frac{7}{10}Mv^2$, so $\\frac{K_{\\text{rot}}}{K_{\\text{tot}}} = \\frac{1/5}{7/10} = \\frac{2}{7}$."
+  },
+  {
+    "id": "ch7-07",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Rolling Race",
+    "promptLatex": "A uniform solid sphere ($I = \\frac{2}{5}MR^2$), a uniform solid disk ($I = \\frac{1}{2}MR^2$), and a thin hoop ($I = MR^2$) of identical mass and radius are released from rest simultaneously at the top of a rough incline and roll without slipping. In what order do they reach the bottom?",
+    "optionsLatex": [
+      "Sphere first, disk second, hoop last",
+      "All three arrive at the exact same time",
+      "Hoop first, disk second, sphere last",
+      "Disk first, sphere second, hoop last"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Downhill rolling acceleration is $a_{\\text{cm}} = \\frac{g\\sin\\theta}{1 + I_{\\text{cm}}/(MR^2)}$. Smaller dimensionless shape factor $c = I_{\\text{cm}}/(MR^2)$ yields larger acceleration: $c_{\\text{sphere}} = 0.4 < c_{\\text{disk}} = 0.5 < c_{\\text{hoop}} = 1.0$."
+  },
+  {
+    "id": "ch7-08",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Rolling Kinematics",
+    "promptLatex": "A wheel of radius $R$ rolls without slipping to the right at constant speed $v_{\\text{cm}}$. What are the instantaneous speeds of the very top point ($v_{\\text{top}}$) and the bottom contact point ($v_{\\text{bottom}}$) relative to the ground?",
+    "optionsLatex": [
+      "$v_{\\text{top}} = 2v_{\\text{cm}},\\quad v_{\\text{bottom}} = 0$",
+      "$v_{\\text{top}} = v_{\\text{cm}},\\quad v_{\\text{bottom}} = v_{\\text{cm}}$",
+      "$v_{\\text{top}} = \\sqrt{2}\\,v_{\\text{cm}},\\quad v_{\\text{bottom}} = 0$",
+      "$v_{\\text{top}} = 2v_{\\text{cm}},\\quad v_{\\text{bottom}} = v_{\\text{cm}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Superposing translation ($+v_{\\text{cm}}$) and rotation ($\\pm\\omega R = \\pm v_{\\text{cm}}$) gives $v_{\\text{top}} = v_{\\text{cm}} + v_{\\text{cm}} = 2v_{\\text{cm}}$ and $v_{\\text{bottom}} = v_{\\text{cm}} - v_{\\text{cm}} = 0$."
+  },
+  {
+    "id": "ch7-09",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Direction of Static Friction",
+    "promptLatex": "A cylinder rolls **up** a rough incline without slipping, slowing down as it rises. In which direction does the static friction force from the incline act on the cylinder?",
+    "optionsLatex": [
+      "Up the incline (parallel to the cylinder's velocity)",
+      "Down the incline (opposing the cylinder's velocity)",
+      "Perpendicular to the incline",
+      "Static friction is zero because the cylinder is slowing down"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "As the cylinder rolls up the incline, its angular speed $\\omega$ must decrease, requiring an angular acceleration $\\alpha$ opposite to its rotation. Only static friction pointing **up** the incline provides a torque that slows the spin!"
+  },
+  {
+    "id": "ch7-10",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Continuous Inertia Integral",
+    "promptLatex": "A thin rod of length $L$ lies along the $x$-axis from $x = 0$ to $x = L$ with non-uniform linear mass density $\\lambda(x) = \\lambda_0 x^2$. What is its rotational inertia about a perpendicular axis through $x = 0$ in terms of its total mass $M$?",
+    "optionsLatex": [
+      "$\\frac{3}{5}ML^2$",
+      "$\\frac{1}{3}ML^2$",
+      "$\\frac{1}{5}ML^2$",
+      "$\\frac{2}{5}ML^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$M = \\int_0^L \\lambda_0 x^2\\,dx = \\frac{1}{3}\\lambda_0 L^3$, and $I = \\int_0^L x^2(\\lambda_0 x^2\\,dx) = \\frac{1}{5}\\lambda_0 L^5$. Dividing gives $I = \\frac{3}{5}ML^2$."
+  },
+  {
+    "id": "ch7-11",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Rotational Inelastic Collision",
+    "promptLatex": "A lump of clay of mass $m$ moving horizontally at speed $v$ strikes tangentially and sticks to the outer rim of a stationary uniform horizontal disk of mass $M$, radius $R$, and $I = \\frac{1}{2}MR^2$ pivoted at its center. What is the final angular speed $\\omega_f$ of the system?",
+    "optionsLatex": [
+      "$\\frac{mv}{(m + \\frac{1}{2}M)R}$",
+      "$\\frac{2mv}{MR}$",
+      "$\\frac{mv}{(m + M)R}$",
+      "$\\frac{mv}{MR}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Conserve angular momentum about the pivot: $L_i = mvR = L_f = (I_{\\text{disk}} + I_{\\text{clay}})\\omega_f = \\left(\\frac{1}{2}MR^2 + mR^2\\right)\\omega_f \\implies \\omega_f = \\frac{mv}{(m + \\frac{1}{2}M)R}$."
+  },
+  {
+    "id": "ch7-12",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Static Equilibrium",
+    "promptLatex": "A uniform ladder of mass $m$ and length $L$ leans against a **frictionless** vertical wall, making an angle $\\theta$ with a rough horizontal floor. What is the minimum coefficient of static friction $\\mu_s$ between the ladder and the floor required to prevent slipping?",
+    "optionsLatex": [
+      "$\\frac{1}{2}\\cot\\theta$",
+      "$\\frac{1}{2}\\tan\\theta$",
+      "$\\cot\\theta$",
+      "$2\\cot\\theta$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Taking torques about the floor contact point: $N_{\\text{wall}} L\\sin\\theta = mg\\left(\\frac{L}{2}\\right)\\cos\\theta \\implies N_{\\text{wall}} = \\frac{1}{2}mg\\cot\\theta$. Horizontal equilibrium gives $f_s = N_{\\text{wall}} \\le \\mu_s mg \\implies \\mu_s \\ge \\frac{1}{2}\\cot\\theta$."
+  },
+  {
+    "id": "ch7-13",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Parallel Axis Theorem",
+    "promptLatex": "What is the rotational inertia of a uniform thin rod of mass $M$ and length $L$ about a perpendicular axis located at distance $L/4$ from one end?",
+    "optionsLatex": [
+      "$\\frac{7}{48}ML^2$",
+      "$\\frac{1}{12}ML^2$",
+      "$\\frac{1}{3}ML^2$",
+      "$\\frac{5}{48}ML^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "The distance from the center of mass ($x = L/2$) to the axis ($x = L/4$) is $d = L/4$. By Parallel Axis Theorem, $I = \\frac{1}{12}ML^2 + M\\left(\\frac{L}{4}\\right)^2 = \\left(\\frac{4 + 3}{48}\\right)ML^2 = \\frac{7}{48}ML^2$."
+  },
+  {
+    "id": "ch7-14",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Spool Torque Trick",
+    "promptLatex": "A spool of outer radius $R$ and inner axle radius $r < R$ rests on a rough horizontal table. A string wrapped around the bottom of the inner axle is pulled gently horizontally to the right with tension $T$ so the spool rolls without slipping. Which way does the spool roll?",
+    "optionsLatex": [
+      "To the right (winding the string onto the axle)",
+      "To the left (unwinding the string from the axle)",
+      "It spins in place without translating",
+      "Direction depends on the mass of the spool"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Take torques about the instantaneous point of contact with the floor: the lever arm for $T$ is $R - r > 0$ above the floor, producing a clockwise torque that rolls the spool to the right."
+  },
+  {
+    "id": "ch7-15",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Rolling Acceleration",
+    "promptLatex": "A hollow cylindrical pipe ($I_{\\text{cm}} = MR^2$) rolls without slipping down a roof inclined at angle $\\theta$. What is the linear acceleration $a_{\\text{cm}}$ of its center of mass?",
+    "optionsLatex": [
+      "$\\frac{1}{2}g\\sin\\theta$",
+      "$g\\sin\\theta$",
+      "$\\frac{2}{3}g\\sin\\theta$",
+      "$\\frac{5}{7}g\\sin\\theta$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Using $a_{\\text{cm}} = \\frac{g\\sin\\theta}{1 + I_{\\text{cm}}/(MR^2)}$ with $I_{\\text{cm}} = MR^2$ gives $a_{\\text{cm}} = \\frac{g\\sin\\theta}{1 + 1} = \\frac{1}{2}g\\sin\\theta$."
+  },
+  {
+    "id": "ch7-16",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "mcq",
+    "skillTag": "Elliptical Angular Momentum",
+    "promptLatex": "A comet orbits a star in an elliptical path. At perihelion (closest approach $r_p$) its speed is $v_p$. What is its speed $v_a$ at aphelion (farthest distance $r_a$)?",
+    "optionsLatex": [
+      "$v_p \\frac{r_p}{r_a}$",
+      "$v_p \\frac{r_a}{r_p}$",
+      "$v_p \\sqrt{\\frac{r_p}{r_a}}$",
+      "$v_p \\left(\\frac{r_p}{r_a}\\right)^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "At both apsides, velocity is perpendicular to the radius vector ($\n\\sin 90^\\circ = 1$). Conservation of angular momentum gives $mv_p r_p = mv_a r_a \\implies v_a = v_p\\frac{r_p}{r_a}$."
+  },
+  {
+    "id": "ch7-17",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "derivation_order",
+    "skillTag": "Disk Inertia Integral",
+    "promptLatex": "Order the steps to derive the rotational inertia $I = \\frac{1}{2}MR^2$ of a uniform solid disk of mass $M$ and radius $R$ about its central perpendicular axis:",
+    "stepsLatex": [
+      "Define surface mass density $\\sigma = \\frac{M}{\\pi R^2}$ and choose concentric thin rings of area $dA = 2\\pi r\\,dr$",
+      "Express the differential mass element: $dm = \\sigma\\,dA = \\frac{2M}{R^2}r\\,dr$",
+      "Set up the rotational inertia integral: $I = \\int_0^R r^2\\left(\\frac{2M}{R^2}r\\,dr\\right) = \\frac{2M}{R^2}\\int_0^R r^3\\,dr$",
+      "Evaluate the integral from $0$ to $R$: $I = \\frac{2M}{R^2}\\left(\\frac{R^4}{4}\\right) = \\frac{1}{2}MR^2$"
+    ],
+    "explanationLatex": "Concentric rings ensure every point within $dm$ lies at the exact same radius $r$ from the central axis."
+  },
+  {
+    "id": "ch7-18",
+    "chapter": 7,
+    "unit": "Ch. 7: Rotation II (Inertia & Rolling)",
+    "type": "derivation_order",
+    "skillTag": "Rolling Incline Derivation",
+    "promptLatex": "Order the steps to derive the center-of-mass acceleration $a_{\\text{cm}}$ of a round object of mass $M$, radius $R$, and inertia $I_{\\text{cm}}$ rolling without slipping down an incline of angle $\\theta$:",
+    "stepsLatex": [
+      "Write Newton's 2nd law along the incline: $Mg\\sin\\theta - f_s = Ma_{\\text{cm}}$",
+      "Write rotational Newton's 2nd law about the center of mass: $f_s R = I_{\\text{cm}}\\alpha$",
+      "Substitute the no-slip constraint $\\alpha = \\frac{a_{\\text{cm}}}{R}$ to isolate static friction: $f_s = \\frac{I_{\\text{cm}} a_{\\text{cm}}}{R^2}$",
+      "Substitute $f_s$ back into the force equation to get $a_{\\text{cm}} = \\frac{g\\sin\\theta}{1 + I_{\\text{cm}}/(MR^2)}$"
+    ],
+    "explanationLatex": "Notice that static friction $f_s$ cannot simply be replaced by $\\mu_s N$—it takes whatever value is required to enforce $a_{\\text{cm}} = R\\alpha$."
+  },
+  {
+    "id": "ch8-info-01",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "info",
+    "skillTag": "Concept Brief: SHM Differential Equation",
+    "title": "SHM Equation of Motion & Kinematics",
+    "formulaLatex": "$$\\frac{d^2 x}{dt^2} = -\\omega^2 x, \\qquad x(t) = A\\cos(\\omega t + \\phi), \\qquad T = \\frac{2\\pi}{\\omega}$$",
+    "bulletsLatex": [
+      "Any system whose equation of motion reduces to $\\ddot{x} = -(\\text{positive constant})\\,x$ undergoes SHM with $\\omega = \\sqrt{\\text{constant}}$.",
+      "Maximum speed occurs at equilibrium ($v_{\\max} = \\omega A$); maximum acceleration occurs at the turning points ($a_{\\max} = \\omega^2 A$)."
+    ],
+    "trapLatex": "Exam Trap: Period $T$ and frequency $f$ in true SHM are completely INDEPENDENT of the amplitude $A$."
+  },
+  {
+    "id": "ch8-info-02",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "info",
+    "skillTag": "Concept Brief: Pendulums & Energy",
+    "title": "SHM Energy & Pendulum Formulas",
+    "formulaLatex": "$$E = \\frac{1}{2}kA^2 = \\frac{1}{2}mv^2 + \\frac{1}{2}kx^2, \\qquad \\omega_{\\text{simple}} = \\sqrt{\\frac{g}{L}}, \\qquad \\omega_{\\text{phys}} = \\sqrt{\\frac{mgd}{I}}$$",
+    "bulletsLatex": [
+      "For a physical pendulum, $d$ is the distance from the pivot to the center of mass, and $I$ is the rotational inertia about the pivot (not the CM).",
+      "For a torsion pendulum with restoring torque $\\tau = -\\kappa\\theta$, the angular frequency is $\\omega = \\sqrt{\\kappa / I}$."
+    ],
+    "trapLatex": "Exam Trap: A simple pendulum is only harmonic for small angles ($\\theta \\lesssim 15^\\circ$) where $\\sin\\theta \\approx \\theta$; at large angles its period increases."
+  },
+  {
+    "id": "ch8-01",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "SHM Force Law",
+    "promptLatex": "Which 1D force function $F(x)$ produces true Simple Harmonic Motion (SHM) with a period independent of amplitude?",
+    "optionsLatex": [
+      "$F(x) = -kx$ (linear restoring force passing through the origin)",
+      "$F(x) = -kx^3$ (cubic restoring force)",
+      "$F(x) = +kx$ (linear repulsive force)",
+      "$F(x) = -k|x|$ (always pointing left)"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "True SHM requires $F(x) = -kx$ so that $\\frac{d^2x}{dt^2} = -\\frac{k}{m}x$. Cubic restoring forces oscillate, but their period shrinks as amplitude grows."
+  },
+  {
+    "id": "ch8-02",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Anharmonic Oscillations",
+    "promptLatex": "A particle experiences a restoring force $F(x) = -kx - \\beta x^3$, where $k, \\beta > 0$. For very small amplitudes, it oscillates in SHM with period $T$. What happens when the particle is released from a much larger amplitude?",
+    "optionsLatex": [
+      "The motion is no longer SHM, and its period is smaller than $T$",
+      "The motion is still SHM with the same period $T$",
+      "The motion is no longer SHM, and its period is larger than $T$",
+      "The motion is still SHM with a larger period"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because the $-\\beta x^3$ term makes the restoring force stiffen faster than $-kx$ at large $x$, the particle accelerates back toward equilibrium faster, decreasing the period below $T$."
+  },
+  {
+    "id": "ch8-03",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Simple Pendulum Scaling",
+    "promptLatex": "A simple pendulum of length $L$ has a period of $2.0\\text{ s}$ on Earth ($g = 9.8\\text{ m/s}^2$). What is its period when taken to Mars, where $g_{\\text{Mars}} = 3.71\\text{ m/s}^2$?",
+    "optionsLatex": [
+      "$3.25\\text{ s}$",
+      "$1.23\\text{ s}$",
+      "$2.00\\text{ s}$",
+      "$5.28\\text{ s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Since $T = 2\\pi\\sqrt{L/g} \\propto 1/\\sqrt{g}$, $T_{\\text{Mars}} = (2.0\\text{ s})\\sqrt{\\frac{9.8}{3.71}} \\approx 3.25\\text{ s}$."
+  },
+  {
+    "id": "ch8-04",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "SHM Equilibrium State",
+    "promptLatex": "At the exact instant a mass oscillating in Simple Harmonic Motion passes through its equilibrium position ($x = 0$), what is true of its acceleration?",
+    "optionsLatex": [
+      "Its acceleration is zero",
+      "Its acceleration is at its maximum magnitude",
+      "Its acceleration points opposite to its velocity",
+      "Its acceleration points parallel to its velocity"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "In SHM, $a(x) = -\\omega^2 x$. At $x = 0$, the net restoring force is zero, so $a = 0$ while speed is maximized."
+  },
+  {
+    "id": "ch8-05",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Physical Pendulum",
+    "promptLatex": "A physical pendulum of mass $m = 2.0\\text{ kg}$ has its center of mass a distance $d = 1.0\\text{ m}$ from the pivot and a rotational inertia about the pivot of $I = 0.50\\text{ kg}\\cdot\\text{m}^2$. Using $g = 10\\text{ m/s}^2$, what is its small-angle angular frequency $\\omega$?",
+    "optionsLatex": [
+      "$\\sqrt{40}\\text{ rad/s}$ ($\\approx 6.32\\text{ rad/s}$)",
+      "$\\sqrt{10}\\text{ rad/s}$ ($\\approx 3.16\\text{ rad/s}$)",
+      "$\\sqrt{20}\\text{ rad/s}$ ($\\approx 4.47\\text{ rad/s}$)",
+      "$20\\text{ rad/s}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$\\omega = \\sqrt{\\frac{mgd}{I}} = \\sqrt{\\frac{(2.0)(10)(1.0)}{0.50}} = \\sqrt{40}\\text{ rad/s}$."
+  },
+  {
+    "id": "ch8-06",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "SHM Energy Split",
+    "promptLatex": "A block attached to an ideal spring oscillates with amplitude $A$. At what displacement $x$ from equilibrium is the block's kinetic energy equal to three times its elastic potential energy ($K = 3U$)?",
+    "optionsLatex": [
+      "$\\pm\\frac{A}{2}$",
+      "$\\pm\\frac{A}{\\sqrt{2}}$",
+      "$\\pm\\frac{A}{4}$",
+      "$\\pm\\frac{\\sqrt{3}}{2}A$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Total energy is $E = K + U = 3U + U = 4U$. Thus $\\frac{1}{2}kA^2 = 4\\left(\\frac{1}{2}kx^2\\right) \\implies x^2 = \\frac{A^2}{4} \\implies x = \\pm\\frac{A}{2}$."
+  },
+  {
+    "id": "ch8-07",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Velocity vs Position",
+    "promptLatex": "An SHM oscillator has maximum speed $v_{\\max}$ and amplitude $A$. What is its speed when it is at position $x = \\frac{\\sqrt{3}}{2}A$?",
+    "optionsLatex": [
+      "$\\frac{1}{2}v_{\\max}$",
+      "$\\frac{\\sqrt{3}}{2}v_{\\max}$",
+      "$\\frac{1}{4}v_{\\max}$",
+      "$\\frac{1}{\\sqrt{2}}v_{\\max}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Using $v(x) = \\omega\\sqrt{A^2 - x^2} = v_{\\max}\\sqrt{1 - (x/A)^2}$: at $x/A = \\sqrt{3}/2$, $v = v_{\\max}\\sqrt{1 - 3/4} = \\frac{1}{2}v_{\\max}$."
+  },
+  {
+    "id": "ch8-08",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Phase Constant",
+    "promptLatex": "A block on a spring oscillates according to $x(t) = A\\cos(\\omega t + \\phi)$. At $t = 0$, the block is at $x(0) = +\\frac{A}{2}$ and is moving in the **negative** $x$-direction ($v(0) < 0$). What is the phase constant $\\phi$ in $[0, 2\\pi)$?",
+    "optionsLatex": [
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{5\\pi}{3}$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{2\\pi}{3}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$x(0) = A\\cos\\phi = A/2 \\implies \\phi = \\pi/3$ or $5\\pi/3$. Since $v(0) = -\\omega A\\sin\\phi < 0$, we need $\\sin\\phi > 0$, which selects $\\phi = \\frac{\\pi}{3}$."
+  },
+  {
+    "id": "ch8-09",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Parallel Springs",
+    "promptLatex": "A block of mass $m$ sits on a frictionless table between two walls, connected to the left wall by a spring of constant $k_1$ and to the right wall by a spring of constant $k_2$. What is the oscillation period $T$ of the block?",
+    "optionsLatex": [
+      "$2\\pi\\sqrt{\\frac{m}{k_1 + k_2}}$",
+      "$2\\pi\\sqrt{\\frac{m(k_1 + k_2)}{k_1 k_2}}$",
+      "$2\\pi\\sqrt{\\frac{m}{|k_1 - k_2|}}$",
+      "$2\\pi\\sqrt{\\frac{m}{\\sqrt{k_1 k_2}}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Displacing the block by $+x$ compresses one spring by $x$ and stretches the other by $x$, giving net restoring force $F = -(k_1 + k_2)x$, so $k_{\\text{eff}} = k_1 + k_2$."
+  },
+  {
+    "id": "ch8-10",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Collision with Oscillator",
+    "promptLatex": "A clay ball of mass $m$ moving at speed $v_0$ strikes and sticks to a stationary block of mass $M$ attached to a horizontal spring of constant $k$ on a frictionless table. What is the resulting oscillation amplitude $A$?",
+    "optionsLatex": [
+      "$\\frac{m v_0}{\\sqrt{k(m + M)}}$",
+      "$v_0\\sqrt{\\frac{m}{k}}$",
+      "$\\frac{m v_0}{\\sqrt{kM}}$",
+      "$v_0\\sqrt{\\frac{m + M}{k}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Momentum conservation gives post-impact speed $v_f = \\frac{mv_0}{m + M}$. Equating KE to spring PE: $\\frac{1}{2}(m + M)v_f^2 = \\frac{1}{2}kA^2 \\implies A = v_f\\sqrt{\\frac{m + M}{k}} = \\frac{mv_0}{\\sqrt{k(m + M)}}$."
+  },
+  {
+    "id": "ch8-11",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Mass Added at Turnaround",
+    "promptLatex": "A block of mass $M$ oscillates horizontally on a spring with amplitude $A$ and period $T$. At the exact instant the block reaches its maximum displacement $x = +A$ (where $v = 0$), a lump of clay of mass $m$ is gently dropped onto it and sticks. How do $A$ and $T$ change?",
+    "optionsLatex": [
+      "$A$ remains unchanged, while $T$ increases",
+      "Both $A$ and $T$ decrease",
+      "$A$ decreases, while $T$ increases",
+      "Both $A$ and $T$ remain unchanged"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because the block is momentarily at rest at $x = +A$, adding mass causes no impulse or energy loss—total mechanical energy stays $\\frac{1}{2}kA^2$, so $A$ is unchanged while $T = 2\\pi\\sqrt{(M+m)/k}$ increases."
+  },
+  {
+    "id": "ch8-12",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Meterstick Pendulum",
+    "promptLatex": "A uniform meterstick of length $L$ is pivoted at one end and swings as a physical pendulum with small amplitude. What is the length $L_{\\text{eq}}$ of a simple pendulum that has the exact same period?",
+    "optionsLatex": [
+      "$\\frac{2}{3}L$",
+      "$\\frac{1}{2}L$",
+      "$\\frac{1}{3}L$",
+      "$L$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "With $I = \\frac{1}{3}mL^2$ and $d = L/2$, $\\omega = \\sqrt{\\frac{mg(L/2)}{\\frac{1}{3}mL^2}} = \\sqrt{\\frac{3g}{2L}} = \\sqrt{\\frac{g}{(2/3)L}}$, so $L_{\\text{eq}} = \\frac{2}{3}L$."
+  },
+  {
+    "id": "ch8-13",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Accelerating Elevator Pendulum",
+    "promptLatex": "A simple pendulum of length $L$ hangs inside an elevator accelerating upward with constant acceleration $a$. What is its small-angle period of oscillation?",
+    "optionsLatex": [
+      "$2\\pi\\sqrt{\\frac{L}{g + a}}$",
+      "$2\\pi\\sqrt{\\frac{L}{g - a}}$",
+      "$2\\pi\\sqrt{\\frac{L}{g}}$",
+      "$2\\pi\\sqrt{\\frac{L}{a}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "In the elevator's frame, the effective downward gravitational field is $g_{\\text{eff}} = g + a$, replacing $g$ in $T = 2\\pi\\sqrt{L/g_{\\text{eff}}}$."
+  },
+  {
+    "id": "ch8-14",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Torsion Pendulum",
+    "promptLatex": "A uniform solid disk of mass $M$ and radius $R$ is suspended horizontally from its center by a vertical wire with torsion constant $\\kappa$ (restoring torque $\\tau = -\\kappa\\theta$). What is its angular frequency $\\omega$ of torsional oscillation?",
+    "optionsLatex": [
+      "$\\sqrt{\\frac{2\\kappa}{MR^2}}$",
+      "$\\sqrt{\\frac{\\kappa}{MR^2}}$",
+      "$\\sqrt{\\frac{\\kappa}{2MR^2}}$",
+      "$\\sqrt{\\frac{MR^2}{2\\kappa}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Using $\\tau = I\\alpha \\implies \\frac{d^2\\theta}{dt^2} = -\\frac{\\kappa}{I}\\theta$, so $\\omega = \\sqrt{\\frac{\\kappa}{I}} = \\sqrt{\\frac{\\kappa}{\\frac{1}{2}MR^2}} = \\sqrt{\\frac{2\\kappa}{MR^2}}$."
+  },
+  {
+    "id": "ch8-15",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "SHM Timing Trap",
+    "promptLatex": "A particle in SHM oscillates between $x = -A$ and $x = +A$ with period $T$. What is the shortest time required for the particle to move from the equilibrium position $x = 0$ to $x = +\\frac{A}{2}$?",
+    "optionsLatex": [
+      "$\\frac{T}{12}$",
+      "$\\frac{T}{8}$",
+      "$\\frac{T}{6}$",
+      "$\\frac{T}{4}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Starting from equilibrium, $x(t) = A\\sin\\!\\left(\\frac{2\\pi}{T}t\\right)$. Setting $x(t) = A/2$ gives $\\sin\\!\\left(\\frac{2\\pi}{T}t\\right) = \\frac{1}{2} \\implies \\frac{2\\pi}{T}t = \\frac{\\pi}{6} \\implies t = \\frac{T}{12}$."
+  },
+  {
+    "id": "ch8-16",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "mcq",
+    "skillTag": "Time-Averaged Energy",
+    "promptLatex": "Over one complete oscillation cycle of an undamped spring-mass SHM system with total energy $E$, how does the time-averaged kinetic energy $\\langle K \\rangle$ compare to the time-averaged potential energy $\\langle U \\rangle$?",
+    "optionsLatex": [
+      "$\\langle K \\rangle = \\langle U \\rangle = \\frac{1}{2}E$",
+      "$\\langle K \\rangle = 2\\langle U \\rangle$",
+      "$\\langle U \\rangle = 2\\langle K \\rangle$",
+      "$\\langle K \\rangle = E,\\; \\langle U \\rangle = 0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Because the average value of $\\sin^2(\\omega t)$ and $\\cos^2(\\omega t)$ over a full period are both $1/2$, total energy splits equally on average: $\\langle K \\rangle = \\langle U \\rangle = \\frac{1}{2}E$."
+  },
+  {
+    "id": "ch8-17",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "derivation_order",
+    "skillTag": "Physical Pendulum Proof",
+    "promptLatex": "Order the steps to derive the small-angle angular frequency $\\omega = \\sqrt{\\frac{mgd}{I}}$ of a physical pendulum of mass $m$, pivot-to-CM distance $d$, and pivot inertia $I$:",
+    "stepsLatex": [
+      "Write the gravitational restoring torque about the pivot at angle $\\theta$: $\\tau = -mgd\\sin\\theta$",
+      "Apply rotational Newton's 2nd law: $I\\frac{d^2\\theta}{dt^2} = -mgd\\sin\\theta$",
+      "Apply the small-angle approximation $\\sin\\theta \\approx \\theta$: $\\frac{d^2\\theta}{dt^2} = -\\left(\\frac{mgd}{I}\\right)\\theta$",
+      "Match to the standard SHM equation $\\frac{d^2\\theta}{dt^2} = -\\omega^2\\theta$ to read off $\\omega = \\sqrt{\\frac{mgd}{I}}$"
+    ],
+    "explanationLatex": "Whenever a derivation asks for the period or frequency of an oscillating system, your goal is always to isolate $\\ddot{x}$ (or $\\ddot{\\theta}$) and match the coefficient of $-x$ (or $-\\theta$) to $\\omega^2$."
+  },
+  {
+    "id": "ch8-18",
+    "chapter": 8,
+    "unit": "Ch. 8: Simple Harmonic Motion",
+    "type": "derivation_order",
+    "skillTag": "SHM Differential Verification",
+    "promptLatex": "Order the steps to verify that $x(t) = A\\cos(\\omega t + \\phi)$ satisfies $m\\frac{d^2x}{dt^2} = -kx$ and find $\\omega$:",
+    "stepsLatex": [
+      "Differentiate $x(t)$ once with respect to time: $v(t) = \\frac{dx}{dt} = -\\omega A\\sin(\\omega t + \\phi)$",
+      "Differentiate a second time: $a(t) = \\frac{d^2x}{dt^2} = -\\omega^2 A\\cos(\\omega t + \\phi) = -\\omega^2 x(t)$",
+      "Substitute $a(t)$ into Hooke's law $m a(t) = -k x(t)$: $-m\\omega^2 x(t) = -k x(t)$",
+      "Cancel $-x(t)$ to obtain $\\omega^2 = \\frac{k}{m} \\implies \\omega = \\sqrt{\\frac{k}{m}}$"
+    ],
+    "explanationLatex": "Demonstrating $\\frac{d^2x}{dt^2} = -\\omega^2 x$ by direct differentiation is a standard justification step on AP Mechanics FRQs."
+  },
+  {
+    "id": "ch9-info-01",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "info",
+    "skillTag": "Concept Brief: Shell Theorems & Field",
+    "title": "Universal Gravitation & Shell Theorems",
+    "formulaLatex": "$$\\mathbf{F}_g = -\\frac{Gm_1 m_2}{r^2}\\hat{r}, \\qquad g_{\\text{outside}}(r) = \\frac{GM}{r^2}, \\qquad g_{\\text{inside,uniform}}(r) = \\frac{GMr}{R^3}$$",
+    "bulletsLatex": [
+      "Shell Theorem 1: Outside any spherically symmetric mass, gravity behaves as if all mass were concentrated at the center ($g \\propto 1/r^2$).",
+      "Shell Theorem 2: Inside a hollow spherical shell, $g = 0$; inside a uniform solid sphere, only the enclosed mass $M_{\\text{enc}} = M(r/R)^3$ pulls inward, so $g \\propto r$."
+    ],
+    "trapLatex": "Exam Trap: Inside a hollow spherical shell, the gravitational FIELD is zero ($g = 0$), but the gravitational POTENTIAL is NOT zero ($V = -GM/R$)."
+  },
+  {
+    "id": "ch9-info-02",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "info",
+    "skillTag": "Concept Brief: Orbits & Escape Speed",
+    "title": "Circular Orbits, Kepler's 3rd Law & Escape Speed",
+    "formulaLatex": "$$T^2 = \\left(\\frac{4\\pi^2}{GM}\\right)r^3, \\qquad E_{\\text{circ}} = K + U = -\\frac{GMm}{2r}, \\qquad v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$$",
+    "bulletsLatex": [
+      "For any circular orbit, $K = \\frac{GMm}{2r}$ and $U = -\\frac{GMm}{r}$, giving the virial identities $U = -2K$ and $E = -K = \\frac{1}{2}U$.",
+      "A satellite is gravitationally bound if $E < 0$, and escapes to infinity ($v_\\infty \\ge 0$) when $E = K + U \\ge 0$."
+    ],
+    "trapLatex": "Exam Trap: Moving a satellite to a HIGHER circular orbit INCREASES total energy $E$ (makes it less negative) and INCREASES period $T$, but DECREASES orbital speed $v = \\sqrt{GM/r}$."
+  },
+  {
+    "id": "ch9-01",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Unbound Trajectory Condition",
+    "promptLatex": "An asteroid of mass $m$ passes at a distance $r$ from the Sun of mass $M_s$. Which condition on its speed $v$ guarantees that the asteroid is gravitationally unbound and can escape to an infinite distance?",
+    "optionsLatex": [
+      "$v \\ge \\sqrt{\\frac{2GM_s}{r}}$",
+      "$v \\ge \\sqrt{\\frac{GM_s}{r}}$",
+      "$v \\ge \\sqrt{\\frac{GM_s}{2r}}$",
+      "$v \\ge \\frac{2GM_s}{r}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "To reach $r \\to \\infty$ with $K_\\infty \\ge 0$, total mechanical energy must satisfy $E = \\frac{1}{2}mv^2 - \\frac{GM_s m}{r} \\ge 0 \\implies v \\ge \\sqrt{\\frac{2GM_s}{r}}$."
+  },
+  {
+    "id": "ch9-02",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Circular Orbit Energies",
+    "promptLatex": "A planet revolves in a circular orbit of radius $r$ around a star. Choosing $U = 0$ at infinite separation, which equation relates the planet's gravitational potential energy $U$ to its kinetic energy $K$?",
+    "optionsLatex": [
+      "$U = -2K$",
+      "$U = -K$",
+      "$U = -\\frac{1}{2}K$",
+      "$U = +2K$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Setting $\\frac{GMm}{r^2} = \\frac{mv^2}{r}$ gives $K = \\frac{1}{2}mv^2 = \\frac{GMm}{2r}$. Since $U = -\\frac{GMm}{r}$, we have $U = -2K$."
+  },
+  {
+    "id": "ch9-03",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Interior Gravitational Field",
+    "promptLatex": "The gravitational acceleration on the surface of a uniform-density spherical planet of radius $R$ is $g$. What is the gravitational acceleration inside the planet at a distance $r = R/2$ from the center?",
+    "optionsLatex": [
+      "$\\frac{g}{2}$",
+      "$\\frac{g}{4}$",
+      "$g$",
+      "$2g$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Inside a uniform solid sphere, $g(r) = \\frac{G M_{\\text{enc}}}{r^2} = \\frac{GM(r/R)^3}{r^2} = g\\frac{r}{R}$. At $r = R/2$, $g(R/2) = \\frac{g}{2}$."
+  },
+  {
+    "id": "ch9-04",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Binary Star Total Energy",
+    "promptLatex": "Two identical stars, each of mass $m$, orbit their common center of mass in a circle of radius $r$ (so they remain diametrically opposite at separation $2r$). What is the total mechanical energy of the two-star system?",
+    "optionsLatex": [
+      "$-\\frac{Gm^2}{4r}$",
+      "$-\\frac{Gm^2}{2r}$",
+      "$-\\frac{Gm^2}{r}$",
+      "$-\\frac{3Gm^2}{4r}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Potential energy is $U = -\\frac{Gm^2}{2r}$. For each star, $\\frac{Gm^2}{(2r)^2} = \\frac{mv^2}{r} \\implies K_{\\text{each}} = \\frac{Gm^2}{8r}$, so $K_{\\text{tot}} = 2K_{\\text{each}} = \\frac{Gm^2}{4r}$. Summing gives $E = \\frac{Gm^2}{4r} - \\frac{Gm^2}{2r} = -\\frac{Gm^2}{4r}$."
+  },
+  {
+    "id": "ch9-05",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Hollow Spherical Shell",
+    "promptLatex": "A point mass is placed inside a thin, uniform hollow spherical shell of mass $M$ and radius $R$ at distance $r = R/2$ from the center. What are the gravitational field magnitude $g$ and gravitational potential $V$ at this point?",
+    "optionsLatex": [
+      "$g = 0,\\quad V = -\\frac{GM}{R}$",
+      "$g = 0,\\quad V = 0$",
+      "$g = \\frac{GM}{2R^2},\\quad V = -\\frac{2GM}{R}$",
+      "$g = 0,\\quad V = -\\frac{2GM}{R}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By Shell Theorem 2, $g = 0$ everywhere inside a hollow shell. Because $g = -dV/dr = 0$, $V$ is constant throughout the interior and equals its surface value $V(R) = -\\frac{GM}{R}$."
+  },
+  {
+    "id": "ch9-06",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Kepler's Third Law",
+    "promptLatex": "Satellite A orbits Earth in a circle of radius $R$, while Satellite B orbits Earth in a circle of radius $4R$. What is the ratio of their orbital periods $T_B / T_A$?",
+    "optionsLatex": [
+      "$8$",
+      "$4$",
+      "$16$",
+      "$2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "By Kepler's Third Law, $T^2 \\propto r^3 \\implies \\frac{T_B}{T_A} = \\left(\\frac{4R}{R}\\right)^{3/2} = 4^{3/2} = 8$."
+  },
+  {
+    "id": "ch9-07",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Orbital Speed Scaling",
+    "promptLatex": "Suppose a planet orbits the Sun in a circle of radius $9R_E$, where $R_E$ is Earth's orbital radius. If Earth's orbital speed is $v_E$, what is the planet's orbital speed?",
+    "optionsLatex": [
+      "$\\frac{v_E}{3}$",
+      "$\\frac{v_E}{9}$",
+      "$\\frac{v_E}{27}$",
+      "$3v_E$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Circular orbital speed is $v = \\sqrt{\\frac{GM_s}{r}} \\propto \\frac{1}{\\sqrt{r}}$. Increasing $r$ by a factor of $9$ reduces $v$ by $\\sqrt{9} = 3$."
+  },
+  {
+    "id": "ch9-08",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Orbital Transfer Work",
+    "promptLatex": "How much external work must rocket engines perform to transfer a satellite of mass $m$ from a circular orbit of radius $R_1$ to a higher circular orbit of radius $R_2 > R_1$ around a planet of mass $M$?",
+    "optionsLatex": [
+      "$\\frac{GMm}{2}\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$",
+      "$GMm\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right)$",
+      "$\\frac{GMm}{2}\\left(\\frac{1}{R_2} - \\frac{1}{R_1}\\right)$",
+      "$\\frac{GMm}{2(R_2 - R_1)}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$W = \\Delta E = E_2 - E_1 = \\left(-\\frac{GMm}{2R_2}\\right) - \\left(-\\frac{GMm}{2R_1}\\right) = \\frac{GMm}{2}\\left(\\frac{1}{R_1} - \\frac{1}{R_2}\\right) > 0$."
+  },
+  {
+    "id": "ch9-09",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Superposition of Potential",
+    "promptLatex": "Two fixed stars, each of mass $M$, sit on the $y$-axis at $(0, +d)$ and $(0, -d)$. A small probe of mass $m$ is released from rest infinitely far away on the $+x$-axis and falls along the $x$-axis. What is its speed as it passes through the origin $(0, 0)$?",
+    "optionsLatex": [
+      "$2\\sqrt{\\frac{GM}{d}}$",
+      "$\\sqrt{\\frac{2GM}{d}}$",
+      "$\\sqrt{\\frac{GM}{d}}$",
+      "$0$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Potential is a scalar! At the origin, $U(0) = -\\frac{GMm}{d} - \\frac{GMm}{d} = -\\frac{2GMm}{d}$. Setting $\\frac{1}{2}mv^2 + U(0) = 0$ gives $v = \\sqrt{\\frac{4GM}{d}} = 2\\sqrt{\\frac{GM}{d}}$."
+  },
+  {
+    "id": "ch9-10",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Unequal Binary Orbits",
+    "promptLatex": "Two planets of unequal masses $m_1$ and $m_2$ orbit their mutual center of mass in circles of radii $r_1$ and $r_2$, respectively. What is the ratio of their orbital speeds $v_1 / v_2$?",
+    "optionsLatex": [
+      "$\\frac{r_1}{r_2}$",
+      "$\\sqrt{\\frac{r_2}{r_1}}$",
+      "$1$",
+      "$\\left(\\frac{r_1}{r_2}\\right)^2$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Both planets must complete an orbit in the exact same period $T$ to remain collinear through the CM, so $\\omega_1 = \\omega_2$ and $\\frac{v_1}{v_2} = \\frac{\\omega r_1}{\\omega r_2} = \\frac{r_1}{r_2}$."
+  },
+  {
+    "id": "ch9-11",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Vertical Launch Altitude",
+    "promptLatex": "A projectile is launched straight up from the surface of a planet of mass $M$ and radius $R$ with initial speed $v_0 = \\sqrt{\\frac{GM}{R}}$. What maximum distance $r_{\\max}$ from the planet's center does it reach?",
+    "optionsLatex": [
+      "$2R$",
+      "$\\frac{3}{2}R$",
+      "$4R$",
+      "$\\infty$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Conserve energy: $\\frac{1}{2}m\\left(\\frac{GM}{R}\\right) - \\frac{GMm}{R} = -\\frac{GMm}{r_{\\max}} \\implies -\\frac{GMm}{2R} = -\\frac{GMm}{r_{\\max}} \\implies r_{\\max} = 2R$."
+  },
+  {
+    "id": "ch9-12",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Planetary Density Scaling",
+    "promptLatex": "An exoplanet has twice Earth's radius ($R_p = 2R_E$) and the exact same average mass density $\\rho$ as Earth. How does its surface gravitational acceleration $g_p$ compare to Earth's $g_E$?",
+    "optionsLatex": [
+      "$2g_E$",
+      "$4g_E$",
+      "$\\frac{1}{2}g_E$",
+      "$g_E$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "$g = \\frac{GM}{R^2} = \\frac{G\\left(\\frac{4}{3}\\pi R^3\\rho\\right)}{R^2} = \\frac{4}{3}\\pi G\\rho R \\propto R$. Doubling $R$ at constant density doubles $g$."
+  },
+  {
+    "id": "ch9-13",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Gravity Tunnel SHM",
+    "promptLatex": "A frictionless straight tunnel is bored through the center of a uniform spherical planet of mass $M$ and radius $R$. A package dropped into the tunnel experiences $F(r) = -\\frac{GMm}{R^3}r$. What is its oscillation period through the planet?",
+    "optionsLatex": [
+      "$2\\pi\\sqrt{\\frac{R^3}{GM}}$",
+      "$2\\pi\\sqrt{\\frac{R^2}{GM}}$",
+      "$\\pi\\sqrt{\\frac{R^3}{GM}}$",
+      "$2\\pi\\sqrt{\\frac{GM}{R^3}}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Matching $F(r) = -k_{\\text{eff}}r$ with $k_{\\text{eff}} = \\frac{GMm}{R^3}$ gives $T = 2\\pi\\sqrt{\\frac{m}{k_{\\text{eff}}}} = 2\\pi\\sqrt{\\frac{R^3}{GM}}$—the exact same period as a grazing circular orbit!"
+  },
+  {
+    "id": "ch9-14",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Escape Velocity Scaling",
+    "promptLatex": "Planet Z has $4$ times Earth's mass and $2$ times Earth's radius. What is the escape speed from Planet Z's surface in terms of Earth's escape speed $v_e$?",
+    "optionsLatex": [
+      "$\\sqrt{2}\\,v_e$",
+      "$2v_e$",
+      "$4v_e$",
+      "$v_e$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Since $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}} \\propto \\sqrt{\\frac{M}{R}}$, scaling $M \\to 4M$ and $R \\to 2R$ gives $\\sqrt{\\frac{4}{2}} = \\sqrt{2}\\,v_e$."
+  },
+  {
+    "id": "ch9-15",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Ring Gravitational Field",
+    "promptLatex": "A thin uniform ring of mass $M$ and radius $R$ lies in the $yz$-plane centered at the origin. What is the magnitude of the gravitational field $g$ at a point on the $x$-axis a distance $x$ from the center?",
+    "optionsLatex": [
+      "$\\frac{GMx}{(x^2 + R^2)^{3/2}}$",
+      "$\\frac{GM}{x^2 + R^2}$",
+      "$\\frac{GMR}{(x^2 + R^2)^{3/2}}$",
+      "$\\frac{GM}{x^2}$"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Every element $dm$ is at distance $\\sqrt{x^2 + R^2}$. Perpendicular components cancel by symmetry, while axial components add a factor of $\\cos\\theta = \\frac{x}{\\sqrt{x^2 + R^2}}$, yielding $\\frac{GMx}{(x^2 + R^2)^{3/2}}$."
+  },
+  {
+    "id": "ch9-16",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "mcq",
+    "skillTag": "Elliptical Orbit Conservation",
+    "promptLatex": "As a satellite moves along an elliptical orbit from its farthest point (aphelion) toward its closest point (perihelion), what happens to its speed $v$, angular momentum $L$, and total mechanical energy $E$?",
+    "optionsLatex": [
+      "$v$ increases, while both $L$ and $E$ remain constant",
+      "Both $v$ and $L$ increase, while $E$ remains constant",
+      "Both $v$ and $E$ increase, while $L$ remains constant",
+      "$v$, $L$, and $E$ all increase"
+    ],
+    "correctIndex": 0,
+    "explanationLatex": "Gravity is a central conservative force: it exerts zero torque about the star ($L$ is conserved) and does conservative work ($E = K + U$ is conserved), converting potential energy into kinetic energy as $r$ shrinks."
+  },
+  {
+    "id": "ch9-17",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "derivation_order",
+    "skillTag": "Kepler's Third Law Proof",
+    "promptLatex": "Order the steps to derive Kepler's Third Law $T^2 = \\left(\\frac{4\\pi^2}{GM}\\right)r^3$ for a planet of mass $m$ in a circular orbit of radius $r$ around a star of mass $M$:",
+    "stepsLatex": [
+      "Set gravitational force equal to centripetal force: $\\frac{GMm}{r^2} = \\frac{mv^2}{r}$",
+      "Solve for circular orbital speed: $v = \\sqrt{\\frac{GM}{r}}$",
+      "Substitute $v = \\frac{2\\pi r}{T}$ into the orbital speed equation: $\\frac{2\\pi r}{T} = \\sqrt{\\frac{GM}{r}}$",
+      "Square both sides and solve for $T^2$: $T^2 = \\left(\\frac{4\\pi^2}{GM}\\right)r^3$"
+    ],
+    "explanationLatex": "Equating gravity to centripetal force is the universal starting point for every circular orbit question on AP Physics C."
+  },
+  {
+    "id": "ch9-18",
+    "chapter": 9,
+    "unit": "Ch. 9: Universal Gravitation",
+    "type": "derivation_order",
+    "skillTag": "Escape Speed Proof",
+    "promptLatex": "Order the steps to derive the escape speed $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$ from the surface of a planet of mass $M$ and radius $R$:",
+    "stepsLatex": [
+      "Apply conservation of mechanical energy between surface ($r = R$) and infinity ($r \\to \\infty$): $K_i + U_i = K_f + U_f$",
+      "Set minimum escape conditions at infinity ($K_f = 0$ and $U_f = 0$): $\\frac{1}{2}mv_{\\text{esc}}^2 - \\frac{GMm}{R} = 0$",
+      "Cancel the projectile mass $m$ and isolate $v_{\\text{esc}}^2$: $v_{\\text{esc}}^2 = \\frac{2GM}{R}$",
+      "Take the square root to obtain $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$"
+    ],
+    "explanationLatex": "Notice that escape speed is independent of both the launch angle (assuming no atmosphere or ground collision) and the projectile's mass $m$."
   }
 ]
