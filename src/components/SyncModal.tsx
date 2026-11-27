@@ -1,13 +1,13 @@
 import { QRCodeSVG } from 'qrcode.react';
 import { Check, Copy, Link2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import type { ProgressV1 } from '../lib/progress';
+import type { ProgressV2 } from '../lib/progress';
 import { buildSyncUrl, decodeSyncPayload } from '../lib/sync';
 
 interface Props {
-  progress: ProgressV1;
+  progress: ProgressV2;
   onClose: () => void;
-  onImported: (p: ProgressV1) => void;
+  onImported: (p: ProgressV2) => void;
 }
 
 export function SyncModal({ progress, onClose, onImported }: Props) {

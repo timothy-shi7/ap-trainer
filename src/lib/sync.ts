@@ -1,9 +1,9 @@
 import LZString from 'lz-string';
-import { parseProgress, type ProgressV1 } from './progress';
+import { parseProgress, type ProgressV2 } from './progress';
 
 const HASH_PREFIX = '#sync=';
 
-export function buildSyncUrl(progress: ProgressV1): string {
+export function buildSyncUrl(progress: ProgressV2): string {
   const payload = LZString.compressToEncodedURIComponent(
     JSON.stringify(progress),
   );
@@ -25,7 +25,7 @@ function extractPayload(input: string): string | null {
 
 export interface DecodeResult {
   ok: true;
-  progress: ProgressV1;
+  progress: ProgressV2;
 }
 export interface DecodeError {
   ok: false;
@@ -75,13 +75,14 @@ export function stripSyncHash(): void {
   window.history.replaceState(null, '', pathname + search);
 }
 
-export function totalAttempts(progress: ProgressV1): number {
-  return Object.values(progress.questions).reduce(
-    (sum, q) => sum + q.attempts,
-    0,
-  );
+export function totalAttempts(progress: ProgressV2): number {
+  return Object.values(progress.questionProgress).filter(
+    (q) => q.lastAttemptAt > 0,
+  ).length;
 }
 
-export function attemptedQuestionCount(progress: ProgressV1): number {
-  return Object.values(progress.questions).filter((q) => q.attempts > 0).length;
+export function attemptedQuestionCount(progress: ProgressV2): number {
+  return Object.values(progress.questionProgress).filter(
+    (q) => q.lastResult !== 'unseen',
+  ).length;
 }

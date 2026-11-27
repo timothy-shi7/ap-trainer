@@ -8,7 +8,7 @@ import {
   saveProgress,
   unlockChapter,
   unlockedQuestionCount,
-  type ProgressV1,
+  type ProgressV2,
 } from './lib/progress';
 import { CHAPTERS, infoForChapter, QUESTIONS } from './lib/questions';
 import {
@@ -37,9 +37,9 @@ interface SprintConfig {
 
 export default function App() {
   const [view, setView] = useState<View>('home');
-  const [progress, setProgress] = useState<ProgressV1>(() => loadProgress());
+  const [progress, setProgress] = useState<ProgressV2>(() => loadProgress());
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
-  const [incoming, setIncoming] = useState<ProgressV1 | null>(null);
+  const [incoming, setIncoming] = useState<ProgressV2 | null>(null);
 
   const [syncOpen, setSyncOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -61,7 +61,7 @@ export default function App() {
     }
   }, []);
 
-  const applyProgress = useCallback((p: ProgressV1) => {
+  const applyProgress = useCallback((p: ProgressV2) => {
     setProgress(p);
     saveProgress(p);
   }, []);

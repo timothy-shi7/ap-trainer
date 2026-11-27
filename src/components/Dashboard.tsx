@@ -7,12 +7,12 @@ import {
   Settings as SettingsIcon,
   Layers,
 } from 'lucide-react';
-import type { ProgressV1 } from '../lib/progress';
+import type { ProgressV2 } from '../lib/progress';
 import { getChapterStats, unseenInfoCount } from '../lib/progress';
 import { ChapterTile } from './ChapterTile';
 
 interface Props {
-  progress: ProgressV1;
+  progress: ProgressV2;
   sprintSize: number;
   onStartSprint: () => void;
   onSync: () => void;

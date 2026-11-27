@@ -5,20 +5,35 @@ import {
   completeSprintIfNeeded,
   markInfoSeenMany,
   recordAttempt,
-  type ProgressV1,
+  type ProgressV2,
 } from '../lib/progress';
 import { McqCard } from './McqCard';
 import { DerivationCard } from './DerivationCard';
 import { InfoCard } from './InfoCard';
 import { FeedbackBanner } from './FeedbackBanner';
+import type { MasteryLevel } from '../types';
+
+const MASTERY_LABELS: Record<MasteryLevel, string> = {
+  0: 'Attempted',
+  1: 'Familiar',
+  2: 'Proficient',
+  3: 'Mastered',
+};
+
+const MASTERY_PILL: Record<MasteryLevel, string> = {
+  0: 'bg-slate-800 text-slate-400',
+  1: 'bg-sky-500/15 text-sky-300',
+  2: 'bg-emerald-500/15 text-emerald-300',
+  3: 'bg-amber-500/15 text-amber-300',
+};
 
 interface Props {
   /** Practice questions for this sprint. */
   queue: PracticeQuestion[];
   /** Unseen info cards to show first (newly unlocked chapter). */
   introInfo?: InfoQuestion[];
-  progress: ProgressV1;
-  onProgressChange: (p: ProgressV1) => void;
+  progress: ProgressV2;
+  onProgressChange: (p: ProgressV2) => void;
   onExit: () => void;
 }
 
@@ -34,17 +49,27 @@ export function SprintPlayer({
   const [infoIndex, setInfoIndex] = useState(0);
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>(introInfo.length > 0 ? 'info' : 'question');
-  const [working, setWorking] = useState<ProgressV1>(progress);
+  const [working, setWorking] = useState<ProgressV2>(progress);
   const [result, setResult] = useState<{
     correct: boolean;
     selectedText: string;
   } | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
+  const [upgradeToast, setUpgradeToast] = useState<string | null>(null);
 
   const current = queue[index];
 
   // Track which info cards were viewed so we can mark them seen on exit.
   const viewedInfo = useRef<string[]>([]);
+  // Questions answered correctly at least once this sprint.
+  const correctThisSprint = useRef<Set<string>>(new Set());
+
+  // Auto-dismiss the upgrade toast.
+  useEffect(() => {
+    if (!upgradeToast) return;
+    const t = setTimeout(() => setUpgradeToast(null), 2200);
+    return () => clearTimeout(t);
+  }, [upgradeToast]);
 
   const finishInfo = useCallback(() => {
     if (viewedInfo.current.length > 0) {
@@ -71,7 +96,22 @@ export function SprintPlayer({
   const handleCheck = useCallback(
     (correct: boolean, selectedText: string) => {
       if (!current) return;
-      const next = recordAttempt(working, current.id, correct);
+      const alreadyCorrect = correctThisSprint.current.has(current.id);
+      const prevLevel = working.questionProgress[current.id]?.masteryLevel ?? 0;
+      const next = recordAttempt(
+        working,
+        current.id,
+        correct,
+        Date.now(),
+        alreadyCorrect,
+      );
+      if (correct) {
+        correctThisSprint.current.add(current.id);
+        const newLevel = next.questionProgress[current.id]?.masteryLevel ?? 0;
+        if (newLevel > prevLevel) {
+          setUpgradeToast(MASTERY_LABELS[newLevel as MasteryLevel]);
+        }
+      }
       setWorking(next);
       onProgressChange(next);
       setResult({ correct, selectedText });
@@ -289,7 +329,19 @@ export function SprintPlayer({
           <span className="rounded-md bg-slate-800 px-2 py-0.5 text-xs text-slate-400">
             {current.skillTag}
           </span>
+          <span
+            className={`ml-auto rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+              MASTERY_PILL[working.questionProgress[current.id]?.masteryLevel ?? 0]
+            }`}
+          >
+            {MASTERY_LABELS[working.questionProgress[current.id]?.masteryLevel ?? 0]}
+          </span>
         </div>
+        {upgradeToast && (
+          <div className="mb-2 animate-pulse rounded-lg bg-emerald-500/15 px-3 py-1.5 text-center text-xs font-semibold text-emerald-300">
+            Leveled up → {upgradeToast}!
+          </div>
+        )}
 
         {current.type === 'mcq' ? (
           <McqCard

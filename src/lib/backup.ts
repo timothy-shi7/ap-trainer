@@ -1,7 +1,7 @@
 import {
   parseProgress,
   PROGRESS_VERSION,
-  type ProgressV1,
+  type ProgressV2,
 } from './progress';
 import { clampSprintLength, defaultSettings, type Settings } from './settings';
 
@@ -9,15 +9,15 @@ export const BACKUP_VERSION = 1 as const;
 
 export interface BackupFile {
   backupVersion: 1;
-  progressVersion: 1;
+  progressVersion: 1 | 2;
   exportedAt: string;
   settings: Settings;
-  progress: ProgressV1;
+  progress: ProgressV2;
 }
 
 /** Build a portable backup object bundling settings + progress. */
 export function buildBackup(
-  progress: ProgressV1,
+  progress: ProgressV2,
   settings: Settings,
 ): BackupFile {
   return {
@@ -30,14 +30,14 @@ export function buildBackup(
 }
 
 export function serializeBackup(
-  progress: ProgressV1,
+  progress: ProgressV2,
   settings: Settings,
 ): string {
   return JSON.stringify(buildBackup(progress, settings), null, 2);
 }
 
 export interface ParsedBackup {
-  progress: ProgressV1;
+  progress: ProgressV2;
   settings: Settings;
 }
 
@@ -56,7 +56,7 @@ export function parseBackup(raw: unknown): ParsedBackup | null {
   }
   const rec = obj as Record<string, unknown>;
 
-  // Accept a bare progress blob too (version:1) for forward-compat.
+  // Accept a bare progress blob too (version 1 or 2) for forward-compat.
   const progressRaw = rec.progress ?? rec;
   const progress = parseProgress(progressRaw);
   if (!progress) return null;
@@ -77,7 +77,7 @@ export function parseBackup(raw: unknown): ParsedBackup | null {
 
 /** Trigger a browser download of the backup JSON. */
 export function downloadBackup(
-  progress: ProgressV1,
+  progress: ProgressV2,
   settings: Settings,
 ): void {
   if (typeof document === 'undefined') return;

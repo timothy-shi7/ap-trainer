@@ -78,8 +78,8 @@ export function ChapterReviewModal({ stats, onStart, onClose }: Props) {
                   </span>
                   <span className="block text-xs text-slate-500">
                     {s.total} question{s.total === 1 ? '' : 's'}
-                    {s.attempts > 0
-                      ? ` · ${Math.round(s.accuracy * 100)}% accuracy`
+                    {s.total > 0
+                      ? ` · ${s.latestCorrect}/${s.total} correct (${Math.round(s.accuracy * 100)}%)`
                       : ''}
                   </span>
                 </span>

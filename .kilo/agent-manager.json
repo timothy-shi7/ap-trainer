@@ -4,18 +4,28 @@
     "ses_e0433f477ffeg8na7JtuuTxPwL": {
       "worktreeId": null,
       "createdAt": "2026-11-21T01:50:16.052Z"
+    },
+    "ses_de0e7a478ffevfr6LTBy61aeRV": {
+      "worktreeId": null,
+      "createdAt": "2026-11-27T22:20:19.784Z"
+    },
+    "ses_de0dd60e2ffetR83EX6Hx57UJI": {
+      "worktreeId": null,
+      "createdAt": "2026-11-27T22:31:32.460Z"
     }
   },
   "tabOrder": {
     "local": [
-      "pending:06aed571-873c-4de3-b49e-4eed4a6e0277",
-      "ses_e0433f477ffeg8na7JtuuTxPwL"
+      "pending:22c1ca2d-6f16-4add-b165-556c84d920d1",
+      "ses_e0433f477ffeg8na7JtuuTxPwL",
+      "ses_de0e7a478ffevfr6LTBy61aeRV",
+      "ses_de0dd60e2ffetR83EX6Hx57UJI"
     ]
   },
   "sessionsCollapsed": true,
   "activeTarget": {
     "projectId": "prj-d3b58a36df41",
     "kind": "session",
-    "sessionId": "ses_e0433f477ffeg8na7JtuuTxPwL"
+    "sessionId": "ses_de0dd60e2ffetR83EX6Hx57UJI"
   }
 }

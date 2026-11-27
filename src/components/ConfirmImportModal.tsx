@@ -1,9 +1,9 @@
-import type { ProgressV1 } from '../lib/progress';
+import type { ProgressV2 } from '../lib/progress';
 import { attemptedQuestionCount, totalAttempts } from '../lib/sync';
 
 interface Props {
-  incoming: ProgressV1;
-  local: ProgressV1;
+  incoming: ProgressV2;
+  local: ProgressV2;
   onConfirm: () => void;
   onCancel: () => void;
 }
@@ -60,7 +60,7 @@ export function ConfirmImportModal({ incoming, local, onConfirm, onCancel }: Pro
           local={String(attemptedQuestionCount(local))}
         />
         <Row
-          label="Total attempts"
+          label="Questions attempted"
           incoming={String(totalAttempts(incoming))}
           local={String(totalAttempts(local))}
         />

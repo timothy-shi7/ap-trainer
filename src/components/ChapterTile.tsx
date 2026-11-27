@@ -1,5 +1,5 @@
 import { Lock, LockOpen, Sparkles, BookOpen } from 'lucide-react';
-import type { ChapterStat } from '../lib/progress';
+import { UNLOCK_ACCURACY, type ChapterStat } from '../lib/progress';
 
 interface Props {
   stat: ChapterStat;
@@ -12,21 +12,21 @@ interface Props {
   unseenInfo: number;
 }
 
-function tone(accuracy: number, attempts: number): {
+function tone(stat: ChapterStat): {
   bar: string;
   text: string;
   label: string;
 } {
-  if (attempts === 0) {
-    return { bar: 'bg-slate-700', text: 'text-slate-400', label: '—' };
+  if (!stat.unlocked) {
+    return { bar: 'bg-slate-700', text: 'text-slate-400', label: 'Locked' };
   }
-  if (accuracy >= 0.85) {
+  if (stat.allMastered) {
     return { bar: 'bg-amber-400', text: 'text-amber-300', label: 'Mastered' };
   }
-  if (accuracy >= 0.7) {
+  if (stat.accuracy >= UNLOCK_ACCURACY) {
     return { bar: 'bg-emerald-400', text: 'text-emerald-300', label: 'Proficient' };
   }
-  return { bar: 'bg-sky-500', text: 'text-sky-300', label: 'Learning' };
+  return { bar: 'bg-slate-500', text: 'text-slate-300', label: 'In progress' };
 }
 
 export function ChapterTile({
@@ -36,9 +36,16 @@ export function ChapterTile({
   onConceptBrief,
   unseenInfo,
 }: Props) {
-  const t = tone(stat.accuracy, stat.attempts);
-  const pct = stat.attempts > 0 ? Math.round(stat.accuracy * 100) : 0;
+  const t = tone(stat);
+  const pct = Math.round(stat.accuracy * 100);
   const locked = !stat.unlocked;
+  const total = stat.total;
+  const segments = [
+    { count: stat.attempted, color: 'bg-slate-600' },
+    { count: stat.familiar, color: 'bg-sky-500' },
+    { count: stat.proficient, color: 'bg-emerald-400' },
+    { count: stat.mastered, color: 'bg-amber-400' },
+  ];
 
   return (
     <div
@@ -82,7 +89,7 @@ export function ChapterTile({
           <Lock className="h-4 w-4 shrink-0 text-slate-600" aria-hidden />
         ) : (
           <span className={`shrink-0 text-sm font-semibold ${t.text}`}>
-            {stat.attempts > 0 ? `${pct}%` : '0%'}
+            {pct}%
           </span>
         )}
       </div>
@@ -109,16 +116,34 @@ export function ChapterTile({
               style={{ width: `${pct}%` }}
             />
           </div>
+
+          {/* 4-segment mastery bar */}
+          <div className="mt-1.5 flex h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
+            {segments.map((s, i) =>
+              s.count > 0 && total > 0 ? (
+                <div
+                  key={i}
+                  className={`h-full ${s.color}`}
+                  style={{ width: `${(s.count / total) * 100}%` }}
+                />
+              ) : null,
+            )}
+          </div>
+
           <div className="mt-1.5 flex items-center justify-between text-[11px] text-slate-500">
             <span className="inline-flex items-center gap-1">
               <LockOpen className="h-3 w-3" aria-hidden />
               {t.label}
             </span>
             <span>
-              {stat.uniqueAnswered}/{stat.total} seen
+              {stat.latestCorrect}/{total} correct
             </span>
           </div>
-          <div className="mt-2.5 flex items-center justify-between gap-2">
+          <div className="mt-0.5 text-[10px] text-slate-600">
+            F {stat.familiar} · P {stat.proficient} · M {stat.mastered}
+          </div>
+
+          <div className="mt-2 flex items-center justify-between gap-2">
             <button
               type="button"
               onClick={() => onConceptBrief(stat.chapter)}

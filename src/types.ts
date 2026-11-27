@@ -1,5 +1,19 @@
 export type QuestionType = 'mcq' | 'derivation_order' | 'info';
 
+/** Latest attempt outcome for a practice question. */
+export type LastResult = 'unseen' | 'incorrect' | 'correct';
+
+/** 4-level mastery: 0 Attempted → 3 Mastered. */
+export type MasteryLevel = 0 | 1 | 2 | 3;
+
+/** Per-question progress under the latest-attempt accuracy model. */
+export interface QuestionState {
+  lastResult: LastResult;
+  masteryLevel: MasteryLevel;
+  lastAttemptAt: number;
+  nextReviewAt: number;
+}
+
 /** Highest chapter index supported by the schema. */
 export const MAX_CHAPTER = 9;
 

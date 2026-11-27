@@ -1,35 +1,52 @@
+import type { MasteryLevel, QuestionState } from '../types';
+
 export const DAY_MS = 24 * 60 * 60 * 1000;
 export const MINUTE_MS = 60 * 1000;
 
-/** Intervals in days indexed by box level 1..4. */
-export const BOX_INTERVALS_DAYS = [1, 3, 7, 16] as const;
+/** Highest mastery level (3 = Mastered). */
+export const MASTERY_MAX = 3;
 
-export const MAX_BOX = 4;
-export const INCORRECT_BOX = 1;
-export const INCORRECT_INTERVAL_MS = 10 * MINUTE_MS;
+/** Review intervals (ms) indexed by mastery level 1..3. */
+export const MASTERY_INTERVALS_MS: Record<1 | 2 | 3, number> = {
+  1: 12 * 60 * 60 * 1000, // Familiar: +12h
+  2: 3 * DAY_MS, // Proficient: +3d
+  3: 10 * DAY_MS, // Mastered: +10d
+};
 
-export interface ScheduleResult {
-  boxLevel: number;
-  nextReview: number;
+/** Interval for a mastery level (level 0 is treated as level 1). */
+export function intervalForLevel(level: MasteryLevel): number {
+  return MASTERY_INTERVALS_MS[Math.max(1, level) as 1 | 2 | 3];
 }
 
 /**
- * Compute the next Leitner schedule for a question.
- * - correct: advance one box (max 4), interval from the *new* box.
- * - incorrect: reset to box 1, review again in 10 minutes.
+ * Compute the next mastery state for a question after an attempt.
+ * - correct: advance one level (unless already correct this sprint), due in the new interval.
+ * - incorrect: drop one level, due immediately.
  */
-export function schedule(
-  oldBoxLevel: number,
+export function nextMastery(
+  prev: QuestionState | undefined,
   correct: boolean,
   now: number,
-): ScheduleResult {
+  alreadyCorrectInSprint: boolean,
+): QuestionState {
+  const prevLevel: MasteryLevel = prev?.masteryLevel ?? 0;
   if (correct) {
-    const newBox = Math.min(MAX_BOX, Math.max(1, oldBoxLevel) + 1);
-    const days = BOX_INTERVALS_DAYS[newBox - 1];
-    return { boxLevel: newBox, nextReview: now + days * DAY_MS };
+    let level: MasteryLevel = alreadyCorrectInSprint
+      ? prevLevel
+      : (Math.min(MASTERY_MAX, prevLevel + 1) as MasteryLevel);
+    if (level === 0) level = 1;
+    return {
+      lastResult: 'correct',
+      masteryLevel: level,
+      lastAttemptAt: now,
+      nextReviewAt: now + intervalForLevel(level),
+    };
   }
+  const level: MasteryLevel = Math.max(0, prevLevel - 1) as MasteryLevel;
   return {
-    boxLevel: INCORRECT_BOX,
-    nextReview: now + INCORRECT_INTERVAL_MS,
+    lastResult: 'incorrect',
+    masteryLevel: level,
+    lastAttemptAt: now,
+    nextReviewAt: now,
   };
 }
